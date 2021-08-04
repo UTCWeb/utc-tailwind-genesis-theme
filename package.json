@@ -1,7 +1,7 @@
 {
     "name": "utc",
     "version": "1.0.0",
-    "description": "GitHub project link: https://github.com/UTCbridget/utc-tailwind-genesis.",
+    "description": "GitHub project link: https://github.com/UTCbridget/utc-tailwind-genesis-theme.",
     "main": "index.js",
     "directories": {
         "lib": "lib"

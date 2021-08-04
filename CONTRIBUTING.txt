@@ -4,11 +4,11 @@ UTC is a starter child theme for people making websites with the [Genesis Framew
 
 ## File issues
 
-Contribute bug reports and feature suggestions as [GitHub Issues](https://github.com/UTCbridget/utc-tailwind-genesis-theme/issues).
+Contribute bug reports and feature suggestions as [GitHub Issues](https://github.com/UTCbridget/utc-tailwind-genesis-theme-theme/issues).
 
 ## Contribute code
 
-We recommend that you first [create an issue](https://github.com/UTCbridget/utc-tailwind-genesis-theme/new) to propose major changes before working on them.
+We recommend that you first [create an issue](https://github.com/UTCbridget/utc-tailwind-genesis-theme-theme/new) to propose major changes before working on them.
 
 [Fork](https://help.github.com/en/articles/fork-a-repo) the [UTC repository](https://github.com/studiopress/utc) to your own GitHub account, then clone it to work on locally:
 
@@ -20,5 +20,5 @@ Create a new branch to work on your changes. New branches should be forked from 
 
 Make your changes and commit your code.
 
-When you're ready, [create a pull request](https://github.com/UTCbridget/utc-tailwind-genesis-theme/pulls) to outline and contribute your changes.
+When you're ready, [create a pull request](https://github.com/UTCbridget/utc-tailwind-genesis-theme-theme/pulls) to outline and contribute your changes.
 
