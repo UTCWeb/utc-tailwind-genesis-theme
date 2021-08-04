@@ -1,0 +1,112 @@
+/*
+Theme Name: UTC
+Theme URI: https://github.com/UTCbridget/utc-tailwind-genesis
+Description: This is a custom theme created for the University of Tennessee Chattanooga using the Genesis Framework.
+Author: Bridget Hornsby
+Author URI: https://www.utc.edu
+
+Version: 1.0.0
+
+Tags: accessibility-ready, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, left-sidebar, one-column, right-sidebar, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, two-columns, wide-blocks
+
+Template: genesis
+
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+Text Domain: utc
+Requires at least: 5.4
+Requires PHP: 5.6
+
+Required plugins:
+Font Awesome v4.0.0-rc23
+Genesis Block v1.2.5 (replaces Atomic Blocks) 
+Genesis Custom Blocks v1.3.0
+Simple Social Icons v3.0.2 
+WP Database Backup v5.8.1 
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+    @apply font-utcbody text-base text-utc-blue-500 text-left;
+}
+
+h1,
+.genesis-skip-link {
+    @apply hidden;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply font-bold my-5;
+}
+
+h2.entry-title {
+    @apply text-6xl text-center w-full pb-6 border-b-8 border-utc-gold-500;
+}
+
+h3 {
+    @apply text-5xl;
+}
+
+h4 {
+    @apply text-4xl;
+}
+
+h5 {
+    @apply text-2xl;
+}
+
+h6 {
+    @apply text-lg;
+}
+
+p {
+    @apply my-2;
+}
+
+a {
+    @apply text-utc-links-static
+}
+
+a:hover {
+    @apply text-utc-links-hover
+}
+
+.site-inner {
+    @apply max-w-screen-lg mx-auto mt-6;
+}
+
+.footer-widgets {
+    @apply bg-utc-blue-500 p-12 inline-flex w-full;
+}
+
+.footer-widgets .wrap {
+    @apply px-12 inline-flex justify-between w-4/5 mx-auto;
+}
+
+.footer-widgets .wrap a {
+    @apply text-white leading-loose;
+}
+
+.footer-widgets .wrap a:hover {
+    @apply text-utc-gold-500;
+}
+
+.site-footer {
+    @apply bg-utc-blue-800 w-full text-center inline-flex p-12 text-white;
+}
+
+.site-footer p {
+    @apply block
+}
+
+.site-footer a {
+    @apply text-utc-gold-500 underline
+}
