@@ -1,20 +1,19 @@
 <?php
 /**
- * UTC Simple Social Icons default settings.
+ * UTC Tailwind Genesis Simple Social Icons default settings.
  *
- * @package UTC
- * @author  StudioPress
+ * @package UTC Tailwind Genesis
+ * @author  Bridget Hornsby
  * @license GPL-2.0-or-later
- * @link    https://www.utc.edu
+ * @link    https://github.com/UTCWeb/utc-tailwind-genesis-the
  */
 
 return [
 	'alignment'              => 'alignleft',
-	'background_color'       => '#f5f5f5',
-	'background_color_hover' => '#333333',
-	'border_radius'          => 3,
-	'border_width'           => 0,
-	'icon_color'             => '#333333',
+	'background_color'       => '#112e51',
+	'background_color_hover' => '',
+	'border_radius'          => 2,
+	'icon_color'             => '#ffffff',
 	'icon_color_hover'       => '#ffffff',
-	'size'                   => 40,
+	'size'                   => 38,
 ];

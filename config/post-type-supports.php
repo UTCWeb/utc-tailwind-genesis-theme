@@ -1,13 +1,13 @@
 <?php
 /**
- * UTC child theme.
+ * Navigation child theme.
  *
  * Post type supports.
  *
- * @package UTC
- * @author  StudioPress
+ * @package UTC Tailwind Genesis
+ * @author  Bridget Hornsby
  * @license GPL-2.0-or-later
- * @link    https://my.studiopress.com/themes/utc/
+ * @link    https://github.com/UTCWeb/utc-tailwind-genesis-the
  */
 
 return [
