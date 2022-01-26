@@ -21,15 +21,15 @@ function utc_custom_gutenberg_css() {
 	$appearance = genesis_get_config( 'appearance' );
 
 	$css = <<<CSS
-.ab-block-post-grid .ab-block-post-grid-byline a:focus,
-.ab-block-post-grid .ab-block-post-grid-byline a:hover,
-.ab-block-post-grid header .ab-block-post-grid-title a:focus,
-.ab-block-post-grid header .ab-block-post-grid-title a:hover {
+.gb-block-post-grid .gb-block-post-grid-byline a:focus,
+.gb-block-post-grid .gb-block-post-grid-byline a:hover,
+.gb-block-post-grid header .gb-block-post-grid-title a:focus,
+.gb-block-post-grid header .gb-block-post-grid-title a:hover {
 	color: {$appearance['primary-color']};
 }
 
 .site-container .is-style-angled-underlay::before,
-.site-container .is-style-overlay .ab-block-post-grid-image,
+.site-container .is-style-overlay .gb-block-post-grid-image,
 .site-container .wp-block-quote.is-style-quote-underlay::after,
 .site-container .wp-block-quote.is-style-quote-underlay p::after,
 .site-container .wp-block-button .wp-block-button__link {
@@ -51,8 +51,8 @@ function utc_custom_gutenberg_css() {
 	color: {$appearance['button-outline-hover']};
 }
 
-.site-container .ab-block-post-grid a.ab-block-post-grid-more-link:focus,
-.site-container .ab-block-post-grid a.ab-block-post-grid-more-link:hover,
+.site-container .gb-block-post-grid a.gb-block-post-grid-more-link:focus,
+.site-container .gb-block-post-grid a.gb-block-post-grid-more-link:hover,
 .site-container figure.is-style-caption-overlay.wp-block-image,
 .site-container .is-style-caption-overlay.wp-block-image figcaption,
 .site-container .is-style-caption-overlay figure:not(.is-style-caption-overlay),
@@ -60,8 +60,8 @@ function utc_custom_gutenberg_css() {
 	background-color: {$appearance['primary-color']};
 }
 
-.site-container .ab-block-post-grid a.ab-block-post-grid-more-link:focus,
-.site-container .ab-block-post-grid a.ab-block-post-grid-more-link:hover,
+.site-container .gb-block-post-grid a.gb-block-post-grid-more-link:focus,
+.site-container .gb-block-post-grid a.gb-block-post-grid-more-link:hover,
 .site-container .is-style-caption-overlay.wp-block-image figcaption,
 .site-container .is-style-caption-overlay.wp-block-image figcaption a,
 .site-container .wp-block-pullquote.is-style-solid-color {
@@ -81,10 +81,10 @@ function utc_custom_gutenberg_css() {
 .has-theme-secondary-background-color.wp-block-button__link:hover,
 .has-theme-secondary-background-color.wp-block-button__link:visited,
 .has-theme-secondary-background-color.wp-block-pullquote.is-style-solid-color,
-.is-style-overlay .has-post-thumbnail .ab-block-post-grid-title,
-.is-style-overlay .has-post-thumbnail .ab-block-post-grid-title a,
-.is-style-overlay .has-post-thumbnail .ab-block-post-grid-title a:focus,
-.is-style-overlay .has-post-thumbnail .ab-block-post-grid-title a:hover {
+.is-style-overlay .has-post-thumbnail .gb-block-post-grid-title,
+.is-style-overlay .has-post-thumbnail .gb-block-post-grid-title a,
+.is-style-overlay .has-post-thumbnail .gb-block-post-grid-title a:focus,
+.is-style-overlay .has-post-thumbnail .gb-block-post-grid-title a:hover {
 	color: {$appearance['color-contrast']['accent']};
 }
 CSS;
@@ -110,10 +110,10 @@ function utc_custom_gutenberg_admin_css() {
 	$appearance = genesis_get_config( 'appearance' );
 
 	$css = <<<CSS
-.ab-block-post-grid .ab-block-post-grid-byline a:focus,
-.ab-block-post-grid .ab-block-post-grid-byline a:hover,
-.block-editor__container .editor-styles-wrapper .ab-block-post-grid header .ab-block-post-grid-title a:focus,
-.block-editor__container .editor-styles-wrapper .ab-block-post-grid header .ab-block-post-grid-title a:hover,
+.gb-block-post-grid .gb-block-post-grid-byline a:focus,
+.gb-block-post-grid .gb-block-post-grid-byline a:hover,
+.block-editor__container .editor-styles-wrapper .gb-block-post-grid header .gb-block-post-grid-title a:focus,
+.block-editor__container .editor-styles-wrapper .gb-block-post-grid header .gb-block-post-grid-title a:hover,
 .block-editor__container .editor-styles-wrapper a,
 .product-title,
 .product-price {
@@ -136,22 +136,22 @@ function utc_custom_gutenberg_admin_css() {
 }
 
 .editor-styles-wrapper .wp-block .is-style-angled-underlay::before,
-.editor-styles-wrapper .wp-block .is-style-overlay.ab-block-post-grid .ab-block-post-grid-image,
+.editor-styles-wrapper .wp-block .is-style-overlay.gb-block-post-grid .gb-block-post-grid-image,
 .editor-styles-wrapper .wp-block .wp-block-quote.is-style-quote-underlay::after,
 .editor-styles-wrapper .wp-block .wp-block-quote.is-style-quote-underlay p::before {
 	background-color: {$appearance['button-bg']};
 }
 
-.editor-styles-wrapper .wp-block .ab-block-post-grid a.ab-block-post-grid-more-link:focus,
-.editor-styles-wrapper .wp-block .ab-block-post-grid a.ab-block-post-grid-more-link:hover,
+.editor-styles-wrapper .wp-block .gb-block-post-grid a.gb-block-post-grid-more-link:focus,
+.editor-styles-wrapper .wp-block .gb-block-post-grid a.gb-block-post-grid-more-link:hover,
 .editor-styles-wrapper .wp-block figure.is-style-caption-overlay.wp-block-image,
 .editor-styles-wrapper .wp-block .is-style-caption-overlay.wp-block-image figcaption,
 .wp-block-pullquote.is-style-solid-color {
 	background-color: {$appearance['primary-color']};
 }
 
-.editor-styles-wrapper .wp-block .ab-block-post-grid a.ab-block-post-grid-more-link:focus,
-.editor-styles-wrapper .wp-block .ab-block-post-grid a.ab-block-post-grid-more-link:hover,
+.editor-styles-wrapper .wp-block .gb-block-post-grid a.gb-block-post-grid-more-link:focus,
+.editor-styles-wrapper .wp-block .gb-block-post-grid a.gb-block-post-grid-more-link:hover,
 .editor-styles-wrapper .wp-block .is-style-caption-overlay.wp-block-image figcaption,
 .editor-styles-wrapper .wp-block .is-style-caption-overlay.wp-block-image figcaption a,
 .wp-block-pullquote.is-style-solid-color {
@@ -171,10 +171,10 @@ function utc_custom_gutenberg_admin_css() {
 .has-theme-secondary-background-color.wp-block-button__link:hover,
 .has-theme-secondary-background-color.wp-block-button__link:visited,
 .has-theme-secondary-background-color.wp-block-pullquote.is-style-solid-color,
-.editor-styles-wrapper .is-style-overlay .has-post-thumbnail header .ab-block-post-grid-title,
-.editor-styles-wrapper .is-style-overlay .has-post-thumbnail header .ab-block-post-grid-title a,
-.editor-styles-wrapper .is-style-overlay .has-post-thumbnail header .ab-block-post-grid-title a:focus,
-.editor-styles-wrapper .is-style-overlay .has-post-thumbnail header .ab-block-post-grid-title a:hover {
+.editor-styles-wrapper .is-style-overlay .has-post-thumbnail header .gb-block-post-grid-title,
+.editor-styles-wrapper .is-style-overlay .has-post-thumbnail header .gb-block-post-grid-title a,
+.editor-styles-wrapper .is-style-overlay .has-post-thumbnail header .gb-block-post-grid-title a:focus,
+.editor-styles-wrapper .is-style-overlay .has-post-thumbnail header .gb-block-post-grid-title a:hover {
 	color: {$appearance['color-contrast']['accent']};
 }
 CSS;

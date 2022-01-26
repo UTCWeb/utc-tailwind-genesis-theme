@@ -2,7 +2,7 @@
 /**
  * UTC Tailwind Genesis.
  *
- * Based off of the UTC Tailwind Genesis child theme. This file adds functions to the UTC Tailwind Genesis theme.
+ * Based off of the Navigation Pro child theme. This file adds functions to the UTC Tailwind Genesis theme.
  *
  * @package UTC Tailwind Genesis
  * @author  Bridget Hornsby
@@ -23,7 +23,7 @@ function utc_localization_setup() {
 require_once get_stylesheet_directory() . '/lib/helper-functions.php';
 
 // Adds theme markup functions.
-require_once get_stylesheet_directory() . '/lib/markup.php';
+require_once get_stylesheet_directory() . '/lib/search-markup.php';
 
 // Adds Image upload and Color select to WordPress Theme Customizer.
 require_once get_stylesheet_directory() . '/lib/customizer/customize.php';
@@ -149,7 +149,7 @@ genesis_unregister_layout( 'sidebar-sidebar-content' );
 remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
 add_action( 'genesis_after_header', 'genesis_do_breadcrumbs' );
 
-//Modify the breadcrumbs.
+//Modify the breadcrumbs with a separator.
 add_filter( 'genesis_breadcrumb_args', 'utc_breadcrumb_args' );
 function utc_breadcrumb_args( $args ) {
 
@@ -265,18 +265,6 @@ function utc_add_search_menu_item( $items, $args ) {
 
 }
 
-//Ensure secondary navigation menu has a 2-level depth.
-/* add_filter( 'wp_nav_menu_args', 'utc_secondary_menu_args' );
-function utc_secondary_menu_args( $args ) {
-
-	if ( 'secondary' === $args['theme_location'] ) {
-		$args['depth'] = 2;
-	}
-
-	return $args;
-
-} */
-
 //TEMPORARILY ADD HERO IMAGE FOR SPEC 
 /* add_action( 'genesis_after_header', 'after_header_image',1 );
 
@@ -307,17 +295,6 @@ remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 add_action( 'genesis_entry_footer', 'genesis_post_info' );
 
-//Add the author gravatar before post meta.
-/* add_action( 'genesis_entry_footer', 'utc_entry_gravatar', 9 );
-function utc_entry_gravatar() {
-
-	$meta_gravatar = get_theme_mod( 'utc_meta_gravatar', 1 );
-
-	if ( $meta_gravatar && ( is_single() || is_archive() || is_home() ) ) {
-		echo '<div class="alignleft">' . get_avatar( get_the_author_meta( 'email' ), 46 ) . '</div>';
-	}
-
-} */
 
 //Change "About" text in author box titles for single posts. (Inherited from starter child theme.)
 add_filter( 'genesis_author_box_title', 'utc_author_box_title', 10, 2 );
@@ -444,7 +421,7 @@ function utc_register_sidebars() {
 		[
 			'id'          => 'before-footer-cta',
 			'name'        => __( 'Footer 2: Menus and Map', 'utc' ),
-			'description' => __( 'This is the section before the bottom footer that holds the footer menus and map. NOTE: If you see an error, simply click inside the block to retrieve and enter the your departmental information.', 'utc' ),
+			'description' => __( 'This is the section before the bottom footer that holds the footer menus and map.', 'utc' ),
 		]
 	);
 
@@ -518,3 +495,6 @@ add_action( 'genesis_before', 'genesis_to_top');
 	function genesis_to_top() {
 	 echo '<a href="#0" class="to-top" title="Back To Top">Top</a>';
 }
+
+
+//Add "I am..." and "Quick Links" to the main menu

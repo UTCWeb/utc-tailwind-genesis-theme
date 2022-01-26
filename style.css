@@ -268,7 +268,7 @@ h6 {
 }
 h1,
 h1.entry-title {
-  @apply text-6xl text-center w-full pb-6 border-b-8 border-utc-gold-500 font-bold mt-24 mb-8 mx-auto;
+  @apply text-6xl text-center w-full pb-6 border-b-8 border-utc-gold-500 font-bold mt-24 mb-16 mx-auto;
 }
 h2 {
   @apply text-5xl;
@@ -1414,7 +1414,10 @@ p.entry-meta {
 }
 /* Sidebar Menus
   --------------------------------------------- */
-.sidebar .widget-title i {
+  .sidebar .widget-title {
+    @apply mb-0;
+  }
+  .sidebar .widget-title i {
   @apply block;
 }
 .sidebar-primary .widget_nav_menu {
@@ -1624,7 +1627,7 @@ body.widgets-php .widget_nav_menu ul > li a {
   @apply py-1 cursor-pointer;
 }
 .before-footer-menu-map a {
-  @apply text-white text-lg cursor-pointer;
+  @apply text-white text-lg cursor-pointer outline-none;
   transition: all 0.4s ease-in-out;
 }
 .before-footer-menu-map li.menu-item:hover a {
@@ -1767,9 +1770,6 @@ body.widgets-php .widget_nav_menu ul > li a {
 }
 /* Post pages
   ---------------------------------------------------------------------------- */
-#nav_menu-2 {
-  @apply hidden;
-}
 .post-template-default h1.entry-title {
   @apply mb-20;
 }
@@ -1799,7 +1799,7 @@ body.widgets-php .widget_nav_menu ul > li a {
 }
 .featured-content.featuredpost .entry:last-of-type,
 .widget_recent_entries li:last-of-type {
-  @apply border-0 pb-0;
+  @apply border-0;
 }
 .widget_recent_entries li a {
   @apply text-utc-gold-500 font-bold text-xl mr-2;
@@ -1910,7 +1910,7 @@ body.widgets-php .widget_nav_menu ul > li a {
     @apply mb-12;
   }
   /****Swap main and aside for mobile menu in the sidebar****/
-  .page-template-default .content-sidebar-wrap {
+/*   .page-template-default .content-sidebar-wrap {
     @apply flex flex-col items-start;
   }
   .page-template-default main {
@@ -1918,8 +1918,15 @@ body.widgets-php .widget_nav_menu ul > li a {
   }
   .page-template-default aside {
     order: 1;
-  }
+  } */
   /***End swap***/
+  
+  /****Move sidebar menu to the top of the content without moving the aside element***/
+  .content-sidebar-wrap {@apply relative;}
+  .sidebar .widget_nav_menu {@apply top-0}
+  .sidebar-content .content, .content-sidebar .content {
+    @apply float-none pl-0 mt-16;
+  }
   /***Turn sidebar into a mobile menu***/
   .sidebar .widget_nav_menu {
     @apply w-64 p-0 absolute;
@@ -1973,7 +1980,7 @@ body.widgets-php .widget_nav_menu ul > li a {
 }
 @media only screen and (max-width: 991px) {
   .site-header {
-    @apply bg-white relative;
+    @apply bg-white;
   }
   .site-header > .wrap {
     @apply flex-row;

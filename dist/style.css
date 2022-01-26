@@ -25712,7 +25712,7 @@ h1, h1.entry-title {
   margin-left: auto;
   margin-right: auto;
   margin-top: 6rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   width: 100%;
   border-bottom-width: 8px;
   --tw-border-opacity: 1;
@@ -27790,6 +27790,10 @@ p.entry-meta {
 /* Sidebar Menus
   --------------------------------------------- */
 
+.sidebar .widget-title {
+  margin-bottom: 0px;
+}
+
 .sidebar .widget-title i {
   display: block;
 }
@@ -28208,6 +28212,8 @@ body.widgets-php .widget_nav_menu ul > li a {
   line-height: 1.75rem;
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
   transition: all 0.4s ease-in-out;
 }
 
@@ -28455,10 +28461,6 @@ body.widgets-php .widget_nav_menu ul > li a {
 /* Post pages
   ---------------------------------------------------------------------------- */
 
-#nav_menu-2 {
-  display: none;
-}
-
 .post-template-default h1.entry-title {
   margin-bottom: 5rem;
 }
@@ -28508,7 +28510,6 @@ body.widgets-php .widget_nav_menu ul > li a {
 
 .featured-content.featuredpost .entry:last-of-type, .widget_recent_entries li:last-of-type {
   border-width: 0px;
-  padding-bottom: 0px;
 }
 
 .widget_recent_entries li a {
@@ -28704,21 +28705,33 @@ body.widgets-php .widget_nav_menu ul > li a {
 
   /****Swap main and aside for mobile menu in the sidebar****/
 
-  .page-template-default .content-sidebar-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  /*   .page-template-default .content-sidebar-wrap {
+    @apply flex flex-col items-start;
   }
-
   .page-template-default main {
     order: 2;
   }
-
   .page-template-default aside {
     order: 1;
-  }
+  } */
 
   /***End swap***/
+
+  /****Move sidebar menu to the top of the content without moving the aside element***/
+
+  .content-sidebar-wrap {
+    position: relative;
+  }
+
+  .sidebar .widget_nav_menu {
+    top: 0px
+  }
+
+  .sidebar-content .content, .content-sidebar .content {
+    float: none;
+    margin-top: 4rem;
+    padding-left: 0px;
+  }
 
   /***Turn sidebar into a mobile menu***/
 
@@ -28813,7 +28826,6 @@ body.widgets-php .widget_nav_menu ul > li a {
 
 @media only screen and (max-width: 991px) {
   .site-header {
-    position: relative;
     --tw-bg-opacity: 1;
     background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
   }
