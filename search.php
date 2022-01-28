@@ -65,8 +65,8 @@ function utc_search_image_alignment() {
 remove_action( 'genesis_entry_footer', 'genesis_entry_footer_markup_open', 5 );
 remove_action( 'genesis_entry_footer', 'genesis_post_info' );
 remove_action( 'genesis_entry_footer', 'genesis_entry_footer_markup_close', 15 );
-
 add_action( 'genesis_after_header', 'utc_do_search_title', 15 );
+add_action( 'genesis_entry_footer', 'genesis_post_info' );
 /**
  * Echo the title with the search term.
  *

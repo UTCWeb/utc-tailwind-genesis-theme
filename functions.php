@@ -176,12 +176,6 @@ remove_action( 'genesis_after_header', 'genesis_do_subnav' );
 add_action( 'genesis_header_right', 'genesis_do_subnav', 9 );
 
 
-// Reposition headline under the main menu instead of inside the article.
-if ( is_page_template() ) {
-	remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
-	add_action( 'genesis_after_header', 'genesis_do_post_title', 9 );
-}
-
 
 //Create custom header markup.
 function genesis_do_utcheader() {
@@ -325,15 +319,16 @@ remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
 remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
 
 
-
 // Adds entry meta in entry footer.
 remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 add_action( 'genesis_entry_footer', 'genesis_post_info' );
 
 
-//Change "About" text in author box titles for single posts. (Inherited from starter child theme.)
+//Change "About" text in author box titles for single posts. (Inherited from Navigation Pro child theme.)
 add_filter( 'genesis_author_box_title', 'utc_author_box_title', 10, 2 );
+
+
 function utc_author_box_title( $title, $context ) {
 
 	if ( 'archive' === $context ) {
@@ -344,7 +339,7 @@ function utc_author_box_title( $title, $context ) {
 
 }
 
-//Modify comment author `says` text. (Inherited from starter child theme.)
+//Modify comment author `says` text. (Inherited from Navigation Pro child theme.)
 add_filter( 'comment_author_says_text', 'utc_comment_author_says_text' );
 function utc_comment_author_says_text() {
 
@@ -352,7 +347,7 @@ function utc_comment_author_says_text() {
 
 }
 
-//Modify the content limit more link markup for posts. (Inherited from starter child theme.)
+//Modify the content limit more link markup for posts. (Inherited from Navigation Pro child theme.)
 add_filter( 'get_the_content_limit', 'utc_content_limit_read_more_markup', 10, 3 );
 function utc_content_limit_read_more_markup( $output, $content, $link ) {
 
@@ -366,7 +361,7 @@ function utc_content_limit_read_more_markup( $output, $content, $link ) {
 
 }
 
-//Add a paragraph tag around the WordPress more link markup. (Inherited from starter child theme.)
+//Add a paragraph tag around the WordPress more link markup. (Inherited from Navigation Pro child theme.)
 add_filter( 'the_content_more_link', 'utc_wrap_more_link' );
 function utc_wrap_more_link( $more ) {
 
@@ -374,7 +369,7 @@ function utc_wrap_more_link( $more ) {
 
 }
 
-//Filter the output of the post date to add a wrapper like other shortcodes. (Inherited from starter child theme.)
+//Filter the output of the post date to add a wrapper like other shortcodes. (Inherited from Navigation Pro child theme.)
 add_filter( 'genesis_post_date_shortcode', 'utc_custom_date_shortcode', 10, 2 );
 function utc_custom_date_shortcode( $output, $atts ) {
 
@@ -460,7 +455,12 @@ function utc_register_sidebars() {
 	);
 
 }
-
+//Add google fonts
+function google_fonts() {
+    wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap', false );
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap', false );
+}
+add_action( 'wp_enqueue_scripts', 'google_fonts' );
 
 //Add compiled css & js
 function utc_custom_style(){

@@ -1,26 +1,19 @@
-@import url(https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap);
 /*
-Theme Name: UTC Tailwind Genesis
-Theme URI: https://github.com/UTCWeb/utc-tailwind-genesis-theme
-Description: Custom css for UTC Tailwind Genesis child theme.
-Author: Bridget Hornsby
-Author URI: https://www.utc.edu/
+ Theme Name:   UTC Tailwind Genesis
+ Theme URI:    https://github.com/UTCWeb/utc-tailwind-genesis-theme
+ Description:  Custom css for UTC Tailwind Genesis child theme.
+ Author:       Bridget Hornsby
+ Author URI:   https://www.utc.edu/
+ Template:     genesis
+ Version:      1.3.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light-only, left-sidebar, full-width, right-sidebar, responsive-layout, accessibility-ready, onboarding available
+ Text Domain:  utc-tailwind-genesis
+*/
 
-Version: 1.2.0
-
-Tags: accessibility-ready, block-styles, custom-colors, custom-logo, custom-menu, e-commerce, editor-style, featured-images, footer-widgets, full-width-template, left-sidebar, one-column, right-sidebar, sticky-post, theme-options, threaded-comments, translation-ready, two-columns, wide-blocks
-
-Template: Genesis
-
-License: GPL-2.0-or-later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
-Text Domain: utc-tailwind-genesis
-Requires at least: 5.4
-Requires PHP: 5.6
-
-NOTES:
+/*NOTES:
+---------------------------------------------------------------------------- 
 1. Anywhere you see '!important', we can't use tailwinds bc we have to override existing css inherited from Genesis.
 2. Additionally, transitions, transforms, some backgrounds, etc are custom and do not use Tailwind CSS. Tailwind.config.js was updated only for repeating classes.
 
@@ -79,7 +72,8 @@ Media Queries
   ---------------------------------------------------------------------------- */
 
 /*
-! tailwindcss v2.2.7 | MIT License | https://tailwindcss.com */
+ ! tailwindcss v2.2.7 | MIT License | https://tailwindcss.com
+*/
 
 /*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
@@ -25716,7 +25710,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-h1, h1.entry-title {
+h1, h1.entry-title, h1.archive-title {
   margin-left: auto;
   margin-right: auto;
   margin-top: 6rem;
@@ -26045,7 +26039,7 @@ th {
 /* Column Widths and Positions
   --------------------------------------------- */
 
-.content-sidebar-wrap, h1.entry-title {
+.content-sidebar-wrap, h1.entry-title, .site-inner, .archive-description {
   max-width: 1280px;
 }
 
@@ -26195,8 +26189,14 @@ h1.entry-title, h1, .site-inner {
 .archive-description {
   position: relative;
   z-index: 999;
-  --tw-bg-opacity: 1;
-  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   padding-bottom: 6rem;
 }
 
@@ -26207,17 +26207,17 @@ h1.entry-title, h1, .site-inner {
   margin-right: auto;
   margin-top: 0px;
   margin-bottom: 0px;
-  display: grid;
-  max-width: 72rem;
-  -moz-column-gap: 2rem;
-       column-gap: 2rem;
-  row-gap: 0px;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr;
 }
 
-.search .archive-description .description-wrap {
-  grid-template-columns: 1fr;
+.entry.archive-entry {
+  margin-bottom: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+  padding: 1.5rem;
+}
+
+.entry.archive-entry .entry-image-link {
+  display: none;
 }
 
 .author-box {
@@ -27564,6 +27564,10 @@ figcaption, .gallery-caption, .wp-caption-text {
   text-align: center;
 }
 
+.search-results .entry-featured{
+  display: none
+}
+
 .archive-no-results .entry p, .search-no-results .entry p {
   margin-bottom: 0px;
   font-size: 1.25rem;
@@ -27573,6 +27577,15 @@ figcaption, .gallery-caption, .wp-caption-text {
 .content .entry-content {
   padding-top: 0px;
   padding-bottom: 3rem;
+}
+
+.content .archive-entry .entry-content {
+  margin: 0px;
+  padding: 0px;
+}
+
+.content .archive-entry p {
+  margin-bottom: 1rem;
 }
 
 .entry-container .entry-content::after {
@@ -29293,6 +29306,7 @@ body.widgets-php .widget_nav_menu ul > li a {
   }
 
   .archive-description .description-wrap {
+    display: grid;
     grid-template-columns: 1fr;
   }
 
