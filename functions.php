@@ -23,7 +23,7 @@ function utc_localization_setup() {
 require_once get_stylesheet_directory() . '/lib/helper-functions.php';
 
 // Adds theme markup functions.
-require_once get_stylesheet_directory() . '/lib/search-markup.php';
+require_once get_stylesheet_directory() . '/lib/markup.php';
 
 // Adds Image upload and Color select to WordPress Theme Customizer.
 require_once get_stylesheet_directory() . '/lib/customizer/customize.php';
@@ -118,6 +118,8 @@ function utc_enqueue_scripts_styles() {
 }
 
 // Add image sizes.
+add_image_size( 'teaser', 75, 75, true );
+add_image_size( 'thumbnail', 100, 100, true );
 add_image_size( 'featured-blog', 520, 780, true );
 add_image_size( 'genesis-singular-images', 780, 400, true );
 add_image_size( 'singular-full-width', 1700, 660, true );
@@ -126,6 +128,8 @@ add_image_size( 'singular-full-width', 1700, 660, true );
 add_filter( 'image_size_names_choose', 'utc_media_library_sizes' );
 function utc_media_library_sizes( $sizes ) {
 
+	$sizes['teaser']           = __( 'Teaser - 75px by 75px', 'utc' );
+	$sizes['thumbnail']           = __( 'Thumbnail - 100px by 100px', 'utc' );
 	$sizes['featured-blog']           = __( 'Featured Blog - 520px by 780px', 'utc' );
 	$sizes['genesis-singular-images'] = __( 'Singular - 780px by 400px', 'utc' );
 	$sizes['singular-full-width']     = __( 'Singular Full - 1700px by 660px', 'utc' );
@@ -173,8 +177,11 @@ add_action( 'genesis_header_right', 'genesis_do_subnav', 9 );
 
 
 // Reposition headline under the main menu instead of inside the article.
-remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
-add_action( 'genesis_after_header', 'genesis_do_post_title', 9 );
+if ( is_page_template() ) {
+	remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
+	add_action( 'genesis_after_header', 'genesis_do_post_title', 9 );
+}
+
 
 //Create custom header markup.
 function genesis_do_utcheader() {
@@ -237,7 +244,7 @@ function utc_add_search_icon() {
 		return;
 	}
 
-	add_action( 'genesis_header', 'utc_do_header_search_form', 14 );
+	add_action( 'genesis_after_header', 'utc_do_header_search_form', 1 );
 	add_filter( 'genesis_nav_items', 'utc_add_search_menu_item', 10, 2 );
 	add_filter( 'wp_nav_menu_items', 'utc_add_search_menu_item', 10, 2 );
 
@@ -265,6 +272,42 @@ function utc_add_search_menu_item( $items, $args ) {
 
 }
 
+//Hard code "I am..." and "Quick Links" buttons and append to the main menu. These links should be available on all UTC blogs.
+add_filter( 'genesis_nav_items', 'add_static_nav', 10, 2 );
+add_filter( 'wp_nav_menu_items', 'add_static_nav', 10, 2 );
+
+function add_static_nav($menu, $args) {
+	$args = (array)$args;
+	if ( 'primary' !== $args['theme_location']  )
+		return $menu;
+		$follow = '<li id="menu-item-80" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-80"><a href="#" itemprop="url" class="sf-with-ul"><span itemprop="name">I am…</span></a>
+				<button class="sub-menu-toggle ionicons-before ion-ios-arrow-down" aria-expanded="false" aria-pressed="false"><span class="screen-reader-text">Submenu</span></button>
+				<ul class="sub-menu level-2" style="">
+					<li id="menu-item-81" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-81"><a href="https://www.utc.edu/about/student-resources" itemprop="url"><span itemprop="name">…a student.</span></a></li>
+					<li id="menu-item-82" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-82"><a href="https://www.utc.edu/about/faculty-and-staff-resources" itemprop="url"><span itemprop="name">…faculty or staff.</span></a></li>
+					<li id="menu-item-83" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-83"><a href="https://www.utc.edu/about/alumni-and-friends" itemprop="url"><span itemprop="name">…alumni.</span></a></li>
+					<li id="menu-item-84" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="https://www.utc.edu/admissions/parents" itemprop="url"><span itemprop="name">…a parent.</span></a></li>
+					<li id="menu-item-85" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-85"><a href="https://www.utc.edu/veterans/" itemprop="url"><span itemprop="name">…a veteran.</span></a></li>
+				</ul>
+			</li>
+			<li id="menu-item-68" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-68"><a href="#" itemprop="url" class="sf-with-ul"><span itemprop="name">Quick Links</span></a>
+				<button class="sub-menu-toggle ionicons-before ion-ios-arrow-down" aria-expanded="false" aria-pressed="false"><span class="screen-reader-text">Submenu</span></button>
+				<ul class="sub-menu level-2" style="">
+					<li id="menu-item-69" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-69"><a href="https://mymocs.utc.edu/" itemprop="url"><span itemprop="name">MyMocsNet</span></a></li>
+					<li id="menu-item-70" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-70"><a href="https://webauth.utc.edu/cas/login?service=https%3A%2F%2Futchattanooga.instructure.com%2Flogin%2Fcas" itemprop="url"><span itemprop="name">UTC Learn (Canvas)</span></a></li>
+					<li id="menu-item-71" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-71"><a href="https://mail.google.com/a/mocs.utc.edu" itemprop="url"><span itemprop="name">Mocs Mail+</span></a></li>
+					<li id="menu-item-72" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-72"><a href="https://mocsyncorgs.utc.edu/" itemprop="url"><span itemprop="name">MocsSync</span></a></li>
+					<li id="menu-item-73" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-73"><a href="https://portal.microsoftonline.com/" itemprop="url"><span itemprop="name">O365</span></a></li>
+					<li id="menu-item-74" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-74"><a href="https://sis-reg.utc.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search" itemprop="url"><span itemprop="name">Class Schedule</span></a></li>
+					<li id="menu-item-75" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-75"><a href="https://www.utc.edu/library" itemprop="url"><span itemprop="name">Library</span></a></li>
+					<li id="menu-item-76" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-76"><a href="https://events.utc.edu/MasterCalendar/MasterCalendar.aspx" itemprop="url"><span itemprop="name">Calendar</span></a></li>
+					<li id="menu-item-77" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-77"><a href="https://people.utc.edu/" itemprop="url"><span itemprop="name">People Finder</span></a></li>
+					<li id="menu-item-78" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-78"><a href="https://www.utc.edu/auxiliary-services/parking/utcmap-large.php" itemprop="url"><span itemprop="name">Campus Map</span></a></li>
+					<li id="menu-item-79" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-79"><a href="https://ds.tennessee.edu/passwords/login.asp?redirect=%2Fpasswords%2Fpassword%2Easp" itemprop="url"><span itemprop="name">Change Password</span></a></li>
+				</ul>
+			</li>';
+	return $menu . $follow;
+}
 //TEMPORARILY ADD HERO IMAGE FOR SPEC 
 /* add_action( 'genesis_after_header', 'after_header_image',1 );
 
@@ -282,13 +325,6 @@ remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
 remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
 
 
-//Modify size of the Gravatar in the author box. (Inherited from starter child theme.)
-add_filter( 'genesis_author_box_gravatar_size', 'utc_author_box_gravatar' );
-function utc_author_box_gravatar( $size ) {
-
-	return 100;
-
-}
 
 // Adds entry meta in entry footer.
 remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
@@ -354,8 +390,6 @@ function utc_custom_date_shortcode( $output, $atts ) {
 	return $output;
 
 }
-//* Enable the block-based widget editor
-//add_filter( 'use_widgets_block_editor', '__return_true' );
 
 //Hook in before footer the UTC Dept. info and menu/map widget area.
 add_action( 'genesis_footer', 'utc_before_footer_cta', 2 );
@@ -495,6 +529,3 @@ add_action( 'genesis_before', 'genesis_to_top');
 	function genesis_to_top() {
 	 echo '<a href="#0" class="to-top" title="Back To Top">Top</a>';
 }
-
-
-//Add "I am..." and "Quick Links" to the main menu

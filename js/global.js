@@ -69,14 +69,14 @@
   // Helper function to show the search form.
   function showSearch() {
     $header.addClass("search-visible");
-    $hsWrap.fadeIn("fast").find('input[type="search"]').focus();
+    $hsWrap.slideDown("fast").find('input[type="search"]').focus();
     $hsToggle.attr("aria-expanded", true);
   }
 
   // Helper function to hide the search form.
   function hideSearch() {
     $hsWrap
-      .fadeOut("fast")
+      .slideUp("fast")
       .parents(".site-header")
       .removeClass("search-visible");
     $hsToggle.attr("aria-expanded", false);

@@ -645,7 +645,7 @@ h1,
 .archive-description .entry-title,
 .archive-title,
 .author-box-title {
-  @apply text-4xl font-normal tracking-normal;
+  @apply text-4xl font-bold tracking-normal;
 }
 .archive-description .entry-title,
 .archive-title {
@@ -656,6 +656,13 @@ h1,
 }
 .entry-title {
   @apply text-6xl font-normal;
+}
+.search-results .entry-title {
+  @apply text-2xl font-bold;
+}
+
+.archive-featured-image {
+  @apply hidden;
 }
 .entry-title a,
 .sidebar .widget-title a {
@@ -855,12 +862,12 @@ figcaption,
 .admin-bar .site-header {
   @apply top-8;
 }
-.site-header.search-visible > .wrap > :not(.header-search-wrap) {
-  @apply opacity-0;
-}
 .shadow .site-header,
 .site-header.search-visible {
   @apply shadow-lg;
+}
+.shadow .site-header {
+  @apply z-100000;
 }
 /* Header First Row
   --------------------------------------------- */
@@ -1077,28 +1084,26 @@ figcaption,
   @apply hidden h-32;
 }
 .js .header-search-wrap {
-  @apply left-0 p-2 absolute top-0 bottom-0 w-full z-1001 max-h-24;
-  transform: translate3d(0, -100%, 0);
-  transition: none;
+  @apply p-6 relative w-full z-1001 bg-utc-blue-100 shadow-inner;
 }
 .js .header-search-wrap .search-form,
 .js .header-search-wrap input[type="search"] {
   @apply h-full border-0 border-transparent;
 }
 .js .header-search-wrap .search-form {
-  @apply px-4 mt-4;
+  @apply px-4 relative;
 }
 .search-visible .header-search-wrap {
   transform: translate3d(0, 0, 0);
 }
 .header-search-wrap:target {
-  @apply clear-both block h-auto w-95 my-0 mx-auto;
+  @apply clear-both h-auto my-0 mx-auto;
 }
 .header-search-wrap input[type="search"] {
   @apply border-0 pl-0 pr-24 pl-4 bg-utc-bg-page;
 }
 .header-search-wrap input[type="submit"]:focus {
-  @apply rounded-sm mt-px p-5 right-12;
+  @apply rounded-sm mt-px p-5 right-12 outline-none;
 }
 .toggle-header-search {
   @apply bg-transparent;
@@ -1107,7 +1112,8 @@ figcaption,
   @apply outline-none;
 }
 .toggle-header-search.close {
-  @apply border-0 text-utc-blue-500 h-full p-0 absolute right-4 top-4 z-100 w-7;
+  @apply border-0 text-utc-blue-500 h-full p-0 absolute right-12 z-100 w-7 h-auto;
+  top:40%;
   transform: translate3d(-35px, 0, 0);
   transition: transform 0.2s ease-in-out;
 }
@@ -1650,7 +1656,7 @@ body.widgets-php .widget_nav_menu ul > li a {
 #left-footer-menu,
 #global-footer-map,
 #right-footer-menu {
-  @apply z-100000;
+  @apply z-1000;
 }
 #left-footer-menu {
   @apply float-left border-r border-utc-gold-500 pr-10 pt-1;
@@ -1903,7 +1909,7 @@ body.widgets-php .widget_nav_menu ul > li a {
     @apply pt-0 mb-18 mt-4;
   }
   .sidebar .widget {
-    @apply p-4 mb-0;
+    @apply p-4;
     background: rgba(255, 255, 255, 0.97);
   }
   .post-template-default .sidebar .widget {
@@ -1928,8 +1934,8 @@ body.widgets-php .widget_nav_menu ul > li a {
     @apply float-none pl-0 mt-16;
   }
   /***Turn sidebar into a mobile menu***/
-  .sidebar .widget_nav_menu {
-    @apply w-64 p-0 absolute;
+  .sidebar .widget.widget_nav_menu {
+    @apply w-64 p-0 absolute mb-0;
   }
   .sidebar .widget.widget_nav_menu .widget-wrap > div {
     @apply hidden;
@@ -1939,9 +1945,10 @@ body.widgets-php .widget_nav_menu ul > li a {
   .sidebar .widget.widget_nav_menu .widget-wrap:hover > div {
     @apply block;
   }
-  .sidebar .widget_nav_menu .widget-title {
+  .sidebar .widget.widget_nav_menu .widget-title {
     @apply m-0 border-0 flex justify-between items-center bg-utc-blue-500 px-4 py-2 text-white;
   }
+
   .sidebar-primary .widget_nav_menu li ul.sub-menu li a {
     @apply p-0;
   }
@@ -2030,7 +2037,7 @@ body.widgets-php .widget_nav_menu ul > li a {
     @apply float-none text-left;
   }
   .nav-primary .genesis-nav-menu {
-    @apply block;
+    @apply block overflow-y-scroll max-h-screen;
   }
   .genesis-nav-menu li,
   .genesis-nav-menu.menu-primary > li {
@@ -2086,7 +2093,7 @@ body.widgets-php .widget_nav_menu ul > li a {
   }
   #genesis-mobile-nav-primary:focus,
   #genesis-mobile-nav-primary:hover {
-    @apply text-utc-gold-500;
+    @apply text-utc-gold-500 outline-none;
   }
   .menu-toggle {
     @apply float-right font-normal px-8 py-5 relative z-1000;
