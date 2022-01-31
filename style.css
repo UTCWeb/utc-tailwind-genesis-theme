@@ -561,13 +561,13 @@ h1,
   transition: all 0.25s ease-in-out;
 }
 .archive-description {
-  @apply pb-24 relative z-999 px-0 py-0 mx-auto my-0;
+  @apply relative z-999 px-0 py-0 mx-auto my-0;
 }
 .archive-description .description-wrap {
   @apply my-0 mx-auto relative z-999;
 }
 .entry.archive-entry {
-  @apply bg-white p-6 mb-3;
+  @apply bg-white py-6 mb-3 px-12;
 }
 .entry.archive-entry .entry-image-link {
   @apply hidden;
@@ -1110,7 +1110,7 @@ figcaption,
   @apply outline-none;
 }
 .toggle-header-search.close {
-  @apply border-0 text-utc-blue-500 h-full p-0 absolute right-12 z-100 w-7 h-auto;
+  @apply border-0 text-utc-blue-500 h-full p-0 absolute right-4 z-100 w-7 h-auto;
   top:40%;
   transform: translate3d(-35px, 0, 0);
   transition: transform 0.2s ease-in-out;
@@ -1286,6 +1286,39 @@ figcaption,
 }
 .content .archive-entry p {
   @apply mb-4;
+}
+.more-link, 
+input[type="submit"], 
+.btn, 
+.btn-primary {
+  @apply w-auto h-auto text-base text-white cursor-pointer my-4 mx-0 p-4 text-center border-0 font-bold;
+  background-size: 300% 100%;
+  transition: all .4s ease-in-out;
+}
+.more-link:hover,  
+input[type="submit"]:hover, 
+.btn:hover, 
+.btn-primary:hover {
+  @apply text-white;
+  background-position: 100% 0;
+  transition: all .4s ease-in-out;
+  background-image: linear-gradient(to right, #112e51, #586D85, #8794a7, #112e51);
+  box-shadow: 0 4px 15px 0 rgba(17, 46, 81, 0.75);
+}
+.more-link:focus, 
+input[type="submit"]:focus, 
+.btn:focus, 
+.btn-primary:focus,
+.btn-danger:focus {
+  @apply outline-none;
+}
+.btn-danger {
+  @apply bg-utc-gold-500 text-utc-blue-500;
+}
+.btn-danger:hover {
+  @aaply text-utc-blue-500
+  background-image: linear-gradient(to right, #fdb736, #FEE2AF, #FFF8EB, #FEE2AF);
+  box-shadow: 0 4px 15px 0 rgba(253, 183, 54, 0.75);
 }
 .entry-container .entry-content::after {
   @apply hidden;
