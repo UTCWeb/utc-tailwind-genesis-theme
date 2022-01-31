@@ -26197,7 +26197,6 @@ h1.entry-title, h1, .site-inner {
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
-  padding-bottom: 6rem;
 }
 
 .archive-description .description-wrap {
@@ -26213,7 +26212,10 @@ h1.entry-title, h1, .site-inner {
   margin-bottom: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-  padding: 1.5rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .entry.archive-entry .entry-image-link {
@@ -27277,7 +27279,7 @@ figcaption, .gallery-caption, .wp-caption-text {
 
 .toggle-header-search.close {
   position: absolute;
-  right: 3rem;
+  right: 1rem;
   z-index: 100;
   height: auto;
   height: 100%;
@@ -27586,6 +27588,65 @@ figcaption, .gallery-caption, .wp-caption-text {
 
 .content .archive-entry p {
   margin-bottom: 1rem;
+}
+
+.more-link, input[type="submit"], .btn, .btn-primary {
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: auto;
+  width: auto;
+  cursor: pointer;
+  border-width: 0px;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.more-link, 
+input[type="submit"], 
+.btn, 
+.btn-primary {
+  background-size: 300% 100%;
+  transition: all .4s ease-in-out;
+}
+
+.more-link:hover, input[type="submit"]:hover, .btn:hover, .btn-primary:hover {
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.more-link:hover,  
+input[type="submit"]:hover, 
+.btn:hover, 
+.btn-primary:hover {
+  background-position: 100% 0;
+  transition: all .4s ease-in-out;
+  background-image: linear-gradient(to right, #112e51, #586D85, #8794a7, #112e51);
+  box-shadow: 0 4px 15px 0 rgba(17, 46, 81, 0.75);
+}
+
+.more-link:focus, input[type="submit"]:focus, .btn:focus, .btn-primary:focus, .btn-danger:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.btn-danger {
+  --tw-bg-opacity: 1;
+  background-color: rgba(253, 183, 54, var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(17, 46, 81, var(--tw-text-opacity));
+}
+
+.btn-danger:hover {
+  @aaply text-utc-blue-500
+  background-image: linear-gradient(to right, #fdb736, #FEE2AF, #FFF8EB, #FEE2AF);
+  box-shadow: 0 4px 15px 0 rgba(253, 183, 54, 0.75);
 }
 
 .entry-container .entry-content::after {
