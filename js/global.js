@@ -251,7 +251,7 @@ document
   .appendChild(hamburgerMenu);
 hamburgerMenu.innerHTML = "&nbsp;";
 
-/**********Hide "AaDrupalHero" from Users***********/
+/**********Modernize the Share button***********/
 var shareIcon = document.createElement('i');
 shareIcon.className = "fa-solid fa-share-nodes";;
 document
