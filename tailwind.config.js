@@ -81,16 +81,21 @@ module.exports = {
         90: "90%",
         95: "95%",
         17: "4.375rem",
+        "thumb": "100px"
       },
       height: {
         18: "4.5rem",
         fit: "fit-content",
+        "thumb": "100px"
       },
       borderWidth: {
         12: "12px",
       },
       margin: {
         18: "4.5rem",
+      },
+      boxShadow: {
+        'utc': '3px 3px 5px 1px rgb(0 0 0 / 15%);'
       },
     },
   },
