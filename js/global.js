@@ -252,10 +252,10 @@ document
 hamburgerMenu.innerHTML = "&nbsp;";
 
 /**********Modernize the Share button***********/
-var shareIcon = document.createElement('i');
+/*var shareIcon = document.createElement('i');
 shareIcon.className = "fa-solid fa-share-nodes";;
 document
   .querySelector(".addtoany_share_sav")
   .appendChild(shareIcon);
-  shareIcon.innerHTML = "&nbsp;";
+  shareIcon.innerHTML = "&nbsp;";*/
 
