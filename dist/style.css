@@ -6620,10 +6620,6 @@ video {
   height: fit-content;
 }
 
-.h-thumb {
-  height: 100px;
-}
-
 .max-h-0 {
   max-height: 0px;
 }
@@ -7092,10 +7088,6 @@ video {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-}
-
-.w-thumb {
-  width: 100px;
 }
 
 .min-w-0 {
@@ -25649,6 +25641,7 @@ blockquote {
 }
 
 blockquote {
+  position: relative;
   margin-top: 2rem;
   margin-bottom: 2rem;
   width: 100%;
@@ -25657,8 +25650,8 @@ blockquote {
   background-color: rgba(238, 238, 238, var(--tw-bg-opacity));
   padding-left: 2.5rem;
   padding-right: 2.5rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   font-style: italic;
 }
 
@@ -25676,16 +25669,19 @@ blockquote {
 
 .site-container .wp-block-pullquote blockquote::before,
 .site-container .wp-block-quote::before {
-  content: "\201C";
-  font-family: Georgia, serif !important;
-  font-size: 8.5rem !important;
-  color: rgb(203, 213, 224) !important;
-  height: unset !important;
-  left: 20px !important;
-  top: 60px !important;
+  content: "\201C"!important;
+  font-family: Georgia, serif!important;
+  font-size: 8.5rem!important;
+  font-weight:normal!important;
+  color: rgb(203, 213, 224)!important;
+  height: unset!important;
+  left: 70px!important;
+  top: 20px!important;
+  position:absolute!important;
 }
 
 blockquote p, .site-container .wp-block-quote p {
+  margin-top: 1.5rem;
   border-left-width: 12px;
   --tw-border-opacity: 1;
   border-color: rgba(203, 213, 224, var(--tw-border-opacity));
@@ -26213,7 +26209,6 @@ article h1 {
   width: 100%;
   border-width: 0px;
   padding: 0px;
-  text-align: left;
 }
 
 .site-inner {
@@ -27753,8 +27748,6 @@ svg.utc-logo {
 
 .search-results .archive-featured-image-wrap.image-aligncenter img {
   display: none;
-  height: 100px;
-  width: 100px;
 }
 
 .image-zoom {
@@ -36056,10 +36049,6 @@ body.widgets-php .widget_nav_menu ul > li a {
     height: fit-content;
   }
 
-  .sm\:h-thumb {
-    height: 100px;
-  }
-
   .sm\:max-h-0 {
     max-height: 0px;
   }
@@ -36528,10 +36517,6 @@ body.widgets-php .widget_nav_menu ul > li a {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
-  }
-
-  .sm\:w-thumb {
-    width: 100px;
   }
 
   .sm\:min-w-0 {
@@ -60770,10 +60755,6 @@ body.widgets-php .widget_nav_menu ul > li a {
     height: fit-content;
   }
 
-  .md\:h-thumb {
-    height: 100px;
-  }
-
   .md\:max-h-0 {
     max-height: 0px;
   }
@@ -61242,10 +61223,6 @@ body.widgets-php .widget_nav_menu ul > li a {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
-  }
-
-  .md\:w-thumb {
-    width: 100px;
   }
 
   .md\:min-w-0 {
@@ -85484,10 +85461,6 @@ body.widgets-php .widget_nav_menu ul > li a {
     height: fit-content;
   }
 
-  .lg\:h-thumb {
-    height: 100px;
-  }
-
   .lg\:max-h-0 {
     max-height: 0px;
   }
@@ -85956,10 +85929,6 @@ body.widgets-php .widget_nav_menu ul > li a {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
-  }
-
-  .lg\:w-thumb {
-    width: 100px;
   }
 
   .lg\:min-w-0 {
@@ -110198,10 +110167,6 @@ body.widgets-php .widget_nav_menu ul > li a {
     height: fit-content;
   }
 
-  .xl\:h-thumb {
-    height: 100px;
-  }
-
   .xl\:max-h-0 {
     max-height: 0px;
   }
@@ -110670,10 +110635,6 @@ body.widgets-php .widget_nav_menu ul > li a {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
-  }
-
-  .xl\:w-thumb {
-    width: 100px;
   }
 
   .xl\:min-w-0 {
@@ -134912,10 +134873,6 @@ body.widgets-php .widget_nav_menu ul > li a {
     height: fit-content;
   }
 
-  .\32xl\:h-thumb {
-    height: 100px;
-  }
-
   .\32xl\:max-h-0 {
     max-height: 0px;
   }
@@ -135384,10 +135341,6 @@ body.widgets-php .widget_nav_menu ul > li a {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
-  }
-
-  .\32xl\:w-thumb {
-    width: 100px;
   }
 
   .\32xl\:min-w-0 {

@@ -715,10 +715,9 @@ function utc_register_sidebars() {
 }
 //Add google fonts
 function google_fonts() {
-    wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap', false );
+    wp_enqueue_style( 'google-roboto', 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap', false );
+	wp_enqueue_style( 'google-oswald', 'https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap', false );
 }
-
-
 add_action( 'wp_enqueue_scripts', 'google_fonts' );
 
 //Add compiled css & js

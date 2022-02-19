@@ -209,7 +209,7 @@ blockquote {
   @apply: font-gray-400 m-4;
 }
 blockquote {
-  @apply w-full my-8 italic py-8 px-10 border-0 bg-utc-bg-quoteblock;
+  @apply w-full my-8 italic py-4 px-10 border-0 bg-utc-bg-quoteblock relative;
 }
 .site-container .wp-block-pullquote,
 .site-container .wp-block-quote {
@@ -218,17 +218,19 @@ blockquote {
 .site-container .wp-block-pullquote blockquote::before,
 .site-container .wp-block-quote::before {
   @apply opacity-100 leading-none font-normal italic;
-  content: "\201C";
-  font-family: Georgia, serif !important;
-  font-size: 8.5rem !important;
-  color: rgb(203, 213, 224) !important;
-  height: unset !important;
-  left: 20px !important;
-  top: 60px !important;
+  content: "\201C"!important;
+  font-family: Georgia, serif!important;
+  font-size: 8.5rem!important;
+  font-weight:normal!important;
+  color: rgb(203, 213, 224)!important;
+  height: unset!important;
+  left: 70px!important;
+  top: 20px!important;
+  position:absolute!important;
 }
 blockquote p,
 .site-container .wp-block-quote p {
-  @apply font-sans border-l-12 border-gray-400 pl-20 text-lg text-gray-400 leading-none;
+  @apply font-sans border-l-12 border-gray-400 pl-20 text-lg text-gray-400 leading-none mt-6;
 }
 blockquote p:after {
   content: "\201D";
@@ -567,7 +569,7 @@ h1,
   @apply w-90;
 }
 article h1 {
-  @apply m-0 w-full text-left border-0 p-0 mb-12;
+  @apply w-full border-0 m-0 mb-12 p-0;
 }
 .site-inner {
   @apply mt-20;
@@ -1347,7 +1349,7 @@ svg.utc-logo {
   @apply mb-0;
 }
 .search-results .archive-featured-image-wrap.image-aligncenter img {
-  @apply hidden w-thumb h-thumb;
+  @apply hidden;
 }
 .image-zoom {
   @apply block leading-none overflow-hidden;

@@ -81,12 +81,10 @@ module.exports = {
         90: "90%",
         95: "95%",
         17: "4.375rem",
-        "thumb": "100px"
       },
       height: {
         18: "4.5rem",
         fit: "fit-content",
-        "thumb": "100px"
       },
       borderWidth: {
         12: "12px",
