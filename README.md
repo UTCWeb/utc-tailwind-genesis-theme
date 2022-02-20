@@ -1,4 +1,4 @@
-# utc-tailwindcss-genesis-theme
+# UTChattanooga WordPress Theme
 
 Theme Name: UTC
 
