@@ -49,8 +49,3 @@ Genesis Block v1.2.5 (replaces Atomic Blocks) |
 Genesis Custom Blocks v1.3.0 | 
 Simple Social Icons v3.0.2 | 
 WP Database Backup v5.8.1 | 
-
-## Also provided in the data folder:
-
-MySQL database: UTC_2021_08_04_1628095085_f536b8c_wpdb(1).zip | 
-Customized theme settings file: genesis-theme-seo-20210804-174250.json
