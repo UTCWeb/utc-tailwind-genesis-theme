@@ -174,7 +174,7 @@ function genesis_do_utcheader() {
 
     genesis_markup(
         [
-            'open'    => '<div class="header-first-row"><div %s><a href="'. home_url() .'" class="logo-link" rel="home"><svg class="utc-logo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            'open'    => '<div class="header-first-row"><div %s><a href="https://www.utc.edu" class="logo-link" rel="home"><svg class="utc-logo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             viewBox="0 0 624.5 78" style="enable-background:new 0 0 624.5 78;" xml:space="preserve">
        <style type="text/css">
            .st0{fill:#112E51;}
