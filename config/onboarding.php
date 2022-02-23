@@ -2,7 +2,7 @@
 /**
  * UTC Tailwind Genesis.
  * 
- * Onboarding config to load plugins and homepage content on theme activation.
+ * Onboarding config to load plugins and minimal content on theme activation.
  *
  * Visit `/wp-admin/admin.php?page=genesis-getting-started` to trigger import.
  * 
@@ -38,38 +38,55 @@ return [
 			],
 		],
 	],
-	// Full content omitted for this example leaving only keys.
-	'content'          => [
-		'page1' => [],
-		'page2'    => [],
-		'page3'  => [],
-		'page4'   => [],
-		'page5'  => [],
-		'page6'  => [],
-	],
 	'navigation_menus' => [
-		'primary' => [
-			'page1' => [
+		'primary'   => [
+			'#' => [
 				'title' => 'Page 1',
 			],
-			'page2'    => [
+			'#'    => [
 				'title' => 'Page 2',
 			],
-			'page3'  => [
+			'#'  => [
 				'title' => 'Page 3',
 			],
-			'page4'   => [
+			'#'  => [
 				'title' => 'Page 4',
 			],
-			'page5'  => [
+			'#'  => [
 				'title' => 'Page 5',
 			],
-			'page6'  => [
+			'#'  => [
 				'title' => 'Page 6',
 			],
+			'#'  => [
+				'title' => 'Page 7',
+			],
 		],
-		'secondary' => [],
-		'sidebar' => [],
+		'secondary' => [
+			'#' => [
+				'title' => '',
+			],
+		],
+		'sidebar' => [
+			'#' => [
+				'title' => 'Blog 1',
+			],
+			'#'    => [
+				'title' => 'Blog 2',
+			],
+			'#'  => [
+				'title' => 'Blog 3',
+			],
+			'#'  => [
+				'title' => 'Blog 4',
+			],
+			'#'  => [
+				'title' => 'Blog 5',
+			],
+			'#'  => [
+				'title' => 'Blog 6',
+			],
+		],
 	],
 	'widgets'          => [
 		'footer-business-info' => [
@@ -77,7 +94,57 @@ return [
 				'type' => 'block',
 				'args' => [
 					'title'  => '',
-					'content'   => '<!-- wp:genesis-custom-blocks/department-info /-->',
+					'content'   => '<div class="department-footer bg-utc-blue-100 text-center mt-12 pt-6 pb-12">
+					<h2 class="text-3xl">The University of Tennessee at Chattanooga</h2>
+					<div>
+						<address class="flex-list not-italic text-lg">
+							<div id="dpt-building" class="utc-dpt dpt-building separate"></div>
+							<div id="dpt-mail-code" class="utc-dpt dpt-mail-code separate"></div>
+							<div id="dpt-address" class="utc-dpt dpt-address separate">615 McCallie Ave, Chattanooga, TN 37403</div>
+							<div id="dpt-phone" class="utc-dpt dpt-phone separate"><i class="fas fa-phone"></i>&nbsp;<a class="dpt-link text-utc-blue-500 hover:text-utc-links-hoverFooterIcons" href="tel:  423-425-4111">  423-425-4111</a></div>	
+							
+						</address>
+					</div>	
+					<div class="mt-6">
+						<ul class="inline horizontal">
+							<li class="inline horizontal px-2">
+								<a class="text-utc-blue-500 hover:text-utc-links-hoverFooterIcons" href="https://www.utc.edu" target="_self" aria-label="Back to our departmental homepage" title="Back to our departmental homepage">
+								<span class="fa fa-home fa-2x"></span>
+								</a>
+							</li>
+							<li class="inline horizontal px-2">
+								<a class="text-utc-blue-500 hover:text-utc-links-hoverFooterIcons" href="https://blog.utc.edu/news/" target="_self" aria-label="Follow our Blog/News" title="Follow our Blog/News">
+									<span class="fa fa-blog fa-2x"></span>
+								</a>
+							</li>
+							<li class="inline horizontal px-2">
+								<a class="text-utc-blue-500 hover:text-utc-links-hoverFooterIcons" href="https://www.linkedin.com/school/27384/" target="_self" aria-label="Find us on LinkedIn" title="Find us on LinkedIn">
+									<span class="fa fa-linkedin fa-2x"></span>
+								</a>
+							</li>
+							<li class="inline horizontal px-2">
+								<a class="text-utc-blue-500 hover:text-utc-links-hoverFooterIcons" href="https://www.youtube.com/UTChattanooga" target="_self" aria-label="Find us on Youtube" title="Find us on Youtube">
+									<span class="fa fa-youtube fa-2x"></span>
+								</a>
+							</li>
+							<li class="inline horizontal px-2">
+							   <a class="text-utc-blue-500 hover:text-utc-links-hoverFooterIcons" href="https://www.twitter.com/UTChattanooga" target="_self" aria-label="Find us on Twitter" title="Find us on Twitter">
+									<span class="fa fa-twitter fa-2x"></span>
+								</a>
+							</li>
+							<li class="inline horizontal px-2">
+								<a class="text-utc-blue-500 hover:text-utc-links-hoverFooterIcons" href="https://www.instagram.com/utchattanooga" target="_self" aria-label="Find us on Instagram" title="Find us on Instagram">
+									<span class="fa fa-instagram fa-2x"></span>
+								</a>
+							</li>
+							<li class="inline horizontal px-2">
+								<a class="text-utc-blue-500 hover:text-utc-links-hoverFooterIcons" href="https://www.facebook.com/UTChattanooga" target="_self" aria-label="Find us on Facebook" title="Find us on Facebook">
+									<span class="fa fa-facebook fa-2x"></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>',
 				],
 			],
 		],
@@ -86,35 +153,14 @@ return [
 				'type' => 'custom_html',
 				'args' => [
 					'title'   => '',
-					'content' => '<div id="right-footer-menu" class="footer-menu">
-						<nav role="navigation" aria-labelledby="" class="left-footer-menu text-right">
-							<ul class="menu">
-								<li class="menu-item"> <a href="/about/student-resources" data-drupal-link-system-path="node/38451">Students</a> </li>
-								<li class="menu-item"> <a href="/about/faculty-and-staff-resources" data-drupal-link-system-path="node/38411">Faculty and Staff</a> </li>
-								<li class="menu-item"> <a href="/about/alumni-and-friends" data-drupal-link-system-path="node/38376">Alumni and Friends</a> </li>
-								<li class="menu-item"> <a href="/enrollment-management-and-student-affairs/admissions/parents" data-drupal-link-system-path="node/36067">Parents</a> </li>
-								<li class="menu-item"> <a href="/finance-and-administration/auxiliary-services/parking-services" data-drupal-link-system-path="node/1296">Parking</a> </li>
-								<li class="menu-item"> <a href="/about/emergency-preparedness" data-drupal-link-system-path="node/38406">Emergency Preparedness</a> </li>
-								<li class="menu-item"> <a href="/enrollment-management-and-student-affairs/admissions/visit" data-drupal-link-system-path="node/36137">Visit</a> </li>
-							</ul>
-						</nav>
-					</div>
-					<div id="center-footer-menu">
-						&nbsp;
-					</div>
-					<div id="right-footer-menu" class="footer-menu">
-						<nav role="navigation" aria-labelledby="" id="" class="right-footer-menu">
-							<ul class="menu">
-								<li class="menu-item"> <a href="https://mymocs.utc.edu/">MyMocsNet</a> </li>
-								<li class="menu-item"> <a href="https://office.com/">O365</a> </li>
-								<li class="menu-item"> <a href="/information-technology/passwords" data-drupal-link-system-path="node/1831">Change Password</a> </li>
-								<li class="menu-item"> <a href="https://people.utc.edu/eGuide/servlet/eGuide">People Directory</a> </li>
-								<li class="menu-item"> <a href="https://events.utc.edu/MasterCalendar/MasterCalendar.aspx">Calendars</a> </li>
-								<li class="menu-item"> <a href="https://www.utc.edu/finance-and-administration/human-resources/work" data-drupal-link-system-path="node/38406">Employment Opportunities</a> </li>
-								<li class="menu-item"> <a href="https://blog.utc.edu/wp-login.php">CAS Log In</a> </li>
-							</ul>
-						</nav>
-					</div>',
+					'content' => '',
+				],
+			],
+			[
+				'type' => 'custom_html',
+				'args' => [
+					'title'   => '',
+					'content' => '',
 				],
 			],
 		],
@@ -125,14 +171,14 @@ return [
 					'title'     => '',
 					'content'  => '<div class="wrap">
 						<div class="footer-copyright-container">
-							<div class="footer-copyright"><h2 class="screen-reader-text">Footer</h2></div><div class="copyright"><p></p><div class="block"><a href="https://www.utc.edu/about/contact/" id="legal-questions">Questions?</a> ©&nbsp;2022 <a href="https://www.utc.edu" title="UTC homepage"> University&nbsp;of&nbsp;Tennessee&nbsp;at&nbsp;Chattanooga</a>. All&nbsp;rights&nbsp;reserved.</div>
-								<div class="block">615&nbsp;McCallie&nbsp;Avenue
-								| Chattanooga,&nbsp;TN&nbsp;37403 | 
-								(423)&nbsp;425‑4111
-								</div>
-								<div class="block"><a href="https://www.utc.edu/sexual-misconduct/index.php#title-ix-statement" id="legal-title-ix">Title&nbsp;IX&nbsp;Statement</a> | <a href="https://www.utc.edu/about/privacy.php" id="legal-privacy">Privacy&nbsp;Statement</a> | <a href="https://www.utc.edu/academic-affairs/accessible-information-materials-technology-program/">Accessibility</a> | <a href="https://utcwebdev.atlassian.net/servicedesk/customer/portals">Web&nbsp;Requests</a></div>
-								<div class="block">A comprehensive, community-engaged campus of&nbsp;the <a href="http://www.tennessee.edu/" id="legal-ut">University&nbsp;of&nbsp;Tennessee&nbsp;System</a> and partner in the <a href="https://www.tntransferpathway.org">Tennessee&nbsp;Transfer&nbsp;Pathway</a>.</div>
-								</div>
+							<div class="footer-copyright">
+								<h2 class="screen-reader-text">Footer</h2>
+							</div>
+							<div class="copyright">
+								<div class="block"><a href="https://www.utc.edu/about/contact/" id="legal-questions">Questions?</a> [footer_copyright] University of Tennessee at Chattanooga. All rights reserved.<br />615&nbsp;McCallie&nbsp;Avenue&nbsp;&nbsp; | &nbsp;&nbsp;Chattanooga,&nbsp;TN&nbsp;37403&nbsp;&nbsp; | &nbsp;&nbsp;(423)&nbsp;425‑4111</div>
+								<div class="block"><a href="https://www.utc.edu/sexual-misconduct/index.php#title-ix-statement" id="legal-title-ix">Title IX Statement</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a href="https://www.utc.edu/about/privacy.php" id="legal-privacy">Privacy Statement</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a href="https://www.utc.edu/academic-affairs/accessible-information-materials-technology-program/">Accessibility</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a href="https://utcwebdev.atlassian.net/servicedesk/customer/portals">Web Requests</a></div>
+								<div class="block">A comprehensive, community-engaged campus of the <a href="http://www.tennessee.edu/" id="legal-ut">University of Tennessee System</a> and partner in the <a href="https://www.tntransferpathway.org">Tennessee Transfer Pathway</a>.</div>
+							</div>
 						</div>
 					</div>',
 				],

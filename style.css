@@ -258,7 +258,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-bold my-5 font-utcheadlines;
+  @apply font-bold my-5 font-utcheadings;
 }
 h1,
 h1.entry-title,
@@ -766,30 +766,43 @@ article h1 {
 .sidebar .widget-title {
   @apply border-l-4 border-utc-gold-500 pl-3 font-bold my-0 uppercase;
 }
-/*Widget links and recent comments*/
+
+/*Widget links, recent comments, meta, and tag lists*/
 .sidebar-primary .widget_links .widget-wrap > ul,
-.sidebar-primary .widget_recent_comments .widget-wrap > ul {
+.sidebar-primary .widget_recent_comments .widget-wrap > ul,
+.sidebar-primary .widget_taxonomy_list_widget .widget-wrap > ul,
+.sidebar-primary .widget_meta .widget-wrap > ul {
   @apply mt-4;
 }
 .widget_links li,
-.widget_recent_comments li {
+.widget_recent_comments li,
+.widget_taxonomy_list_widget li,
+.widget_meta li {
   @apply py-3 border-t border-utc-blue-100 pl-2;
   transition: all 0.4s ease-in-out;
 }
 .widget_links li:last-of-type,
-.widget_recent_comments li:last-of-type {
+.widget_recent_comments li:last-of-type,
+.widget_taxonomy_list_widget li:last-of-type,
+.widget_meta li:last-of-type {
   @apply border-b border-utc-blue-100;
 }
 .widget_links li:hover,
-.widget_recent_comments li:hover {
+.widget_recent_comments li:hover,
+.widget_taxonomy_list_widget li:hover,
+.widget_meta li:hover {
   @apply bg-utc-blue-100 ;
 }
 .sidebar .widget_links li a,
-.sidebar .widget_recent_comments li a {
+.sidebar .widget_recent_comments li a,
+.sidebar .widget_taxonomy_list_widget li a,
+.sidebar .widget_meta li a {
   @apply outline-none;
 }
 .sidebar .widget_links li:hover a,
-.sidebar .widget_recent_comments li:hover a {
+.sidebar .widget_recent_comments li:hover a,
+.sidebar .widget_taxonomy_list_widget li:hover a,
+.sidebar .widget_meta li:hover a {
   @apply opacity-100 text-utc-blue-500;
 }
 /* WordPress
@@ -1297,7 +1310,7 @@ svg.utc-logo {
   @apply absolute;
 }
 .apply-now-ribbon {
-  @apply p-0 text-lg text-white font-utcheadlines font-bold relative inline-block mt-6 mb-9 mx-auto leading-6;
+  @apply p-0 text-lg text-white font-utcheadings font-bold relative inline-block mt-6 mb-9 mx-auto leading-6;
 }
 .genesis-nav-menu .menu-item.ribbon-container:hover .apply-now-ribbon {
   @apply text-utc-gold-500;
@@ -1912,7 +1925,7 @@ body.widgets-php .widget_nav_menu ul > li a {
   @apply clear-both text-center;
 }
 .site-footer .footer-copyright .widget-title {
-  @apply font-utcheadlines text-xl;
+  @apply font-utcheadings text-xl;
 }
 .copyright .block {
   @apply my-5 leading-relaxed;
@@ -2109,7 +2122,11 @@ body.widgets-php .widget_nav_menu ul > li a {
 .error404 .entry-content .search-form-submit {
   @apply w-48 clear-both block mx-auto;
 }
-
+@media only screen and (min-width: 1270px) {
+  .archive-pagination {
+    @apply pt-12;
+  }
+}
 @media only screen and (min-width: 1170px) {
   .utc-footer-socials {
     @apply w-96 mx-auto mb-0;
@@ -2670,5 +2687,4 @@ body.widgets-php .widget_nav_menu ul > li a {
     @apply hidden;
   }
 }
-
 

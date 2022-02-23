@@ -92,6 +92,9 @@ module.exports = {
       margin: {
         18: "4.5rem",
       },
+      boxShadow: {
+        'utc': '3px 3px 5px 1px rgb(0 0 0 / 15%);'
+      },
     },
   },
   variants: {
