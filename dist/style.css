@@ -19051,7 +19051,7 @@ video {
 }
 
 .font-serif {
-  font-family: Oswald, Times New Roman, serif;
+  font-family: Baskervville, Times New Roman, serif;
 }
 
 .font-mono {
@@ -19062,7 +19062,7 @@ video {
   font-family: Roboto, sans-serif;
 }
 
-.font-utcheadlines {
+.font-utcheadings {
   font-family: Oswald, sans-serif;
 }
 
@@ -26649,13 +26649,13 @@ article h1 {
   text-transform: uppercase;
 }
 
-/*Widget links and recent comments*/
+/*Widget links, recent comments, meta, and tag lists*/
 
-.sidebar-primary .widget_links .widget-wrap > ul, .sidebar-primary .widget_recent_comments .widget-wrap > ul {
+.sidebar-primary .widget_links .widget-wrap > ul, .sidebar-primary .widget_recent_comments .widget-wrap > ul, .sidebar-primary .widget_taxonomy_list_widget .widget-wrap > ul, .sidebar-primary .widget_meta .widget-wrap > ul {
   margin-top: 1rem;
 }
 
-.widget_links li, .widget_recent_comments li {
+.widget_links li, .widget_recent_comments li, .widget_taxonomy_list_widget li, .widget_meta li {
   border-top-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgba(231, 234, 238, var(--tw-border-opacity));
@@ -26665,27 +26665,29 @@ article h1 {
 }
 
 .widget_links li,
-.widget_recent_comments li {
+.widget_recent_comments li,
+.widget_taxonomy_list_widget li,
+.widget_meta li {
   transition: all 0.4s ease-in-out;
 }
 
-.widget_links li:last-of-type, .widget_recent_comments li:last-of-type {
+.widget_links li:last-of-type, .widget_recent_comments li:last-of-type, .widget_taxonomy_list_widget li:last-of-type, .widget_meta li:last-of-type {
   border-bottom-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgba(231, 234, 238, var(--tw-border-opacity));
 }
 
-.widget_links li:hover, .widget_recent_comments li:hover {
+.widget_links li:hover, .widget_recent_comments li:hover, .widget_taxonomy_list_widget li:hover, .widget_meta li:hover {
   --tw-bg-opacity: 1;
   background-color: rgba(231, 234, 238, var(--tw-bg-opacity));
 }
 
-.sidebar .widget_links li a, .sidebar .widget_recent_comments li a {
+.sidebar .widget_links li a, .sidebar .widget_recent_comments li a, .sidebar .widget_taxonomy_list_widget li a, .sidebar .widget_meta li a {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
 
-.sidebar .widget_links li:hover a, .sidebar .widget_recent_comments li:hover a {
+.sidebar .widget_links li:hover a, .sidebar .widget_recent_comments li:hover a, .sidebar .widget_taxonomy_list_widget li:hover a, .sidebar .widget_meta li:hover a {
   --tw-text-opacity: 1;
   color: rgba(17, 46, 81, var(--tw-text-opacity));
   opacity: 1;
@@ -29115,6 +29117,12 @@ body.widgets-php .widget_nav_menu ul > li a {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
   line-height: 1.625;
+}
+
+@media only screen and (min-width: 1270px) {
+  .archive-pagination {
+    padding-top: 3rem;
+  }
 }
 
 @media only screen and (min-width: 1170px) {
@@ -48414,7 +48422,7 @@ body.widgets-php .widget_nav_menu ul > li a {
   }
 
   .sm\:font-serif {
-    font-family: Oswald, Times New Roman, serif;
+    font-family: Baskervville, Times New Roman, serif;
   }
 
   .sm\:font-mono {
@@ -48425,7 +48433,7 @@ body.widgets-php .widget_nav_menu ul > li a {
     font-family: Roboto, sans-serif;
   }
 
-  .sm\:font-utcheadlines {
+  .sm\:font-utcheadings {
     font-family: Oswald, sans-serif;
   }
 
@@ -73120,7 +73128,7 @@ body.widgets-php .widget_nav_menu ul > li a {
   }
 
   .md\:font-serif {
-    font-family: Oswald, Times New Roman, serif;
+    font-family: Baskervville, Times New Roman, serif;
   }
 
   .md\:font-mono {
@@ -73131,7 +73139,7 @@ body.widgets-php .widget_nav_menu ul > li a {
     font-family: Roboto, sans-serif;
   }
 
-  .md\:font-utcheadlines {
+  .md\:font-utcheadings {
     font-family: Oswald, sans-serif;
   }
 
@@ -97826,7 +97834,7 @@ body.widgets-php .widget_nav_menu ul > li a {
   }
 
   .lg\:font-serif {
-    font-family: Oswald, Times New Roman, serif;
+    font-family: Baskervville, Times New Roman, serif;
   }
 
   .lg\:font-mono {
@@ -97837,7 +97845,7 @@ body.widgets-php .widget_nav_menu ul > li a {
     font-family: Roboto, sans-serif;
   }
 
-  .lg\:font-utcheadlines {
+  .lg\:font-utcheadings {
     font-family: Oswald, sans-serif;
   }
 
@@ -122532,7 +122540,7 @@ body.widgets-php .widget_nav_menu ul > li a {
   }
 
   .xl\:font-serif {
-    font-family: Oswald, Times New Roman, serif;
+    font-family: Baskervville, Times New Roman, serif;
   }
 
   .xl\:font-mono {
@@ -122543,7 +122551,7 @@ body.widgets-php .widget_nav_menu ul > li a {
     font-family: Roboto, sans-serif;
   }
 
-  .xl\:font-utcheadlines {
+  .xl\:font-utcheadings {
     font-family: Oswald, sans-serif;
   }
 
@@ -147238,7 +147246,7 @@ body.widgets-php .widget_nav_menu ul > li a {
   }
 
   .\32xl\:font-serif {
-    font-family: Oswald, Times New Roman, serif;
+    font-family: Baskervville, Times New Roman, serif;
   }
 
   .\32xl\:font-mono {
@@ -147249,7 +147257,7 @@ body.widgets-php .widget_nav_menu ul > li a {
     font-family: Roboto, sans-serif;
   }
 
-  .\32xl\:font-utcheadlines {
+  .\32xl\:font-utcheadings {
     font-family: Oswald, sans-serif;
   }
 

@@ -119,10 +119,10 @@ add_filter( 'image_size_names_choose', 'utc_media_library_sizes' );
 function utc_media_library_sizes( $sizes ) {
 
     $sizes['teaser']           = __( 'Teaser - 75px by 75px', 'utc' );
-    $sizes['thumbnail']           = __( 'Thumbnail - 100px by 100px', 'utc' );
-    $sizes['featured-blog']           = __( 'Featured Blog - 520px by 780px', 'utc' );
-    $sizes['genesis-singular-images'] = __( 'Singular - 780px by 400px', 'utc' );
-    $sizes['singular-full-width']     = __( 'Singular Full - 1280px by 500px', 'utc' );
+    $sizes['thumbnail']           = __( 'Thumbnail - 150px by 150px', 'utc' );
+    $sizes['featured-blog']           = __( 'Featured Blog - 474px by 400px', 'utc' );
+    $sizes['genesis-singular-images'] = __( 'Singular - 780px by 648px', 'utc' );
+    $sizes['singular-full-width']     = __( 'Singular Full - 1024px by 864px', 'utc' );
 
     return $sizes;
 
@@ -657,7 +657,8 @@ function utc_before_footer_cta() {
     genesis_widget_area(
         'before-footer-cta',
         [
-            'before' => '<div id="footer-menu-map" class="before-footer-menu-map"><div class="wrap"><h2 class="screen-reader-text">' . __( 'Explore more', 'utc' ) . '</h2>',
+            'before' => '<div id="footer-menu-map" class="before-footer-menu-map"><div class="wrap"><h2 class="screen-reader-text">' . __( 'Explore more', 'utc' ) . '</h2>
+            ',
             'after'  => '</div></div>',
         ]
     );
