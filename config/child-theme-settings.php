@@ -30,7 +30,7 @@ return [
 		'posts_nav'                 => 'numeric',
 		'show_featured_image_post'  => 1,
 		'show_featured_image_page'  => 1,
-		'site_layout'               => 'full-width-content',
+		'site_layout'               => 'sidebar-content',
 	],
 	'posts_per_page'       => 4,
 ];
