@@ -507,7 +507,7 @@ function utc_add_search_icon() {
 function utc_add_search_menu_item( $items, $args ) {
 
     $search_toggle = sprintf( '<li class="menu-item search-icon-menu-item">%s</li><li class="menu-item ribbon-container"><div class="ribbon-wrapper">
-    <a href="https://webapp.utc.edu/apply/" title="Apply Now"> 
+    <a href="https://webapp.utc.edu/apply/" title="Apply Now">
     <div id="menuribbon" class="ribbon up" style="--color: #112e51;">
       <div class="ribbon-content">
         <p id="apply-now-ribbon" class="apply-now-ribbon">Apply</br>Now</p>
@@ -560,18 +560,18 @@ function add_static_nav($menu, $args) {
             </li>';
     return $menu . $follow;
 }
-//TEMPORARILY ADD HERO IMAGE FOR SPEC 
+//TEMPORARILY ADD HERO IMAGE FOR SPEC
 /* add_action( 'genesis_after_header', 'after_header_image',1 );
 
 function after_header_image() {
 
     $image = sprintf( '%s/images/sample-hero.png', get_stylesheet_directory_uri() );
-    
+
     $output = sprintf( '<img src="%s" class="after-header w-full" alt="Sample Hero Image" />', $image );
-    
+
     echo $output;
 } */
-//REMOVE THE ABOVE TEMPORARY HERO IMAGE BEFORE PUSHING TO GIT 
+//REMOVE THE ABOVE TEMPORARY HERO IMAGE BEFORE PUSHING TO GIT
 
 remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
 remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
@@ -724,9 +724,9 @@ add_action( 'wp_enqueue_scripts', 'google_fonts' );
 //Add compiled css & js
 function utc_custom_style(){
     wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . '/dist/style.css', 999 );
-} 
+}
 add_action( 'wp_enqueue_scripts', 'utc_custom_style' );
-  
+
 function utc_custom_scripts() {
       wp_enqueue_script( 'app-js', get_stylesheet_directory_uri() . '/dist/app.js', array(),'',true );
 }
@@ -777,7 +777,7 @@ function new_excerpt_more( $more ) {
     return '... <a class="read_more" href="'. get_permalink($post->ID) . '">' . 'READ MORE' . '</a>';
 }*/
 
-    
+
 // Wrap entry titles on 'single' pages in h1 tags
 add_filter( 'genesis_entry_title_wrap', 'sk_set_custom_entry_title_wrap' );
 function sk_set_custom_entry_title_wrap( $wrap ) {
@@ -791,14 +791,14 @@ function sk_set_custom_entry_title_wrap( $wrap ) {
 add_filter( 'widget_nav_menu', 'be_add_description', 10, 2 );
 function be_add_description( $item_output, $item ) {
     $description = $item->post_content;
-    if (' ' !== $description ) 
+    if (' ' !== $description )
     return preg_replace( '/(<a.*?>[^<]*?)</', '$1' . '<span class="menu-description">' . $description . '</span><', $item_output);
     else
     return $item_output;
 }
 
 
-// Add go to the top button 
+// Add go to the top button
 add_action( 'genesis_before', 'genesis_to_top');
     function genesis_to_top() {
      echo '<a href="#0" class="to-top" title="Back To Top"><i class="fa fa-angle-up fa-5x"></i></a>';
@@ -826,3 +826,14 @@ if ( is_search() ){
     remove_action( 'genesis_entry_content', 'genesis_do_post_image', 8 );
 }
 
+//UTChattanooga Admin Color Scheme https://wpadmincolors.com
+function utchattanooga_admin_color_scheme() {
+
+    $theme_dir = get_stylesheet_directory_uri();
+
+    wp_admin_css_color( 'utchattanooga', __( 'UTChattanooga' ),
+        $theme_dir . '/utchattanooga-admin.css',
+        array( '#112e51', '#0073aa' , '#fdb736', '#f1f1f1')
+    );
+}
+add_action('admin_init', 'utchattanooga_admin_color_scheme');
