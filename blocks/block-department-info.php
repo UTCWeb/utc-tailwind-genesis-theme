@@ -17,7 +17,7 @@
     $hours = block_field( 'hours-open', false );
 ?>
 
-<div class="department-footer bg-utc-blue-100 text-center mt-12 pt-6 pb-12">
+<div class="department-footer bg-utc-blue-100 text-center mt-12 py-6">
 	    <h2 class="text-3xl"><?php block_field( 'utc-section' ); ?></h2>
 		<div>
 			<address class="flex-list not-italic text-lg">
@@ -54,7 +54,7 @@
                 ?>
 			</address>
 		</div>	
-		<div class="my-6">
+		<div class="mt-6">
             <ul class="inline horizontal">
                 <?php 
                     if ( ! empty( $home ) ) {
@@ -124,7 +124,7 @@
                         <div>';
                     }
             if ( (! empty( $days )) || (! empty( $hours )) ) {
-                echo '<h3 class="text-2xl mt-2 mb-0">Department Hours</h3><div class="text-lg mt-2"><strong>'; 
+                echo '<h3 class="text-2xl mt-4 mb-0">Department Hours</h3><div class="text-lg mt-2"><strong>'; 
                 echo $days; 
                 echo ':</strong> ';
                 echo $hours;

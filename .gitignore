@@ -1,0 +1,14 @@
+# Local editor config
+/.vscode
+.idea
+
+# Mac OS Searchlight index
+.DS_Store
+*.DS_Store
+
+# nodejs
+/node_modules
+
+# SQL dumps
+*.sql
+*.sql.gz
