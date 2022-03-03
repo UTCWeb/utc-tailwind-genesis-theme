@@ -21,7 +21,7 @@ Template: genesis
 License: GPL-2.0-or-later | 
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-## Text Domain: utc
+## Text Domain: https://blog.utc.edu
 
 Requires at least: 7.4 | 
 Uses PHP: 8.0 | 
