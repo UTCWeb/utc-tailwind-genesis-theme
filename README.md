@@ -23,8 +23,8 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 ## Text Domain: utc
 
-Requires at least: 5.4 | 
-Requires PHP: 5.6 | 
+Requires at least: 7.4 | 
+Uses PHP: 8.0 | 
 
 ## Requires:
 
@@ -32,7 +32,7 @@ node.js v14.16.1 |
 npm v6.14.12 | 
 Webpack v5.38.1 | 
 Webpack CLI v4.7.2 | 
-Genesis v3.3.4 | 
+Genesis v3.3.5 | 
 
 ## Dependencies:
 
