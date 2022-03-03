@@ -44,7 +44,7 @@ tailwindcss v2.2.7 |
 
 ## Required plugins:
 
-Font Awesome v4.0.0-rc23 | https://wordpress.org/plugins/font-awesome/
+Font Awesome v4.1.1 | https://wordpress.org/plugins/font-awesome/
 Genesis Blocks v1.4.0 (replaces deprecated Atomic Blocks) | https://wordpress.org/plugins/genesis-blocks/
-Genesis Custom Blocks v1.3.0 | https://wordpress.org/plugins/genesis-custom-blocks/
+Genesis Custom Blocks v1.7.0 | https://wordpress.org/plugins/genesis-custom-blocks/
 Widget Options v3.7.13 | https://wordpress.org/plugins/widget-options/
