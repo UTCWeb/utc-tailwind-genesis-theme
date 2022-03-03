@@ -89,7 +89,7 @@ return [
 		],
 	],
 	'widgets'          => [
-		'footer-business-info' => [
+		'footer-dept-info' => [
 			[
 				'type' => 'block',
 				'args' => [
@@ -145,42 +145,6 @@ return [
 						</ul>
 					</div>
 				</div>',
-				],
-			],
-		],
-		'before-footer-cta'    => [
-			[
-				'type' => 'custom_html',
-				'args' => [
-					'title'   => '',
-					'content' => '',
-				],
-			],
-			[
-				'type' => 'custom_html',
-				'args' => [
-					'title'   => '',
-					'content' => '',
-				],
-			],
-		],
-		'footer-widget'        => [
-			[
-				'type' => 'custom_html',
-				'args' => [
-					'title'     => '',
-					'content'  => '<div class="wrap">
-						<div class="footer-copyright-container">
-							<div class="footer-copyright">
-								<h2 class="screen-reader-text">Footer</h2>
-							</div>
-							<div class="copyright">
-								<div class="block"><a href="https://www.utc.edu/about/contact/" id="legal-questions">Questions?</a> [footer_copyright] University of Tennessee at Chattanooga. All rights reserved.<br />615&nbsp;McCallie&nbsp;Avenue&nbsp;&nbsp; | &nbsp;&nbsp;Chattanooga,&nbsp;TN&nbsp;37403&nbsp;&nbsp; | &nbsp;&nbsp;(423)&nbsp;425‑4111</div>
-								<div class="block"><a href="https://www.utc.edu/sexual-misconduct/index.php#title-ix-statement" id="legal-title-ix">Title IX Statement</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a href="https://www.utc.edu/about/privacy.php" id="legal-privacy">Privacy Statement</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a href="https://www.utc.edu/academic-affairs/accessible-information-materials-technology-program/">Accessibility</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a href="https://utcwebdev.atlassian.net/servicedesk/customer/portals">Web Requests</a></div>
-								<div class="block">A comprehensive, community-engaged campus of the <a href="http://www.tennessee.edu/" id="legal-ut">University of Tennessee System</a> and partner in the <a href="https://www.tntransferpathway.org">Tennessee Transfer Pathway</a>.</div>
-							</div>
-						</div>
-					</div>',
 				],
 			],
 		],

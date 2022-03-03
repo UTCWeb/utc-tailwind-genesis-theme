@@ -8,7 +8,7 @@ GitHub project link: https://github.com/UTCbridget/utc-tailwind-genesis-theme-th
 1. Upload the UTC theme folder via FTP to your wp-content/themes/ directory. (The Genesis parent theme needs to be in the wp-content/themes/ directory as well.)
 2. Go to your WordPress dashboard and select Appearance.
 3. Activate the UTC theme.
-4. Inside your WordPress dashboard, go to Genesis > Theme Settings and configure them to your liking.
+4. Inside your WordPress dashboard, go to Genesis > Theme Settings and configure them.
 
 ## Theme Support
 

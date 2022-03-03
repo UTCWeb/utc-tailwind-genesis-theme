@@ -79,6 +79,7 @@ module.exports = {
       width: {
         fit: "fit-content",
         90: "90%",
+        92: "92%",
         95: "95%",
         17: "4.375rem",
       },
