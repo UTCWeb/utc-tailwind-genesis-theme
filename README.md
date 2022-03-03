@@ -10,13 +10,13 @@ Author: Bridget Hornsby
 
 Author URI: https://www.utc.edu
 
-Version: 1.3.0
+Version: 1.4.0
 
 Tags: accessibility-ready, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, left-sidebar, one-column, right-sidebar, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, two-columns, wide-blocks
 
 Template: genesis
 
-## NOTE: THIS THEME IS STILL UNDER DEVELOPMENT.
+## NOTE: THIS THEME IS READY FOR USE.
 
 License: GPL-2.0-or-later | 
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
