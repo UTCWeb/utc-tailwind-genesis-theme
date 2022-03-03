@@ -23,8 +23,8 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 ## Text Domain: utc
 
-Requires at least: 5.4 | 
-Requires PHP: 5.6 | 
+Requires at least: 7.4 | 
+Uses PHP: 8.0 | 
 
 ## Requires:
 
