@@ -1,5 +1,5 @@
 # Local editor config
-/.vscode
+.vscode
 .idea
 
 # Mac OS Searchlight index
@@ -7,7 +7,7 @@
 *.DS_Store
 
 # nodejs
-/node_modules
+node_modules
 
 # SQL dumps
 *.sql
