@@ -1874,7 +1874,7 @@ body.widgets-php .widget_nav_menu ul > li a {
 .entry-pings .reply {
   @apply hidden;
 }
-/* Department Info Footer
+/* Department Info
   ---------------------------------------------------------------------------- */
 .department-info .widget {
   @apply mb-0;
@@ -2051,6 +2051,7 @@ body.widgets-php .widget_nav_menu ul > li a {
 }
 #footer-menu-map a {@apply text-white;}
 #footer-menu-map a:hover {@apply text-utc-gold-500;}
+
 /* To the Top Button
   ---------------------------------------------------------------------------- */
 .to-top {
