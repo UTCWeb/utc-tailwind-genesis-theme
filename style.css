@@ -12,13 +12,13 @@
  Text Domain:  utc-tailwind-genesis
 */
 
+
 /*NOTES:
 ---------------------------------------------------------------------------- 
 1. Anywhere you see '!important', we can't use tailwinds bc we have to override existing css inherited from Genesis.
 2. Additionally, transitions, transforms, some backgrounds, etc are custom and do not use Tailwind CSS. Tailwind.config.js was updated only for repeating classes.
 
 /***** TOC *****
-
 Typographical Element
 Headings
 Objects
@@ -1874,7 +1874,7 @@ body.widgets-php .widget_nav_menu ul > li a {
 .entry-pings .reply {
   @apply hidden;
 }
-/* Department Info Footer
+/* Department Info
   ---------------------------------------------------------------------------- */
 .department-info .widget {
   @apply mb-0;
@@ -2051,6 +2051,7 @@ body.widgets-php .widget_nav_menu ul > li a {
 }
 #footer-menu-map a {@apply text-white;}
 #footer-menu-map a:hover {@apply text-utc-gold-500;}
+
 /* To the Top Button
   ---------------------------------------------------------------------------- */
 .to-top {
@@ -2808,4 +2809,3 @@ body.widgets-php .widget_nav_menu ul > li a {
     @apply hidden;
   }
 }
-
