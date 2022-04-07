@@ -97,27 +97,6 @@
     }
   }
 
-/*****************Apply Now Ribbon functionality****************/
-  const ribbon = document.getElementById("menuribbon");
-
-  ribbon.onmouseover = function (event) {
-    let target = event.target;
-    while (target !== ribbon) {
-      target = target.parentNode;
-      target.classList.remove("up");
-      target.classList.add("down");
-    }
-  };
-
-  ribbon.onmouseout = function (event) {
-    let target = event.target;
-    while (target !== ribbon) {
-      target = target.parentNode;
-      target.classList.remove("down");
-      target.classList.add("up");
-    }
-  };
-
 /*****************Important Main Menu functionality****************/
   $(".genesis-nav-menu .sub-menu a").each(function () {
     $(this).hover().parent();
@@ -188,6 +167,18 @@
       $(this).addClass("active");
     });
   });
+  
+  $('<span class="arrow-indicator"></span>').appendTo('.sidebar-primary .widget_nav_menu li.menu-item-has-children');
+  $('.arrow-indicator').parent().addClass('sub-menu-closed');
+  $('.arrow-indicator').click(function(){
+    if ($(this).parent().hasClass('sub-menu-closed')) {
+      $(this).parent().addClass('sub-menu-open').removeClass('sub-menu-closed');
+    } else {
+      $(this).parent().removeClass('sub-menu-open').addClass('sub-menu-closed').find('.sub-menu').slideUp();
+    }
+  });
+  
+
   /*****************Make sidebar menus reponsive****************/
   $('#left-footer-menu').parent().parent().parent().attr('id',"footer-menus");
   $('#left-footer-map').parent().parent().parent().attr('id',"footer-map");
@@ -268,4 +259,88 @@ document
 hamburgerMenu.innerHTML = "&nbsp;";
 
 
-
+/****B/C Safari won't play nice with the Apply Now transitions, we're going to add the browser as a body class****/
+(function($) {
+  var BrowserDetect = {
+      init: function() {
+          this.browser = this.searchString(this.dataBrowser) || "Other";
+          this.version = this.searchVersion(navigator.userAgent) || this.searchVersion(navigator.appVersion) || "Unknown";
+      },
+      searchString: function(data) {
+          for (var i = 0; i < data.length; i++) {
+              var dataString = data[i].string;
+              this.versionSearchString = data[i].subString;
+              if (dataString.indexOf(data[i].subString) !== -1) {
+                  return data[i].identity;
+              }
+          }
+      },
+      searchVersion: function(dataString) {
+          var index = dataString.indexOf(this.versionSearchString);
+          if (index === -1) {
+              return;
+          }
+          var rv = dataString.indexOf("rv:");
+          if (this.versionSearchString === "Trident" && rv !== -1) {
+              return parseFloat(dataString.substring(rv + 3));
+          } else {
+              return parseFloat(dataString.substring(index + this.versionSearchString.length + 1));
+          }
+      },
+      dataBrowser: [{
+          string: navigator.userAgent,
+          subString: "Edge",
+          identity: "MS Edge"
+      }, {
+          string: navigator.userAgent,
+          subString: "MSIE",
+          identity: "Explorer"
+      }, {
+          string: navigator.userAgent,
+          subString: "Trident",
+          identity: "Explorer"
+      }, {
+          string: navigator.userAgent,
+          subString: "Firefox",
+          identity: "Firefox"
+      }, {
+          string: navigator.userAgent,
+          subString: "Opera",
+          identity: "Opera"
+      }, {
+          string: navigator.userAgent,
+          subString: "OPR",
+          identity: "OPR"
+      }, {
+          string: navigator.userAgent,
+          subString: "Netscape",
+          identity: "Netscape"
+      }, {
+          string: navigator.userAgent,
+          subString: "Chrome",
+          identity: "Chrome"
+      }, {
+          string: navigator.userAgent,
+          subString: "Safari",
+          identity: "Safari"
+      }]
+  };
+  BrowserDetect.init();
+  var bv = BrowserDetect.browser;
+  if (bv == "Chrome") {
+      $("body").addClass("chrome");
+  } else if (bv == "MS Edge") {
+      $("body").addClass("edge");
+  } else if (bv == "Explorer") {
+      $("body").addClass("ie");
+  } else if (bv == "Firefox") {
+      $("body").addClass("firefox");
+  } else if (bv == "Safari") {
+      $("body").addClass("safari");
+  } else if (bv == "Netscape") {
+      $("body").addClass("opera");
+  } else {
+      $("body").addClass("browser-unknown");
+  }
+      
+})(jQuery);

@@ -29,7 +29,7 @@ return [
 			[
 				'name'       => __( 'FontAwesome', 'utc' ),
 				'slug'       => 'font-awesome/font-awesome.php',
-				'public_url' => 'https://wordpress.org/plugins/genesis-enews-extended/',
+				'public_url' => 'https://wordpress.org/plugins/font-awesome/',
 			],
 			[
 				'name'       => __( 'Widget Options', 'utc' ),
