@@ -171,12 +171,12 @@ textarea:focus,
   transition: var(--utc-transition);
 }
 a {
-  @apply text-utc-links-static outline-none;
+  @apply text-utc-links-static outline-none underline;
   transition: var(--utc-transition);
 }
 a:hover,
 a:focus {
-  @apply text-utc-gold-500 outline-none;
+  @apply font-normal outline-none;
 }
 span:target {
   @apply block relative invisible -top-2.5;
