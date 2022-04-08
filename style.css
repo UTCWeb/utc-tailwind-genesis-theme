@@ -171,12 +171,18 @@ textarea:focus,
   transition: var(--utc-transition);
 }
 a {
-  @apply text-utc-links-static outline-none underline;
+  @apply text-utc-links-static outline-none;
   transition: var(--utc-transition);
+}
+article p a {
+  @apply underline;
 }
 a:hover,
 a:focus {
-  @apply font-normal outline-none;
+  @apply outline-none;
+}
+article p a:hover {
+  @apply no-underline;
 }
 span:target {
   @apply block relative invisible -top-2.5;
@@ -379,18 +385,6 @@ input[type="radio"] {
 ::placeholder {
   @apply text-utc-blue-200 opacity-100;
 }
-/*.btn,
-.btn-primary,
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"],
-.button,
-.more-link,
-.site-container div.wpforms-container-full .wpforms-form input[type="submit"],
-.site-container div.wpforms-container-full .wpforms-form button[type="submit"] {
-  @apply bg-utc-blue-500 text-white cursor-pointer text-base py-0.5 px-1 text-center no-underline whitespace-normal w-auto;
-}*/
 .btn,
 .button {
   @apply inline-block my-2;
