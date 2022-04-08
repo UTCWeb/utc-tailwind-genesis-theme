@@ -713,7 +713,7 @@ function utc_custom_footer_content() {
 						<li class="menu-item"> <a href="https://people.utc.edu/eGuide/servlet/eGuide">People Directory</a> </li>
 						<li class="menu-item"> <a href="https://events.utc.edu/MasterCalendar/MasterCalendar.aspx">Calendars</a> </li>
 						<li class="menu-item"> <a href="https://www.utc.edu/finance-and-administration/human-resources/work" data-drupal-link-system-path="node/38406">Work at UTC</a> </li>
-						<li class="menu-item"> <a href="https://blog.utc.edu/wp-login.php">CAS Log In</a> </li>
+						<li class="menu-item"> <a href="https://blog.utc.edu/wp/wp-login.php">CAS Log In</a> </li>
 					</ul>
 				</nav>
 			</div></div></div></section>

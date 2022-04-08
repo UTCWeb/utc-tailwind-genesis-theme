@@ -169,15 +169,21 @@
   });
   
   $('<span class="arrow-indicator"></span>').appendTo('.sidebar-primary .widget_nav_menu li.menu-item-has-children');
+
+  $(".sidebar-primary .widget_nav_menu li.level-1:contains('Select a category')").html(function(_, html) {
+    return html.replace(/(Select a category)/g, '<span>$1</span>');
+ });
+ $(".sidebar-primary .widget_nav_menu li.level-1:contains('Select a month')").html(function(_, html) {
+    return html.replace(/(Select a month)/g, '<span>$1</span>');
+  });
   $('.arrow-indicator').parent().addClass('sub-menu-closed');
-  $('.arrow-indicator').click(function(){
+  $('.arrow-indicator, .sidebar-primary .widget_nav_menu li.level-1 span').click(function(){
     if ($(this).parent().hasClass('sub-menu-closed')) {
       $(this).parent().addClass('sub-menu-open').removeClass('sub-menu-closed');
     } else {
       $(this).parent().removeClass('sub-menu-open').addClass('sub-menu-closed').find('.sub-menu').slideUp();
     }
   });
-  
 
   /*****************Make sidebar menus reponsive****************/
   $('#left-footer-menu').parent().parent().parent().attr('id',"footer-menus");
