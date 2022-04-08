@@ -38,14 +38,14 @@
                         echo ', Chattanooga, TN 37403</div>';
                     } 
                     if ( ! empty( $phone ) ) {
-                        echo '<div id="dpt-phone" class="utc-dpt dpt-phone separate"><i class="fas fa-phone"></i>&nbsp;<a class="dpt-link text-utc-blue-500 hover:text-utc-gold-500" href="tel:'; 
+                        echo '<div id="dpt-phone" class="utc-dpt dpt-phone separate"><i class="fas fa-phone"></i>&nbsp;<a class="dpt-link text-utc-blue-500 hover:bg-white" href="tel:'; 
                         echo $phone; 
                         echo '" >';
                         echo $phone; 
                         echo '</a></div>';
                     } 
                     if ( ! empty( $email ) ) {
-                        echo '<div id="dpt-email" class="utc-dpt dpt-email separate"><i class="fas fa-envelope"></i>&nbsp;<a class="dpt-link text-utc-blue-500 hover:text-utc-gold-500" href="mailto:'; 
+                        echo '<div id="dpt-email" class="utc-dpt dpt-email separate"><i class="fas fa-envelope"></i>&nbsp;<a class="dpt-link text-utc-blue-500 hover:bg-white" href="mailto:'; 
                         echo $email; 
                         echo '" >';
                         echo $email; 

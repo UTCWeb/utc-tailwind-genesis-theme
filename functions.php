@@ -112,14 +112,18 @@ function google_fonts() {
     wp_enqueue_style( 'google-roboto', 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap', false );
 	wp_enqueue_style( 'google-oswald', 'https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap', false );
 }
-add_action( 'wp_enqueue_scripts', 'google_fonts' );
+add_action( 'wp_enqueue_scripts', 'google_fonts', );
 
 // Add image sizes.
 add_image_size( 'teaser', 75, 75, true );
-add_image_size( 'thumbnail', 100, 100, true );
-add_image_size( 'featured-blog', 520, 780, true );
+add_image_size( 'thumbnail', 150, 150, true );
+add_image_size( 'medium', 300, 300, true );
+add_image_size( 'featured-blog', 475, 400, true );
 add_image_size( 'genesis-singular-images', 780, 400, true );
-add_image_size( 'singular-full-width', 1700, 660, true );
+add_image_size( 'singular-full-width', 1280, 660, true );
+add_image_size( 'newsletter-large', 580, 9999 ); //580 pixels wide (and unlimited height) for newsletter header image
+add_image_size( 'medium-large', 610, 9999 ); //610 pixels wide (and unlimited height) for newsletter header image
+add_image_size( 'large-thumbnail', 600, 600, true ); //600 pixels wide & tall for newsletter retina/thumb images
 
 //Add featured-blog image size to Media Library.
 add_filter( 'image_size_names_choose', 'utc_media_library_sizes' );
@@ -127,13 +131,17 @@ function utc_media_library_sizes( $sizes ) {
 
     $sizes['teaser']           = __( 'Teaser - 75px by 75px', 'utc' );
     $sizes['thumbnail']           = __( 'Thumbnail - 150px by 150px', 'utc' );
-    $sizes['featured-blog']           = __( 'Featured Blog - 474px by 400px', 'utc' );
-    $sizes['genesis-singular-images'] = __( 'Singular - 780px by 648px', 'utc' );
-    $sizes['singular-full-width']     = __( 'Singular Full - 1024px by 864px', 'utc' );
+	$sizes['medium']           = __( 'Thumbnail - 300px by 300px', 'utc' );
+    $sizes['featured-blog']           = __( 'Featured Blog - 475px by 400px', 'utc' );
+    $sizes['genesis-singular-images'] = __( 'Singular - 780px by 400px', 'utc' );
+    $sizes['singular-full-width']     = __( 'Singular Full - 1280px by 660px', 'utc' );
+	$sizes['newsletter-large']     = __( 'Large 580px wide', 'utc' );
+	$sizes['medium-large']     = __( 'Medium Large - 610px wide', 'utc' );
+	$sizes['large-thumbnail']     = __( 'Large Thumbnail - 600px by 600px', 'utc' );
 
     return $sizes;
-
 }
+
 
 // Remove header right widget area.
 unregister_sidebar( 'header-right' );
@@ -162,7 +170,7 @@ remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
 add_action( 'genesis_header', 'custom_site_title' );
 
 // Reposition the site title.
-function custom_site_title() {
+function custom_site_title() { 
 	$site_title = get_bloginfo( 'name' );
 	$link = sprintf( '<a href="%1$s" rel="blog home">%2$s</a>', get_bloginfo( 'url' ), $site_title );
 	echo '<div class="custom-title">' . $link . '</div>';
@@ -479,7 +487,7 @@ function genesis_do_utcheader() {
                 'context' => 'header-widget-area',
             ]
         );
-
+        
 
     }
 
@@ -511,8 +519,8 @@ function utc_add_search_icon() {
 function utc_add_search_menu_item( $items, $args ) {
 
     $search_toggle = sprintf( '<li class="menu-item search-icon-menu-item">%s</li><li class="menu-item ribbon-container"><div class="ribbon-wrapper">
-    <a href="https://webapp.utc.edu/apply/" title="Apply Now">
-    <div id="menuribbon" class="ribbon up" style="--color: #112e51;">
+    <a href="https://webapp.utc.edu/apply/" title="Apply Now"> 
+    <div id="menuribbon" class="ribbon" style="--color: #112e51;">
       <div class="ribbon-content">
         <p id="apply-now-ribbon" class="apply-now-ribbon">Apply</br>Now</p>
       </div>
@@ -555,27 +563,28 @@ function add_static_nav($menu, $args) {
                     <li id="menu-item-72" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-72"><a href="https://mocsyncorgs.utc.edu/" itemprop="url"><span itemprop="name">MocsSync</span></a></li>
                     <li id="menu-item-73" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-73"><a href="https://portal.microsoftonline.com/" itemprop="url"><span itemprop="name">O365</span></a></li>
                     <li id="menu-item-74" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-74"><a href="https://sis-reg.utc.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search" itemprop="url"><span itemprop="name">Class Schedule</span></a></li>
-                    <li id="menu-item-75" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-75"><a href="https://www.utc.edu/library" itemprop="url"><span itemprop="name">Library</span></a></li>
-                    <li id="menu-item-76" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-76"><a href="https://events.utc.edu/MasterCalendar/MasterCalendar.aspx" itemprop="url"><span itemprop="name">Calendar</span></a></li>
-                    <li id="menu-item-77" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-77"><a href="https://people.utc.edu/" itemprop="url"><span itemprop="name">People Finder</span></a></li>
-                    <li id="menu-item-78" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-78"><a href="https://www.utc.edu/auxiliary-services/parking/utcmap-large.php" itemprop="url"><span itemprop="name">Campus Map</span></a></li>
-                    <li id="menu-item-79" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-79"><a href="https://ds.tennessee.edu/passwords/login.asp?redirect=%2Fpasswords%2Fpassword%2Easp" itemprop="url"><span itemprop="name">Change Password</span></a></li>
+					<li id="menu-item-75" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-75"><a href="https://www.utc.edu/enrollment-management-and-student-affairs/care" itemprop="url"><span itemprop="name">Crisis Resources</span></a></li>
+                    <li id="menu-item-76" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-76"><a href="https://www.utc.edu/library" itemprop="url"><span itemprop="name">Library</span></a></li>
+                    <li id="menu-item-77" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-77"><a href="https://events.utc.edu/MasterCalendar/MasterCalendar.aspx" itemprop="url"><span itemprop="name">Calendar</span></a></li>
+                    <li id="menu-item-78" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-78"><a href="https://people.utc.edu/" itemprop="url"><span itemprop="name">People Finder</span></a></li>
+                    <li id="menu-item-79" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-79"><a href="https://www.utc.edu/auxiliary-services/parking/utcmap-large.php" itemprop="url"><span itemprop="name">Campus Map</span></a></li>
+                    <li id="menu-item-80" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-80"><a href="https://ds.tennessee.edu/passwords/login.asp?redirect=%2Fpasswords%2Fpassword%2Easp" itemprop="url"><span itemprop="name">Change Password</span></a></li>
                 </ul>
             </li>';
     return $menu . $follow;
 }
-//TEMPORARILY ADD HERO IMAGE FOR SPEC
+//TEMPORARILY ADD HERO IMAGE FOR SPEC 
 /* add_action( 'genesis_after_header', 'after_header_image',1 );
 
 function after_header_image() {
 
     $image = sprintf( '%s/images/sample-hero.png', get_stylesheet_directory_uri() );
-
+    
     $output = sprintf( '<img src="%s" class="after-header w-full" alt="Sample Hero Image" />', $image );
-
+    
     echo $output;
 } */
-//REMOVE THE ABOVE TEMPORARY HERO IMAGE BEFORE PUSHING TO GIT
+//REMOVE THE ABOVE TEMPORARY HERO IMAGE BEFORE PUSHING TO GIT 
 
 remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
 remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
@@ -584,7 +593,7 @@ remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 )
 // Adds entry meta in entry footer.
 remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
-add_action( 'genesis_entry_footer', 'genesis_post_info' );
+add_action( 'genesis_entry_content', 'genesis_post_info', 9 );
 
 
 //Change "About" text in author box tggitles for single posts. (Inherited from Navigation Pro child theme.)
@@ -651,7 +660,7 @@ function utc_custom_date_shortcode( $output, $atts ) {
 //Hook in before footer the UTC Dept. info and menu/map widget area.
 add_action( 'genesis_before_footer', 'utc_dept_info', 1 );
 function utc_dept_info() {
-
+	
     genesis_widget_area(
         'footer-dept-info',
         [
@@ -704,7 +713,7 @@ function utc_custom_footer_content() {
 						<li class="menu-item"> <a href="https://people.utc.edu/eGuide/servlet/eGuide">People Directory</a> </li>
 						<li class="menu-item"> <a href="https://events.utc.edu/MasterCalendar/MasterCalendar.aspx">Calendars</a> </li>
 						<li class="menu-item"> <a href="https://www.utc.edu/finance-and-administration/human-resources/work" data-drupal-link-system-path="node/38406">Work at UTC</a> </li>
-						<li class="menu-item"> <a href="https://blog.utc.edu/wp-login.php">CAS Log In</a> </li>
+						<li class="menu-item"> <a href="https://blog.utc.edu/wp/wp-login.php">CAS Log In</a> </li>
 					</ul>
 				</nav>
 			</div></div></div></section>
@@ -783,11 +792,11 @@ function utc_register_sidebars() {
 //Add compiled css & js
 function utc_custom_style(){
     wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . '/dist/style.css', 999 );
-}
+} 
 add_action( 'wp_enqueue_scripts', 'utc_custom_style' );
-
+  
 function utc_custom_scripts() {
-      wp_enqueue_script( 'app-js', get_stylesheet_directory_uri() . '/dist/app.js', array(),'',true );
+      wp_enqueue_script( 'app-js', get_stylesheet_directory_uri() . '/dist/app.js', array(),'', true );
 }
 add_action( 'wp_enqueue_scripts', 'utc_custom_scripts', 999 );
 
@@ -836,7 +845,7 @@ function new_excerpt_more( $more ) {
     return '... <a class="read_more" href="'. get_permalink($post->ID) . '">' . 'READ MORE' . '</a>';
 }*/
 
-
+    
 // Wrap entry titles on 'single' pages in h1 tags
 add_filter( 'genesis_entry_title_wrap', 'sk_set_custom_entry_title_wrap' );
 function sk_set_custom_entry_title_wrap( $wrap ) {
@@ -850,13 +859,13 @@ function sk_set_custom_entry_title_wrap( $wrap ) {
 add_filter( 'widget_nav_menu', 'be_add_description', 10, 2 );
 function be_add_description( $item_output, $item ) {
     $description = $item->post_content;
-    if (' ' !== $description )
+    if (' ' !== $description ) 
     return preg_replace( '/(<a.*?>[^<]*?)</', '$1' . '<span class="menu-description">' . $description . '</span><', $item_output);
     else
     return $item_output;
 }
 
-// Add go to the top button
+// Add go to the top button 
 add_action( 'genesis_before', 'genesis_to_top');
     function genesis_to_top() {
      echo '<a href="#0" class="to-top" title="Back To Top"><i class="fa fa-angle-up fa-5x"></i></a>';
@@ -884,18 +893,6 @@ if ( is_search() ){
     remove_action( 'genesis_entry_content', 'genesis_do_post_image', 8 );
 }
 
-//UTChattanooga Admin Color Scheme https://wpadmincolors.com
-function utchattanooga_admin_color_scheme() {
-
-    $theme_dir = get_stylesheet_directory_uri();
-
-    wp_admin_css_color( 'utchattanooga', __( 'UTChattanooga' ),
-        $theme_dir . '/utchattanooga-admin.css',
-        array( '#112e51', '#0073aa' , '#fdb736', '#f1f1f1')
-    );
-}
-add_action('admin_init', 'utchattanooga_admin_color_scheme');
-
 // Reposition the breadcrumbs.
 remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
 add_action( 'genesis_before_content_sidebar_wrap', 'genesis_do_breadcrumbs' );
@@ -910,3 +907,51 @@ function utc_breadcrumb_args( $args ) {
     return $args;
 
 }
+
+/***Adding newsroom-specific files from the utcblog-theme (a strappress child) */
+
+/* Newsletter Custom Post Type and taxonomies */
+
+/*********keep out for now. this is used only for the news blog.////////////////////////
+
+add_action( 'init', 'register_cpt_utcblogs_newsletter' );
+
+function register_cpt_utcblogs_newsletter() {
+
+    $labels = array(
+        'name' => _x( 'Newsletters', 'utcblogs_newsletter' ),
+        'singular_name' => _x( 'Newsletter', 'utcblogs_newsletter' ),
+        'add_new' => _x( 'Add New', 'utcblogs_newsletter' ),
+        'add_new_item' => _x( 'Add New Newsletter', 'utcblogs_newsletter' ),
+        'edit_item' => _x( 'Edit Newsletter', 'utcblogs_newsletter' ),
+        'new_item' => _x( 'New Newsletter', 'utcblogs_newsletter' ),
+        'view_item' => _x( 'View Newsletter', 'utcblogs_newsletter' ),
+        'search_items' => _x( 'Search Newsletters', 'utcblogs_newsletter' ),
+        'not_found' => _x( 'No newsletters found', 'utcblogs_newsletter' ),
+        'not_found_in_trash' => _x( 'No newsletters found in Trash', 'utcblogs_newsletter' ),
+        'parent_item_colon' => _x( 'Parent Newsletter:', 'utcblogs_newsletter' ),
+        'menu_name' => _x( 'Newsletters', 'utcblogs_newsletter' ),
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'hierarchical' => true,
+        'description' => 'UTCBlogs Newsletters',
+        'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'page-attributes' ),
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 5,
+        'show_in_nav_menus' => true,
+        'publicly_queryable' => true,
+        'exclude_from_search' => false,
+        'has_archive' => true,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => array('slug' => 'newsletters'),
+        'capability_type' => 'page'
+    );
+
+    register_post_type( 'utcblogs_newsletter', $args );
+}*/
+

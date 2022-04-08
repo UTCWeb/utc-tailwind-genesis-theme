@@ -29,7 +29,7 @@ return [
 			[
 				'name'       => __( 'FontAwesome', 'utc' ),
 				'slug'       => 'font-awesome/font-awesome.php',
-				'public_url' => 'https://wordpress.org/plugins/genesis-enews-extended/',
+				'public_url' => 'https://wordpress.org/plugins/font-awesome/',
 			],
 			[
 				'name'       => __( 'Widget Options', 'utc' ),
@@ -101,7 +101,7 @@ return [
 							<div id="dpt-building" class="utc-dpt dpt-building separate"></div>
 							<div id="dpt-mail-code" class="utc-dpt dpt-mail-code separate"></div>
 							<div id="dpt-address" class="utc-dpt dpt-address separate">615 McCallie Ave, Chattanooga, TN 37403</div>
-							<div id="dpt-phone" class="utc-dpt dpt-phone separate"><i class="fas fa-phone"></i>&nbsp;<a class="dpt-link text-utc-blue-500 hover:text-utc-links-hoverFooterIcons" href="tel:  423-425-4111">  423-425-4111</a></div>	
+							<div id="dpt-phone" class="utc-dpt dpt-phone separate"><i class="fas fa-phone"></i>&nbsp;<a class="dpt-link text-utc-blue-500 hover:bg-white" href="tel:  423-425-4111">  423-425-4111</a></div>	
 							
 						</address>
 					</div>	
