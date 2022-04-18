@@ -2,7 +2,7 @@
 
 Theme Name: UTC
 
-Theme URI: https://github.com/UTCbridget/uct-tailwind-genesis-theme
+Theme URI: https://github.com/UTCWeb/utc-tailwind-genesis-theme
 
 Description: This is a custom theme created for the University of Tennessee Chattanooga using the Genesis Framework with TailwindCSS. It is based off the Genesis Sample theme.
 
