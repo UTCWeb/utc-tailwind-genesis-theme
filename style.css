@@ -5,7 +5,7 @@
  Author:       Bridget Hornsby
  Author URI:   https://www.utc.edu/
  Template:     genesis
- Version:      1.5.2
+ Version:      1.5.3
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light-only, left-sidebar, full-width, right-sidebar, responsive-layout, accessibility-ready, onboarding available
@@ -174,15 +174,9 @@ a {
   @apply text-utc-links-static outline-none;
   transition: var(--utc-transition);
 }
-article p a {
-  @apply underline;
-}
 a:hover,
 a:focus {
-  @apply outline-none;
-}
-article p a:hover {
-  @apply no-underline;
+  @apply text-utc-gold-500 outline-none;
 }
 span:target {
   @apply block relative invisible -top-2.5;
@@ -385,6 +379,18 @@ input[type="radio"] {
 ::placeholder {
   @apply text-utc-blue-200 opacity-100;
 }
+/*.btn,
+.btn-primary,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.button,
+.more-link,
+.site-container div.wpforms-container-full .wpforms-form input[type="submit"],
+.site-container div.wpforms-container-full .wpforms-form button[type="submit"] {
+  @apply bg-utc-blue-500 text-white cursor-pointer text-base py-0.5 px-1 text-center no-underline whitespace-normal w-auto;
+}*/
 .btn,
 .button {
   @apply inline-block my-2;
@@ -1903,10 +1909,10 @@ body.widgets-php .widget_nav_menu ul > li a {
 /* Footer Menus and Map
   ---------------------------------------------------------------------------- */
 .before-footer-menu-map {
-  @apply bg-utc-blue-500 bottom-0 pb-10 pb-11 text-left relative h-fit min-h-21;
+  @apply bg-utc-blue-500 bottom-0 text-left relative h-fit ;
 }
 .before-footer-menu-map .wrap {
-  @apply /* grid grid-cols-utcmapfooter */ pt-8 gap-x-8;
+  @apply /* grid grid-cols-utcmapfooter */ py-8 ;
 }
 .before-footer-menu-map .wrap:before {
   @apply hidden;
@@ -2021,7 +2027,6 @@ body.widgets-php .widget_nav_menu ul > li a {
   @apply text-white float-right max-w-xs;
 }
 .site-footer .widget {
-  @apply mb-5;
   line-height: 1.875 !important;
 }
 .site-footer .simple-social-icons ul li {
