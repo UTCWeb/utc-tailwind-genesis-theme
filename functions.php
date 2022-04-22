@@ -142,6 +142,35 @@ function utc_media_library_sizes( $sizes ) {
     return $sizes;
 }
 
+//* Re-position Post Info Conditionally
+function conditional_reposition() {
+	if ( is_front_page() || is_archive() ) {
+		remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
+		remove_action( 'genesis_entry_header', 'genesis_post_info', 1 );
+		remove_action( 'genesis_before_entry', 'genesis_post_info', 1 );
+ 	}
+}
+add_action( 'genesis_entry_header', 'conditional_reposition' );
+
+//Display Featured Image with Caption on top of the post 
+// @link https://sridharkatakam.com/add-featured-images-entry-single-posts-genesis/
+/*NOT BACKWARDS COMPATITBLE*
+function featured_post_image() {
+  	if ( ! is_singular( 'post' ) )  {
+  		return;
+	}
+	$image = genesis_get_image( 'format=url&size=post-image' ); // get the URL of featured image.
+
+	$thumb_id = get_post_thumbnail_id( get_the_ID() );     // get the alt text of featured image.
+	$alt = get_post_meta( $thumb_id, '_wp_attachment_image_alt', true );
+
+	$caption = get_post( $thumb_id )->post_excerpt; // get the caption of featured image.
+	$caption_html = $caption ? '<figcaption>'. $caption . '</figcaption>' : ''; // Construct the caption HTML if caption is present for the featured image..
+		
+	printf( '<figure class="single-post-image wp-caption"><img src="%s" alt="%s" />%s</figure>', esc_url( $image ), $alt, $caption_html ); // display the featured image with caption (if present) beneath the image.
+}
+add_action( 'genesis_before_entry', 'featured_post_image', 8 );
+*/
 
 // Remove header right widget area.
 unregister_sidebar( 'header-right' );
@@ -590,11 +619,6 @@ remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
 remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
 
 
-// Adds entry meta in entry footer.
-remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
-remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
-add_action( 'genesis_entry_content', 'genesis_post_info', 9 );
-
 
 //Change "About" text in author box tggitles for single posts. (Inherited from Navigation Pro child theme.)
 add_filter( 'genesis_author_box_title', 'utc_author_box_title', 10, 2 );
@@ -797,9 +821,13 @@ add_action( 'wp_enqueue_scripts', 'utc_custom_style' );
   
 function utc_custom_scripts() {
       wp_enqueue_script( 'app-js', get_stylesheet_directory_uri() . '/dist/app.js', array(),'', true );
-}
+}	  
 add_action( 'wp_enqueue_scripts', 'utc_custom_scripts', 999 );
 
+function add_externalFontAwesomeProv6(){
+	echo '<script src="https://kit.fontawesome.com/6cef20ef42.js" crossorigin="anonymous"></script>';
+}
+add_action( 'wp_head', 'add_externalFontAwesomeProv6' );
 
 //Allow SVG option for image uploads
 function add_file_types_to_uploads($file_types){
