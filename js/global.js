@@ -177,7 +177,14 @@
     return html.replace(/(Select a month)/g, '<span>$1</span>');
   });
   $('.arrow-indicator').parent().addClass('sub-menu-closed');
-  $('.arrow-indicator, .sidebar-primary .widget_nav_menu li.level-1 span').click(function(){
+  $('.sidebar-primary .widget_converted li.level-1 ').click(function(){
+    if ($(this).hasClass('sub-menu-closed')) {
+      $(this).addClass('sub-menu-open').removeClass('sub-menu-closed');
+    } else {
+      $(this).removeClass('sub-menu-open').addClass('sub-menu-closed').find('.sub-menu').slideUp();
+    }
+  });
+  $('.arrow-indicator').click(function(){
     if ($(this).parent().hasClass('sub-menu-closed')) {
       $(this).parent().addClass('sub-menu-open').removeClass('sub-menu-closed');
     } else {
@@ -241,26 +248,20 @@
   });
 })(jQuery);
 
-/*****************Move any department info blocks from content into the footer****************/
-if (document.querySelector("#genesis-content .department-footer")) {
-  const moveThisFooter = document.querySelector(
-    "#genesis-content .department-footer"
-  );
-  const removeThisFooter = document.querySelector(
-    ".department-info .department-footer"
-  );
-  const destinationDiv = document.getElementById("department-info");
-  var fragment = document.createDocumentFragment();
-  fragment.appendChild(moveThisFooter);
-  destinationDiv.appendChild(fragment);
-  removeThisFooter.remove();
+/*****************Move any department info block from content into the footer*******/
+if (document.querySelector("#department-footer")) {
+  let moveThisDiv = document.querySelector("#department-footer");
+  let destinationFooter = document.querySelector('.site-footer');
+  deptFooter = destinationFooter.prepend(moveThisDiv);
+  moveThisDiv.style.visibility = 'visible';
 }
+
 
 /*****************Make sidebar menus reponsive****************/
 var hamburgerMenu = document.createElement("i");
 hamburgerMenu.className = "fa fa-bars float-right text-xl";
 document
-  .querySelector(".sidebar .widget_nav_menu .widget-title")
+  .querySelector(".sidebar .navigation_widget .widget-title")
   .appendChild(hamburgerMenu);
 hamburgerMenu.innerHTML = "&nbsp;";
 

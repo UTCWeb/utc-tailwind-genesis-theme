@@ -1,6 +1,6 @@
 # UTC Theme
 
-GitHub project link: https://github.com/UTCbridget/utc-tailwind-genesis-theme-theme.
+GitHub project link: https://github.com/UTCWeb/utc-tailwind-genesis-theme.
 
 
 ## Installation Instructions
