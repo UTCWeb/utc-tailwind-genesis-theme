@@ -24,7 +24,7 @@ return [
 		'content_archive_limit'     => 130,
 		'content_archive_thumbnail' => 1,
 		'entry_meta_after_content'  => '[post_categories before="' . __( 'Categories', 'utc' ) . ': "][post_tags before="' . __( 'Tags', 'utc' ) . ': "] [post_edit]',
-		'entry_meta_before_content' => '[post_author_posts_link before="' . __( '', 'utc' ) . ':<br>"][post_date before="' . __( '', 'utc' ) . ':<br>"] [post_comments before="' . __( '', 'utc' ) . '" zero="' . __( 'No comments yet', 'utc' ) . '"]',
+		'entry_meta_before_content' => '[post_author_posts_link before="' . __( '', 'utc' ) . '<br>"][post_date before="' . __( '', 'utc' ) . '<br>"] [post_comments before="' . __( '', 'utc' ) . '" zero="' . __( 'No comments yet', 'utc' ) . '"]',
 		'image_alignment'           => 'alignleft',
 		'image_size'                => 'featured-blog',
 		'posts_nav'                 => 'numeric',

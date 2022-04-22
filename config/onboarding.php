@@ -27,64 +27,9 @@ return [
 				'public_url' => 'https://www.studiopress.com/genesis-custom-blocks/',
 			],
 			[
-				'name'       => __( 'FontAwesome', 'utc' ),
-				'slug'       => 'font-awesome/font-awesome.php',
-				'public_url' => 'https://wordpress.org/plugins/font-awesome/',
-			],
-			[
 				'name'       => __( 'Widget Options', 'utc' ),
 				'slug'       => 'widget-options/plugin.php',
 				'public_url' => 'https://wordpress.org/plugins/widget-options/',
-			],
-		],
-	],
-	'navigation_menus' => [
-		'primary'   => [
-			'#' => [
-				'title' => 'Page 1',
-			],
-			'#'    => [
-				'title' => 'Page 2',
-			],
-			'#'  => [
-				'title' => 'Page 3',
-			],
-			'#'  => [
-				'title' => 'Page 4',
-			],
-			'#'  => [
-				'title' => 'Page 5',
-			],
-			'#'  => [
-				'title' => 'Page 6',
-			],
-			'#'  => [
-				'title' => 'Page 7',
-			],
-		],
-		'secondary' => [
-			'#' => [
-				'title' => '',
-			],
-		],
-		'sidebar' => [
-			'#' => [
-				'title' => 'Blog 1',
-			],
-			'#'    => [
-				'title' => 'Blog 2',
-			],
-			'#'  => [
-				'title' => 'Blog 3',
-			],
-			'#'  => [
-				'title' => 'Blog 4',
-			],
-			'#'  => [
-				'title' => 'Blog 5',
-			],
-			'#'  => [
-				'title' => 'Blog 6',
 			],
 		],
 	],
@@ -146,6 +91,16 @@ return [
 					</div>
 				</div>',
 				],
+			],
+		],
+	],
+	'content'          => [
+		'placeholder' => [],
+	],
+	'navigation_menus' => [
+		'secondary' => [
+			'placeholder' => [
+				'title' => ' ',
 			],
 		],
 	],
