@@ -403,13 +403,22 @@ a.addtoany_share {
   @apply relative;
 }
 a.addtoany_share img {
- @apply invisible;
+  @apply invisible;
 }
-a.addtoany_share i {
+.addtoany_list a {
+  font-size: 48px!important;
+  color:#112e51;
+  position:relative;
+}
+.addtoany_list a svg:not(:host).svg-inline--fa {
+  position: absolute;
+  left:0;
+}
+a.addtoany_share i, a.addtoany_share svg {
   @apply text-6xl text-utc-blue-500 absolute left-0;
   transition: var(--utc-transition);
 }
-a.addtoany_share i:hover {
+a.addtoany_share i:hover, a.addtoany_share svg:hover {
   @apply text-utc-gold-500;
 }
 #a2apage_dropdown {
@@ -2004,6 +2013,7 @@ body.widgets-php .widget_nav_menu ul > li a {
   background: rgba(160, 174, 192, 0.8);
   transition: all 0.3s;
 }
+
 .to-top.top-is-visible {
   @apply visible opacity-100;
 }
@@ -2013,7 +2023,7 @@ body.widgets-php .widget_nav_menu ul > li a {
 .no-touch .to-top:hover {
   @apply bg-gray-500 opacity-100;
 }
-.to-top svg{
+.to-top svg.fa-5x{
   @apply text-2xl text-white;
 }
 /* Post pages
@@ -2327,7 +2337,9 @@ input[type="submit"]:focus {
 .gallery-columns-9.gallery-size-thumbnail .gallery-caption {
   display: none
 }
-
+.tiled-gallery .gallery-row {
+  margin:0 auto;
+}
 @media only screen and (min-width: 1270px) {
   .archive-pagination {
     @apply pt-12;
