@@ -207,7 +207,7 @@ add_action( 'genesis_before_content', 'archive_site_title' );
 function archive_site_title() { 
 	if (is_front_page()){
 		$site_title = get_bloginfo( 'name' );
-		echo '<h1 style="margin-top:0;width:100%">' . $site_title . '</h1>';
+		echo '<h1 id="site-name-title" style="margin-top:0;width:100%">' . $site_title . '</h1>';
 	}
 }
 
