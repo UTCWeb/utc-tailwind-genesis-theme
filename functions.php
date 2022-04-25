@@ -51,7 +51,6 @@ function utc_theme_support() {
 
 }
 
-
 //Add Gutenber opt-in features and styling
 add_action( 'after_setup_theme', 'genesis_child_gutenberg_support' );
 function genesis_child_gutenberg_support() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- using same in all child themes to allow action to be unhooked.
@@ -197,14 +196,21 @@ add_action( 'genesis_header_right', 'genesis_do_subnav', 9 );
 
 remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
 add_action( 'genesis_header', 'custom_site_title' );
-
 // Reposition the site title.
 function custom_site_title() { 
 	$site_title = get_bloginfo( 'name' );
 	$link = sprintf( '<a href="%1$s" rel="blog home">%2$s</a>', get_bloginfo( 'url' ), $site_title );
 	echo '<div class="custom-title">' . $link . '</div>';
-
 }
+add_action( 'genesis_before_content', 'archive_site_title' );
+// Reposition the site title.
+function archive_site_title() { 
+	if (is_front_page()){
+		$site_title = get_bloginfo( 'name' );
+		echo '<h1 style="margin-top:0;width:100%">' . $site_title . '</h1>';
+	}
+}
+
 
 //Create custom header markup.
 function genesis_do_utcheader() {
