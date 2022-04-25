@@ -177,11 +177,18 @@
     return html.replace(/(Select a month)/g, '<span>$1</span>');
   });
   $('.arrow-indicator').parent().addClass('sub-menu-closed');
-  $('.sidebar-primary .widget_converted li.level-1 ').click(function(){
+  $('.sidebar-primary .widget_converted li.level-1,.sidebar-primary .widget_converted li.level-1 span').click(function(){
     if ($(this).hasClass('sub-menu-closed')) {
       $(this).addClass('sub-menu-open').removeClass('sub-menu-closed');
     } else {
       $(this).removeClass('sub-menu-open').addClass('sub-menu-closed').find('.sub-menu').slideUp();
+    }
+  });
+  $('.sidebar-primary .widget_converted li.level-1 span.arrow-indicator').click(function(){
+    if ($(this).parent().hasClass('sub-menu-closed')) {
+      $(this).parent().addClass('sub-menu-open').removeClass('sub-menu-closed');
+    } else {
+      $(this).parent().removeClass('sub-menu-open').addClass('sub-menu-closed').find('.sub-menu').slideUp();
     }
   });
   $('.arrow-indicator').click(function(){

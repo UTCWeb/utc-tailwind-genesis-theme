@@ -10,8 +10,6 @@ Author: Bridget Hornsby
 
 Author URI: https://www.utc.edu
 
-Version: 1.5.3
-
 Tags: accessibility-ready, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, left-sidebar, one-column, right-sidebar, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, two-columns, wide-blocks
 
 Template: genesis
