@@ -5,7 +5,7 @@
  Author:       Bridget Hornsby
  Author URI:   https://www.utc.edu/
  Template:     genesis
- Version:      1.5.4
+ Version:      1.5.5
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light-only, left-sidebar, full-width, right-sidebar, responsive-layout, accessibility-ready, onboarding available
@@ -290,7 +290,7 @@ h1.archive-title {
 .genesis-breadcrumbs-visible h1,
 .genesis-breadcrumbs-visible h1.entry-title,
 .genesis-breadcrumbs-visible h1.archive-title {
-  @apply pb-0 mb-0;
+  @apply pb-2 mb-0;
 }
 
 
@@ -410,19 +410,44 @@ a.addtoany_share img {
   color:#112e51;
   position:relative;
 }
+a.addtoany_share svg:hover,
+.addtoany_list a:hover svg {
+  @apply text-utc-blue-500;
+}
+a.addtoany_share svg:hover {
+  @apply opacity-50;
+}
 .addtoany_list a svg:not(:host).svg-inline--fa {
   position: absolute;
   left:0;
 }
 a.addtoany_share i, a.addtoany_share svg {
-  @apply text-6xl text-utc-blue-500 absolute left-0;
+  @apply text-4xl text-utc-blue-500 absolute left-0 h-9 w-9;
   transition: var(--utc-transition);
 }
-a.addtoany_share i:hover, a.addtoany_share svg:hover {
-  @apply text-utc-gold-500;
+
+.addtoany_list a {
+	font-size:2.25rem;
+    width: 42px;
+    height: 36px;
+	transition: all .4s ease-in-out;
+}
+.addtoany_list a svg {
+    width: 32px;
+    height: 32px;
+}
+.addtoany_list a svg.utc-share {
+	width: 36px;
+  height: 36px;
+  margin-top: -1px;
+	border-radius:0;
+}
+.addtoany_list.a2a_kit_size_32 a:hover {
+	color:unset;
+	opacity:50%;
 }
 #a2apage_dropdown {
-  @apply mt-12 -ml-2 bg-white rounded-none p-4 border-0 shadow-utc w-16;
+  @apply -mt-6 ml-12 bg-white rounded-none p-4 border-0 shadow-utc w-16;
 }
 a.a2a_i{
   width:90%!important;
@@ -439,7 +464,12 @@ a.a2a_i{
 a.a2a_i:hover, .a2a_wide a:hover {
   background-color: #E7EAEE!important;
 }
-
+a svg {
+  @apply text-utc-blue-500;
+}
+a:hover svg {
+  @apply text-utc-gold-500;
+}
 .site-container button:disabled,
 .site-container button:disabled:hover,
 .site-container input:disabled,
@@ -2094,10 +2124,11 @@ input[type="submit"]:focus {
 }
 .featured-content.featuredpost .entry,
 .widget_recent_entries li {
-  @apply border-b border-utc-blue-100 py-3;
+  @apply border-b border-utc-blue-100 py-3 pl-2;
+  transition: var(--utc-transition);
 }
-.widget_recent_entries li {
-  @apply py-5;
+.widget_recent_entries li:hover {
+  @apply bg-utc-blue-100;
 }
 .featured-content.featuredpost .entry {
   @apply m-0 pt-1 pb-0;
@@ -2106,11 +2137,8 @@ input[type="submit"]:focus {
   @apply border-0;
 }
 .widget_recent_entries li a {
-  @apply text-utc-blue-500 font-bold text-base mr-2 leading-snug;
+  @apply font-light text-base mr-2 leading-snug;
   transition: var(--utc-transition);
-}
-.widget_recent_entries li a:hover {
-  @apply text-utc-gold-500 ;
 }
 .widget_recent_entries span {
   @apply block;
@@ -2337,9 +2365,7 @@ input[type="submit"]:focus {
 .gallery-columns-9.gallery-size-thumbnail .gallery-caption {
   display: none
 }
-.tiled-gallery .gallery-row {
-  margin:0 auto;
-}
+
 @media only screen and (min-width: 1270px) {
   .archive-pagination {
     @apply pt-12;
