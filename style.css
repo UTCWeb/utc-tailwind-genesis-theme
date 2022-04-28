@@ -455,6 +455,18 @@ a.a2a_i{
   border-color: #f7fafc!important;
   background-color: #fff!important;
 }
+@media (prefers-color-scheme: dark){ 
+  .a2a_menu a, 
+  .a2a_menu a.a2a_i, 
+  .a2a_menu a.a2a_i:visited, 
+  .a2a_menu a.a2a_more, 
+  i.a2a_i, 
+  #a2apage_dropdown {
+    background: #112e51 !important;
+    font-family:"Roboto", sans-serif;
+    font-weight:300;
+  }
+}
 .a2a_wide a {
   border-color: #112e51!important;
   border-bottom:none!important;
