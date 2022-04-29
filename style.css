@@ -1641,7 +1641,8 @@ p.entry-meta {
   @apply relative w-full;
   transition: var(--utc-transition);
 }
-.sidebar-primary .widget_nav_menu li.sub-menu-open {
+.sidebar-primary .widget_nav_menu li.sub-menu-open, 
+.sidebar-primary .widget_nav_menu li.level-1.active {
   @apply pb-2;
 }
 .sidebar-primary .widget_nav_menu:not(.widget_converted) li a {
@@ -1652,7 +1653,8 @@ p.entry-meta {
 .sidebar-primary .widget_nav_menu li:focus,
 .sidebar-primary .widget_nav_menu li:focus-within,
 .sidebar-primary .widget_nav_menu li li.active,
-.sidebar-primary .widget_nav_menu li.sub-menu-open {
+.sidebar-primary .widget_nav_menu li.sub-menu-open,
+.sidebar-primary .widget_nav_menu li.level-1.active {
   @apply bg-utc-blue-100;
 }
 
@@ -1675,12 +1677,13 @@ p.entry-meta {
   @apply border-0;
 }
 .sidebar-primary .sub-menu {
-  @apply w-90 ml-auto hidden bg-white mt-0;
+  @apply w-95 ml-2 hidden bg-white mt-2;
   
   transform-origin: top center;
 }
 
-.sidebar-primary .sub-menu-open .sub-menu {
+.sidebar-primary .sub-menu-open .sub-menu,
+.sidebar-primary li.level-1.active > .sub-menu {
   @apply block;
   animation: growDown 500ms ease-in-out forwards;
 }
@@ -1705,7 +1708,8 @@ p.entry-meta {
   content: "\2023";
   transition: var(--utc-transition);
 }
-.sidebar-primary .sub-menu-open > .arrow-indicator {
+.sidebar-primary .sub-menu-open > .arrow-indicator,
+.sidebar-primary li.level-1.active > .arrow-indicator{
   transform: rotate(90deg);
 }
 .sidebar-primary .level-1 > .sub-menu, .sidebar-primary .navigation_widget .sub-menu {
@@ -1722,6 +1726,11 @@ p.entry-meta {
 }
 .sub-menu li {
   @apply block;
+}
+span.select-text {
+  padding:18px;
+  padding-left:0;
+  padding-right:100px;
 }
 @keyframes growDown {
   0% {
@@ -2045,8 +2054,10 @@ body.widgets-php .widget_nav_menu ul > li a {
 .site-footer .footer-widgets {
   @apply float-none max-w-full w-full;
 }
-#footer-menu-map a {@apply text-white;}
-#footer-menu-map a:hover {@apply text-utc-gold-500;}
+#footer-menu-map a, #footer-menu-map a svg {
+  transition: var(--utc-transition);
+}
+
 /* To the Top Button
   ---------------------------------------------------------------------------- */
 .to-top {
@@ -2444,7 +2455,11 @@ input[type="submit"]:focus {
   .post-template-default .sidebar .widget {
     @apply mb-8;
   }
-  
+  span.select-text {
+    padding-right: 80%;
+    white-space: nowrap;
+    overflow-x: visible;
+  }
   /****Move sidebar menu to the top of the content without moving the aside element***/
   .content-sidebar-wrap {@apply relative;}
   .sidebar .widget_nav_menu {@apply top-0}
