@@ -2519,8 +2519,16 @@ input[type="submit"]:focus {
   }
 }
 @media only screen and (max-width: 991px) {
+  #menu-main-menu {
+    @apply hidden;
+  } 
   .site-header {
     @apply bg-utc-blue-100 shadow-none;
+    min-height: unset;
+    height:112px;
+  }
+  .header-first-row {
+    @apply h-16;
   }
   .site-header > .wrap {
     @apply flex-row;
@@ -2543,14 +2551,12 @@ input[type="submit"]:focus {
   .genesis-responsive-menu .genesis-nav-menu .sub-menu a,
   .genesis-responsive-menu .genesis-nav-menu .sub-menu,
   .js .nav-primary {
-    @apply absolute w-48 right-0 mt-16;
+    @apply absolute w-48 right-0 mr-0;
+    margin-top:112px;
   }
   .genesis-nav-menu .menu-item-has-children.menu-item > .sub-menu {
-    @apply pt-2;
+    @apply pt-2 w-full bg-utc-blue-100 relative h-full;
     box-shadow: inset 1px 3px 5px -1px rgb(0 0 0 / 15%);
-  }
-  .genesis-nav-menu .menu-item-has-children.menu-item:hover > .sub-menu {
-    @apply w-full bg-utc-blue-100 relative h-full;
   }
   .genesis-responsive-menu
     .genesis-nav-menu
@@ -2586,6 +2592,9 @@ input[type="submit"]:focus {
   .genesis-nav-menu li,
   .genesis-nav-menu.menu-primary > li {
     @apply float-none;
+  }
+  .genesis-nav-menu.menu-primary > li {
+    @apply bg-transparent;
   }
   .nav-primary .genesis-nav-menu.menu-primary > li:not(:last-child) {
     @apply border-0 border-b border-gray-300;
@@ -2647,16 +2656,25 @@ input[type="submit"]:focus {
     text-rendering: auto;
   }
   .sub-menu-toggle {
-    @apply bg-transparent float-right text-sm py-3 px-6 absolute right-0 top-0.5 z-100;
+    @apply bg-transparent float-right text-sm py-3 px-6 absolute right-0 top-0 z-100;
+    transform: rotate(-90deg);
+    transition: var(--utc-transition);
   }
-  .sub-menu-toggle::before {
-    @apply inline-block float-right;
-    text-rendering: auto;
-    transform: rotate(0);
-    transition: transform 0.25s ease-in-out;
+  .sub-menu-toggle.activated {
+    transform: rotate(0deg);
   }
-  .sub-menu-toggle.activated::before {
-    transform: rotate(180deg);
+  #genesis-mobile-nav-primary, #genesis-mobile-nav-primary:focus, #genesis-mobile-nav-primary:focus-visible, 
+  .sub-menu-toggle, .sub-menu-toggle:focus, .sub-menu-toggle:focus-visible {
+    outline:none;
+  }
+  .genesis-nav-menu.menu-primary > li.menu-item-has-children .sub-menu {
+    display: none!important;
+    transition: var(--utc-transition);
+    padding-bottom:6px;
+  }
+  .genesis-nav-menu.menu-primary > li.menu-item-has-children.active .sub-menu {
+      display: block!important;
+      transition: var(--utc-transition);
   }
   .genesis-responsive-menu .genesis-nav-menu .menu-item {
     @apply block float-none relative text-left;
@@ -2679,9 +2697,11 @@ input[type="submit"]:focus {
   .genesis-responsive-menu .genesis-nav-menu .menu-item a,
   .genesis-responsive-menu .toggle-header-search {
     @apply border-none mb-px py-3 px-5 w-full;
+    font-size: 14px;
   }
   .genesis-responsive-menu.nav-primary .genesis-nav-menu .sub-menu a {
     @apply text-utc-blue-500;
+    padding: 0.4rem;
   }
   .genesis-responsive-menu .genesis-nav-menu .menu-item > a:focus ul.sub-menu,
   .genesis-responsive-menu
@@ -2705,11 +2725,19 @@ input[type="submit"]:focus {
   .js .header-search-wrap .search-form {
     @apply mt-0 px-0;
   }
+  .js .header-search-wrap input[type="search"].search-form-input{
+    @apply w-90;
+  }
   .search-icon-menu-item a {
     @apply mr-0;
   }
   .toggle-header-search.close {
-    @apply top-0 right-0;
+    @apply top-0 right-4 text-right table;
+  }
+  .toggle-header-search .ionicons {
+    transform: scale(3);
+    display: table-cell;
+    vertical-align: middle;
   }
   /***Main content area***/
   h1,
@@ -2719,6 +2747,9 @@ input[type="submit"]:focus {
   }
   .post-template-default .content {
     @apply pl-0;
+  }
+  .error404 .site-inner {
+    max-width: 80%;
   }
   /****Dept. Footer****/
   .utc-dpt {
@@ -2736,8 +2767,11 @@ input[type="submit"]:focus {
   #legal-questions {
     display: block;
   }
+  .frontpage .sidebar .widget_nav_menu {
+    top: 150px;
+  }
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 768px) {
   .site-header > .wrap {
     @apply pr-4;
   }
@@ -2752,9 +2786,7 @@ input[type="submit"]:focus {
   .header-search-wrap:target {
     @apply w-full;
   }
-  .toggle-header-search.close {
-    @apply top-0 -right-4;
-  }
+ 
   .full-width-content.landing-page .content {
     @apply mb-0;
   }
@@ -2771,10 +2803,13 @@ input[type="submit"]:focus {
   .genesis-breadcrumbs-visible  .content .entry-header {
     @apply mb-0;
   }
+  .frontpage .sidebar .widget_nav_menu {
+    top: 120px;
+  }
   .content-sidebar .sidebar,
   .sidebar,
   .sidebar-content .sidebar {
-    @apply clear-both float-none;
+    @apply clear-both float-none overflow-x-hidden;
   }
   .archive-description .description-wrap {
     @apply grid;
@@ -2821,7 +2856,7 @@ input[type="submit"]:focus {
     @apply pr-12;
   }
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 640px) {
   .genesis-nav-menu .menu-item.ribbon-container {
     @apply hidden;
   }
@@ -2829,12 +2864,12 @@ input[type="submit"]:focus {
   .genesis-responsive-menu .genesis-nav-menu .menu-item.mobile-show-only {
     @apply block;
   }
+  .nav-primary .open-sub-menu  {
+    padding-bottom:115px;
+  }
   .site-header > .wrap {
     @apply max-w-full pr-4;
-  }
-  .site-header {
-    min-height: unset;
-    @apply max-h-16;
+
   }
   .title-area,
   .wp-custom-logo .title-area {
@@ -2903,12 +2938,16 @@ input[type="submit"]:focus {
   .site-container .wp-block-quote::before {
     @apply -ml-12;
   }
+  .has_navigation_widget #genesis-content {
+    @apply mt-24;
+  }
+  .frontpage .sidebar .widget.navigation_widget {
+    top: 80px;
+  }
   /****Map Footer***/
   .before-footer-menu-map .wrap,
   .site-footer > .wrap {
-    @apply max-w-full;
-    padding-left: 6%;
-    padding-right: 6%;
+    @apply max-w-full px-0;
   }
   .before-footer-menu-map .button {
     @apply block;
