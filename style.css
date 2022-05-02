@@ -136,7 +136,8 @@ body > footer {
   @apply clear-both;
 }
 .custom-title {
-  @apply h-0 pl-6 inline-block relative w-auto;
+  @apply h-0 pl-6 inline-block w-auto absolute w-full;
+  top:72px;
 }
 .custom-title a {
   @apply text-utc-blue-500 font-utcheadings font-normal italic text-lg absolute top-2 w-fit;
@@ -2535,7 +2536,7 @@ input[type="submit"]:focus {
     max-width: 87%;
   }
   .custom-title { 
-    @apply absolute shadow-utc;
+    @apply shadow-utc;
     background: #fff;
     height: auto;
     width: 100%;
@@ -2767,7 +2768,8 @@ input[type="submit"]:focus {
   #legal-questions {
     display: block;
   }
-  .frontpage .sidebar .widget_nav_menu {
+  .frontpage .sidebar .widget_nav_menu,
+  .home .sidebar .widget_nav_menu {
     top: 150px;
   }
 }
@@ -2803,7 +2805,8 @@ input[type="submit"]:focus {
   .genesis-breadcrumbs-visible  .content .entry-header {
     @apply mb-0;
   }
-  .frontpage .sidebar .widget_nav_menu {
+  .frontpage .sidebar .widget_nav_menu,
+  .home .sidebar .widget_nav_menu {
     top: 120px;
   }
   .content-sidebar .sidebar,
@@ -2941,7 +2944,8 @@ input[type="submit"]:focus {
   .has_navigation_widget #genesis-content {
     @apply mt-24;
   }
-  .frontpage .sidebar .widget.navigation_widget {
+  .frontpage .sidebar .widget.navigation_widget,
+  .home .sidebar .widget_nav_menu {
     top: 80px;
   }
   /****Map Footer***/
