@@ -128,3 +128,4 @@ WP Database Backup v5.8.1 |
 4. The homepage h1 tage of the blog is automatically populated with the blog's name, meaning you may have two headings on the homepage. 
     Remove the extra one by going to "Edit Page" and removing it.
 
+5. In some cases, the home page notes that it is a "Blog Except" with instructions to not remove. With this new theme, we will show the latest blog posts instead of this page. Go to Settings > Reading > and check "Your latest posts".
