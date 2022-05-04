@@ -53,7 +53,7 @@ WP Database Backup v5.8.1 |
 3. You will need the department locale/contact information.
 
 ## Database setup:
-1. Check to see if your primary menu is correct. If not, designate it by checking "Primary Menu" in Appearance > Menus and adding the appropriate links. In the rare occasion where the blog does not have a primary menu (ie., Gretchen E Potts, Phd.), you will need to add a blank primary menu and check checkbox "Primary Menu" in order for the secondary menu to show up.
+1. Check to see if your primary menu is correct. If not, designate it by checking "Primary Menu" in Appearance > Menus and adding the appropriate links. In the rare occasion where the blog does not have a primary menu (ie., Gretchen E Potts, Phd.), you will need to add a blank primary menu and check checkbox "Primary Menu" and save it in order for the secondary menu to show up.
 
 2. The secondary menu, which contains the "I am..." and the "Quick Links", is to be attached to an empty secondary menu.
     Under Appearance > Menus
@@ -61,6 +61,7 @@ WP Database Backup v5.8.1 |
     --Name it (ex. Secondary Menu Placeholder).
     --Do not add any links to it. This will be done for you.
     --Check checkbox "Secondary Menu."
+    --Save.
 
 3. Add/Remove Appearance > Widgets
     --Place categories, archive and/or any other widgets present in the sidebar. 
