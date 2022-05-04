@@ -48,7 +48,9 @@ WP Database Backup v5.8.1 |
 
 
 ## Before installing the new theme, take note:
-1. Desired sidebar widgets, less the "Meta" widget.
+1. Current list sidebar widgets, less the "Meta" widget.
+2. Primary menu links.
+3. You will need the department locale/contact information.
 
 ## Database setup:
 1. Check to see if your primary menu is correct. If not, designate it by checking "Primary Menu" in Appearance > Menus and adding the appropriate links. In the rare occasion where the blog does not have a primary menu (ie., Gretchen E Potts, Phd.), you will need to add a blank primary menu and check checkbox "Primary Menu" in order for the secondary menu to show up.
