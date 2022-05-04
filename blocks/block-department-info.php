@@ -59,7 +59,7 @@
                 <?php 
                     if ( ! empty( $home ) ) {
                         echo '<li class="inline horizontal px-2">
-                            <a class="text-utc-blue-500 hover:text-utc-gold-500" href="';
+                            <a class="text-white hover:text-utc-gold-500" href="';
                             echo $home; 
                             echo '" target="_self" aria-label="Go to our departmental homepage" title="Go to our departmental homepage">
                                 <span class="fa fa-home fa-2x"></span>
@@ -68,7 +68,7 @@
                     }
                     if ( ! empty( $blog ) ) {
                         echo '<li class="inline horizontal px-2">
-                            <a class="text-utc-blue-500 hover:text-utc-gold-500" href="';
+                            <a class="text-white hover:text-utc-gold-500" href="';
                             echo $blog; 
                             echo '" target="_self" aria-label="Follow our Blog/News" title="Follow our Blog/News">
                                 <span class="fa fa-blog fa-2x"></span>
@@ -77,7 +77,7 @@
                     }
                     if ( ! empty( $linkedin ) ) {
                         echo '<li class="inline horizontal px-2">
-                            <a class="text-utc-blue-500 hover:text-utc-gold-500" href="';
+                            <a class="text-white hover:text-utc-gold-500" href="';
                             echo $linkedin; 
                             echo '" target="_self" aria-label="Find us on LinkedIn" title="Find us on LinkedIn">
                                 <span class="fa fa-linkedin fa-2x"></span>
@@ -86,7 +86,7 @@
                     }
                     if ( ! empty( $youtube ) ) {
                         echo '<li class="inline horizontal px-2">
-                            <a class="text-utc-blue-500 hover:text-utc-gold-500" href="';
+                            <a class="text-white hover:text-utc-gold-500" href="';
                             echo $youtube; 
                             echo '" target="_self" aria-label="Find us on YouTube" title="Find us on YouTube">
                                 <span class="fa fa-youtube fa-2x"></span>
@@ -95,7 +95,7 @@
                     }
                     if ( ! empty( $twitter ) ) {
                         echo '<li class="inline horizontal px-2">
-                            <a class="text-utc-blue-500 hover:text-utc-gold-500" href="';
+                            <a class="text-white hover:text-utc-gold-500" href="';
                             echo $twitter; 
                             echo '" target="_self" aria-label="Find us on Twitter" title="Find us on Twitter">
                                 <span class="fa fa-twitter fa-2x"></span>
@@ -104,7 +104,7 @@
                     }
                     if ( ! empty( $instagram ) ) {
                         echo '<li class="inline horizontal px-2">
-                            <a class="text-utc-blue-500 hover:text-utc-gold-500" href="';
+                            <a class="text-white hover:text-utc-gold-500" href="';
                             echo $instagram; 
                             echo '" target="_self" aria-label="Find us on Instagram" title="Find us on Instagram">
                                 <span class="fa fa-instagram fa-2x"></span>
@@ -112,16 +112,16 @@
                         </li>';
                     }
                     if ( ! empty( $facebook ) ) {
-                                    echo '<li class="inline horizontal px-2">
-                                        <a class="text-utc-blue-500 hover:text-utc-gold-500" href="';
-                                        echo $facebook; 
-                                        echo '" target="_self" aria-label="Find us on facebook" title="Find us on facebook">
-                                            <span class="fa fa-facebook fa-2x"></span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        <div>';
+                        echo '<li class="inline horizontal px-2">
+                            <a class="text-utc-blue-500 hover:text-utc-gold-500" href="';
+                             echo $facebook; 
+                             echo '" target="_self" aria-label="Find us on facebook" title="Find us on facebook">
+                             <span class="fa fa-facebook fa-2x"></span>
+                            </a>
+                        </li>
+                    </ul>
+                 </div>
+            <div>';
                     }
             if ( (! empty( $days )) || (! empty( $hours )) ) {
                 echo '<h3 class="text-2xl mt-4 mb-0">Department Hours</h3><div class="text-lg mt-2"><strong>'; 

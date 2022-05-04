@@ -13,9 +13,11 @@
     $hsWrap = $("#header-search-wrap"),
     $hsInput = $hsWrap.find('input[type="search"]');
 
+ 
   // Make sure JS class is added.
   $(document).ready(function () {
     $("body").addClass("js");
+    $('#menu-main-menu').css('display','block');
   });
 
   // Run on page scroll.
@@ -30,6 +32,7 @@
 
 /*****************Important Search functionality****************/
   // Handler for click a show/hide button.
+  
   $hsToggle.on("click", function (event) {
     event.preventDefault();
 
@@ -40,18 +43,12 @@
     }
   });
 
- /*  DEPRECATED? $(".ab-block-post-grid-excerpt:empty")
-    .parent()
-    .parent()
-    .addClass("no-excerpt"); */
-
   // Handler for pressing show/hide button.
   $hsToggle.on("keydown", function (event) {
     // If tabbing from toggle button, and search is hidden, exit early.
     if (9 === event.keyCode && !$header.hasClass("search-visible")) {
       return;
     }
-
     event.preventDefault();
     handleKeyDown(event);
   });
@@ -98,53 +95,28 @@
   }
 
 /*****************Important Main Menu functionality****************/
-  $(".genesis-nav-menu .sub-menu a").each(function () {
-    $(this).hover().parent();
-  });
+
   $(".genesis-nav-menu.menu-primary").addClass("level-1");
-  $(
-    ".genesis-nav-menu.menu-primary > li.menu-item-has-children > .sub-menu"
-  ).addClass("level-2");
+  $(".genesis-nav-menu.menu-primary > li.menu-item-has-children > .sub-menu").addClass("level-2");
 
   $(".genesis-nav-menu.menu-primary > li.menu-item-has-children").each(
     function () {
       $(this).click(function () {
-        if ($(this).hasClass("clicked")) {
-          $(this)
-            .find("button")
-            .removeClass("activated")
-            .attr("aria-expanded", "false")
-            .attr("aria-pressed", "false");
-          $(this).find(".level-2").hide("fast");
-          $(this).removeClass("clicked");
-          $(this).addClass("removeclicked");
-        } else {
-          $(this)
-            .parent()
-            .find(".clicked")
-            .each(function () {
-              $(this)
-                .find("button")
-                .removeClass("activated")
-                .attr("aria-expanded", "false")
-                .attr("aria-pressed", "false");
-              $(this).find(".level-2").hide("fast");
-              $(this).removeClass("clicked");
-              $(this).addClass("removeclicked");
-            });
-          $(this)
-            .find("button")
-            .addClass("activated")
-            .attr("aria-expanded", "true")
-            .attr("aria-pressed", "true");
-          $(this).find(".level-2").show("slow");
-          $(this).addClass("clicked");
-          $(this).removeClass("removeclicked");
+        if ($(this).hasClass('active')) {
+          $(this).removeClass('active');
+          $(this).parent().removeClass('open-sub-menu');
+        } else{
+          $(this).parent().find('li.active').removeClass('active');
+          $(this).addClass('active');
+          if ($(this).is(":last-child")) {
+            $(this).parent().addClass('open-sub-menu')
+          } else {$(this).parent().removeClass('open-sub-menu'); }
         }
+    
       });
     }
   );
-
+  
 /*****************Convert categories and archive lists into ul menus****************/
   $('section.widget_categories, section.widget_archive').addClass('widget_nav_menu widget_converted'); 
   $(".widget_categories .widget-wrap > ul").wrap("<ul class='menu'><li class='menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1'>Select a category</li></ul>");
@@ -247,28 +219,8 @@
       $('<h3 class="widgettitle widget-title">Section Menu</h3>').prependTo(this);
     }
   });
-})(jQuery);
 
-/*****************Move any department info block from content into the footer*******/
-if (document.querySelector("#department-footer")) {
-  let moveThisDiv = document.querySelector("#department-footer");
-  let destinationFooter = document.querySelector('.site-footer');
-  deptFooter = destinationFooter.prepend(moveThisDiv);
-  moveThisDiv.style.visibility = 'visible';
-}
-
-
-/*****************Make sidebar menus reponsive****************/
-var hamburgerMenu = document.createElement("i");
-hamburgerMenu.className = "fa fa-bars float-right text-xl";
-document
-  .querySelector(".sidebar .navigation_widget .widget-title")
-  .appendChild(hamburgerMenu);
-hamburgerMenu.innerHTML = "&nbsp;";
-
-
-/****B/C Safari won't play nice with the Apply Now transitions, we're going to add the browser as a body class****/
-(function($) {
+  /****B/C Safari won't play nice with the Apply Now transitions, we're going to add the browser as a body class****/
   var BrowserDetect = {
       init: function() {
           this.browser = this.searchString(this.dataBrowser) || "Other";
@@ -350,5 +302,23 @@ hamburgerMenu.innerHTML = "&nbsp;";
   } else {
       $("body").addClass("browser-unknown");
   }
-      
+    
 })(jQuery);
+
+/*****************Move any department info block from content into the footer*******/
+if (document.querySelector("#department-footer")) {
+  let moveThisDiv = document.querySelector("#department-footer");
+  let destinationFooter = document.querySelector('.site-footer');
+  deptFooter = destinationFooter.prepend(moveThisDiv);
+  moveThisDiv.style.visibility = 'visible';
+}
+
+
+/*****************Make sidebar menus reponsive****************/
+var hamburgerMenu = document.createElement("i");
+hamburgerMenu.className = "fa fa-bars float-right text-xl";
+document
+  .querySelector(".sidebar .navigation_widget .widget-title")
+  .appendChild(hamburgerMenu);
+hamburgerMenu.innerHTML = "&nbsp;";
+

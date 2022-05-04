@@ -195,7 +195,7 @@ remove_action( 'genesis_after_header', 'genesis_do_subnav' );
 add_action( 'genesis_header_right', 'genesis_do_subnav', 9 );
 
 remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
-add_action( 'genesis_header', 'custom_site_title' );
+add_action( 'genesis_header', 'custom_site_title', 12 );
 // Reposition the site title.
 function custom_site_title() { 
 	$site_title = get_bloginfo( 'name' );
@@ -580,8 +580,7 @@ function add_static_nav($menu, $args) {
     if ( 'primary' !== $args['theme_location']  )
         return $menu;
         $follow = '<li id="menu-item-80" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-80"><a href="#" itemprop="url" class="sf-with-ul"><span itemprop="name">I am…</span></a>
-                <button class="sub-menu-toggle ionicons-before ion-ios-arrow-down" aria-expanded="false" aria-pressed="false"><span class="screen-reader-text">Submenu</span></button>
-                <ul class="sub-menu level-2" style="">
+                <ul class="sub-menu level-2">
                     <li id="menu-item-81" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-81"><a href="https://www.utc.edu/about/student-resources" itemprop="url"><span itemprop="name">…a student.</span></a></li>
                     <li id="menu-item-82" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-82"><a href="https://www.utc.edu/about/faculty-and-staff-resources" itemprop="url"><span itemprop="name">…faculty or staff.</span></a></li>
                     <li id="menu-item-83" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-83"><a href="https://www.utc.edu/about/alumni-and-friends" itemprop="url"><span itemprop="name">…an alumn.</span></a></li>
@@ -590,8 +589,7 @@ function add_static_nav($menu, $args) {
                 </ul>
             </li>
             <li id="menu-item-68" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-68"><a href="#" itemprop="url" class="sf-with-ul"><span itemprop="name">Quick Links</span></a>
-                <button class="sub-menu-toggle ionicons-before ion-ios-arrow-down" aria-expanded="false" aria-pressed="false"><span class="screen-reader-text">Submenu</span></button>
-                <ul class="sub-menu level-2" style="">
+                <ul class="sub-menu level-2">
                     <li id="menu-item-69" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-69"><a href="https://mymocs.utc.edu/" itemprop="url"><span itemprop="name">MyMocsNet</span></a></li>
                     <li id="menu-item-70" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-70"><a href="https://webauth.utc.edu/cas/login?service=https%3A%2F%2Futchattanooga.instructure.com%2Flogin%2Fcas" itemprop="url"><span itemprop="name">UTC Learn (Canvas)</span></a></li>
                     <li id="menu-item-71" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-71"><a href="https://mail.google.com/a/mocs.utc.edu" itemprop="url"><span itemprop="name">Mocs Mail+</span></a></li>
@@ -608,22 +606,9 @@ function add_static_nav($menu, $args) {
             </li>';
     return $menu . $follow;
 }
-//TEMPORARILY ADD HERO IMAGE FOR SPEC 
-/* add_action( 'genesis_after_header', 'after_header_image',1 );
-
-function after_header_image() {
-
-    $image = sprintf( '%s/images/sample-hero.png', get_stylesheet_directory_uri() );
-    
-    $output = sprintf( '<img src="%s" class="after-header w-full" alt="Sample Hero Image" />', $image );
-    
-    echo $output;
-} */
-//REMOVE THE ABOVE TEMPORARY HERO IMAGE BEFORE PUSHING TO GIT 
 
 remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
 remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
-
 
 
 //Change "About" text in author box tggitles for single posts. (Inherited from Navigation Pro child theme.)
@@ -631,13 +616,10 @@ add_filter( 'genesis_author_box_title', 'utc_author_box_title', 10, 2 );
 
 
 function utc_author_box_title( $title, $context ) {
-
     if ( 'archive' === $context ) {
         $title = ' <span itemprop="name">' . get_the_author_meta( 'display_name' ) . '</span>';
     }
-
     return $title;
-
 }
 
 //Modify comment author `says` text. (Inherited from Navigation Pro child theme.)
@@ -940,6 +922,22 @@ function utc_breadcrumb_args( $args ) {
 
     return $args;
 
+}
+
+add_filter('wp_nav_menu_objects' , 'my_menu_class');
+function my_menu_class($menu) {
+    $level = 0;
+    $stack = array('0');
+    foreach($menu as $key => $item) {
+        while($item->menu_item_parent != array_pop($stack)) {
+            $level--;
+        }   
+        $level++;
+        $stack[] = $item->menu_item_parent;
+        $stack[] = $item->ID;
+        $menu[$key]->classes[] = 'level-'. ($level - 1);
+    }                    
+    return $menu;        
 }
 
 /***Adding newsroom-specific files from the utcblog-theme (a strappress child) */
