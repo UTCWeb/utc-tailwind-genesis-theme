@@ -48,8 +48,8 @@ WP Database Backup v5.8.1 |
 
 
 ## Before installing the new theme, take note:
-1. Current list sidebar widgets, less the "Meta" widget.
-2. Primary menu links.
+1. Current list of sidebar widgets, less the "Meta" widget.
+2. Current primary menu links.
 3. You will need the department locale/contact information.
 
 ## Database setup:
