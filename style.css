@@ -280,7 +280,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-normal my-5 font-utcheadings;
+  @apply font-bold my-5 font-utcheadings;
 }
 h1,
 h1.entry-title,
@@ -400,6 +400,9 @@ input[type="submit"].small {
   @apply py-3.5 px-5;
 }
 /*Modernize the Share button*/
+.addtoany_content {
+  margin: 48px auto 0;
+}
 a.addtoany_share {
   @apply relative;
 }

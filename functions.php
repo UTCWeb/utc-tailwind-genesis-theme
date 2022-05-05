@@ -113,6 +113,10 @@ function google_fonts() {
 }
 add_action( 'wp_enqueue_scripts', 'google_fonts', );
 
+/* Set content width for Gallery Mosaic */
+if ( ! isset( $content_width ) )
+$content_width = 880;
+
 // Add image sizes.
 add_image_size( 'teaser', 75, 75, true );
 add_image_size( 'thumbnail', 150, 150, true );
@@ -139,6 +143,13 @@ function utc_media_library_sizes( $sizes ) {
 	$sizes['large-thumbnail']     = __( 'Large Thumbnail - 600px by 600px', 'utc' );
 
     return $sizes;
+}
+
+/** Adding custom Favicon */
+add_filter( 'genesis_pre_load_favicon', 'custom_favicon' ); 
+function custom_favicon( $favicon_url ) {
+	$favicon_powerc = get_stylesheet_directory() . '/image/power-c.png';
+	return $favicon_powerc;
 }
 
 //* Re-position Post Info Conditionally

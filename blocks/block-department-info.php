@@ -33,9 +33,9 @@
                         echo '</div>';
                     } 
                     if ( ! empty( $street_address ) ) {
-                        echo '<div id="dpt-address" class="utc-dpt dpt-address separate">'; 
+                        echo '<div id="dpt-address" class="utc-dpt dpt-address separate"><a href="https://explore.utc.edu/" title="Go to the UTC map." class="dpt-link text-utc-blue-500 hover:bg-white">'; 
                         echo $street_address; 
-                        echo ', Chattanooga, TN 37403</div>';
+                        echo ', Chattanooga, TN 37403</a></div>';
                     } 
                     if ( ! empty( $phone ) ) {
                         echo '<div id="dpt-phone" class="utc-dpt dpt-phone separate"><i class="fas fa-phone"></i>&nbsp;<a class="dpt-link text-utc-blue-500 hover:bg-white" href="tel:'; 
