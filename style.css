@@ -147,7 +147,7 @@ body > footer {
 /* Typographical Elements
   --------------------------------------------- */
 body {
-  @apply font-sans text-utc-blue-500 text-left bg-utc-bg-page text-base font-light m-0 overflow-x-hidden overflow-y-scroll;
+  @apply font-sans text-utc-blue-500 text-left bg-utc-bg-page text-lg font-light m-0 overflow-x-hidden overflow-y-scroll;
 }
 @keyframes fadeIn {
   0% {opacity:0;}
@@ -399,9 +399,9 @@ input[type="reset"].small,
 input[type="submit"].small {
   @apply py-3.5 px-5;
 }
-/*Modernize the Share button*/
+/*Modernize the Share button and override*/
 .addtoany_content {
-  margin: 48px auto 0;
+  margin: 48px auto 0!important;
 }
 a.addtoany_share {
   @apply relative;
@@ -1442,7 +1442,7 @@ svg.utc-logo {
   @apply mb-0;
 }
 .single .content img.singular-image, .single .content figure {
-  @apply w-full max-w-full;
+  @apply w-auto max-w-full;
 }
 .archive-no-results .entry,
 .search-no-results .entry {
@@ -2094,7 +2094,7 @@ body.widgets-php .widget_nav_menu ul > li a {
   @apply text-2xl mb-3;
 }
 .single .content .entry-content > p:first-of-type {
-  @apply text-base pb-0 border-0;
+  @apply text-lg pb-0 border-0;
 }
 .entry-comments-link {
   @apply pt-0 pb-4;
