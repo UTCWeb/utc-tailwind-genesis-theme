@@ -315,10 +315,17 @@ if (document.querySelector("#department-footer")) {
 
 
 /*****************Make sidebar menus reponsive****************/
-var hamburgerMenu = document.createElement("i");
+const bodyHasClass = document.body.classList.contains('sidebar-content');
+const sidebarHasMenu = document.querySelector(".navigation_widget");
+const hamburgerMenu = document.createElement("i");
 hamburgerMenu.className = "fa fa-bars float-right text-xl";
-document
-  .querySelector(".sidebar .navigation_widget .widget-title")
-  .appendChild(hamburgerMenu);
-hamburgerMenu.innerHTML = "&nbsp;";
+
+if (bodyHasClass && sidebarHasMenu) {
+  document
+    .querySelector(".sidebar .navigation_widget .widget-title")
+    .appendChild(hamburgerMenu);
+  hamburgerMenu.innerHTML = "&nbsp;";
+}
+
+
 

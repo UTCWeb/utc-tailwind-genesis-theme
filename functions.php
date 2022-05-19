@@ -207,12 +207,14 @@ add_action( 'genesis_header_right', 'genesis_do_subnav', 9 );
 
 remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
 add_action( 'genesis_header', 'custom_site_title', 12 );
+
 // Reposition the site title.
 function custom_site_title() { 
 	$site_title = get_bloginfo( 'name' );
 	$link = sprintf( '<a href="%1$s" rel="blog home">%2$s</a>', get_bloginfo( 'url' ), $site_title );
 	echo '<div class="custom-title">' . $link . '</div>';
 }
+
 add_action( 'genesis_before_content', 'archive_site_title' );
 // Reposition the site title.
 function archive_site_title() { 
@@ -950,6 +952,10 @@ function my_menu_class($menu) {
     }                    
     return $menu;        
 }
+function admin_default_page() {
+	return '/wp-admin/index.php';
+  }
+add_filter('login_redirect', 'admin_default_page');
 
 /***Adding newsroom-specific files from the utcblog-theme (a strappress child) */
 
@@ -997,4 +1003,3 @@ function register_cpt_utcblogs_newsletter() {
 
     register_post_type( 'utcblogs_newsletter', $args );
 }*/
-
