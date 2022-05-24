@@ -65,8 +65,9 @@ function utc_search_image_alignment() {
 remove_action( 'genesis_entry_footer', 'genesis_entry_footer_markup_open', 5 );
 remove_action( 'genesis_entry_footer', 'genesis_post_info' );
 remove_action( 'genesis_entry_footer', 'genesis_entry_footer_markup_close', 15 );
+remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 add_action( 'genesis_after_header', 'utc_do_search_title', 15 );
-add_action( 'genesis_entry_footer', 'genesis_post_info' );
+remove_action( 'genesis_entry_footer', 'genesis_post_info' );
 /**
  * Echo the title with the search term.
  *
@@ -85,7 +86,7 @@ function utc_do_search_title() {
 }
 
 //Wrap search word in <strong>
-add_action ('genesis_before_content', 'search_word_wrapper');
+/*add_action ('genesis_before_content', 'search_word_wrapper');
 function search_word_wrapper() {
     if (is_search()){
         add_action ('genesis_before_loop', 'search_word_open_wrapper');
@@ -97,7 +98,7 @@ function search_word_open_wrapper() {
 }
 function search_word_close_wrapper() {
     echo '</strong>';
-}
+}*/
 
 $search_classes = get_body_class();
 if (in_array('search-no-results',$search_classes)) {
