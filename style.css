@@ -90,6 +90,9 @@ html,
 body {
   @apply m-0 h-full bg-utc-bg-page;
 }
+html {
+  scroll-behavior: smooth;
+}
 body > footer {
   position: sticky;
   top: 100vh;
@@ -174,6 +177,12 @@ a {
 a:hover,
 a:focus {
   @apply text-utc-gold-500 outline-none;
+}
+main a:not([href]):before {
+  @apply block invisible;
+  content: "";
+  height: 150px;
+  margin-top: -150px;
 }
 span:target {
   @apply block relative invisible -top-2.5;
@@ -2415,6 +2424,10 @@ input[type="submit"]:focus {
 .gallery-columns-9.gallery-size-thumbnail .gallery-caption {
   display: none
 }
+.sya_yearslist a {
+  @apply py-4;
+  line-height: 36px;
+}
 
 @media only screen and (min-width: 1270px) {
   .archive-pagination {
@@ -2932,8 +2945,9 @@ input[type="submit"]:focus {
   h1,
   h1.entry-title,
   .error404 .entry-title {
-    @apply mt-20 text-3xl border-b-4 pb-3 mb-0;
+    @apply mt-12 text-3xl border-b-4 pb-3 mb-0;
   }
+  .breadcrumb {@apply leading-3 pb-8;}
   .entry-header {@apply mb-0;}
   h2 {
     @apply text-2xl;
@@ -2958,6 +2972,7 @@ input[type="submit"]:focus {
   .content .entry::before {
     @apply hidden;
   }
+  .sya_yearslist {@apply text-center;}
   blockquote p,
   .site-container .wp-block-quote p {
     @apply pl-10 border-0 pr-6;
