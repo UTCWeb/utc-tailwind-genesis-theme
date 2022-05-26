@@ -65,8 +65,9 @@ function utc_search_image_alignment() {
 remove_action( 'genesis_entry_footer', 'genesis_entry_footer_markup_open', 5 );
 remove_action( 'genesis_entry_footer', 'genesis_post_info' );
 remove_action( 'genesis_entry_footer', 'genesis_entry_footer_markup_close', 15 );
+remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 add_action( 'genesis_after_header', 'utc_do_search_title', 15 );
-add_action( 'genesis_entry_footer', 'genesis_post_info' );
+remove_action( 'genesis_entry_footer', 'genesis_post_info' );
 /**
  * Echo the title with the search term.
  *
@@ -82,6 +83,51 @@ function utc_do_search_title() {
 		$title
 	) . "\n";
 
+}
+
+//Wrap search word in <strong>
+/*add_action ('genesis_before_content', 'search_word_wrapper');
+function search_word_wrapper() {
+    if (is_search()){
+        add_action ('genesis_before_loop', 'search_word_open_wrapper');
+        add_action ('genesis_after_loop', 'search_word_close_wrapper');
+    }
+}
+function search_word_open_wrapper() {
+    echo '<strong>';
+}
+function search_word_close_wrapper() {
+    echo '</strong>';
+}*/
+
+$search_classes = get_body_class();
+if (in_array('search-no-results',$search_classes)) {
+	remove_action( 'genesis_after_header', 'utc_do_search_title', 15 );
+	remove_action( 'genesis_before_content_sidebar_wrap', 'genesis_do_breadcrumbs' );
+}
+
+remove_action( 'genesis_loop_else', 'genesis_do_noposts' );
+add_action( 'genesis_loop_else', 'utc_do_noposts' );
+
+$search_word = get_search_query();
+
+function utc_do_noposts() {
+
+    echo '<h1 class="archive-title">';
+    echo _e('We\'re sorry.', 'responsive'); 
+    echo '</h1><h3 class="mt-8 block text-center">We\'re unable to find what you were looking for.</h3><p class="text-center mt-8 font-normal">';
+    echo _e('Don&#39;t worry. Let&#39;s explore our options.', 'responsive');
+    echo '</p><h5 class="text-center my-8 mx-auto w-fit">';
+    echo _e( 'You can return', 'responsive' ); 
+    echo '<a href="/" title="';
+    echo esc_attr_e( 'Home', 'responsive' );
+    echo '">';
+    echo _e( ' &#9166; Home', 'responsive' );
+    echo '</a> ';
+    echo _e( 'or try another search.', 'responsive' );
+    echo '</h5>';
+    echo get_search_form();
+    
 }
 
 // Runs the genesis loop.
