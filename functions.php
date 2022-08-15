@@ -711,6 +711,7 @@ remove_action( 'genesis_footer', 'genesis_do_footer' );
 add_action( 'genesis_footer', 'utc_custom_footer_content', 7 );
 function utc_custom_footer_content() {
 
+	$current_url = home_url( add_query_arg( [], $GLOBALS['wp']->request ) );
     echo '<!--Footer menu/map begins-->
 		<div id="footer-menu-map" class="before-footer-menu-map"><div class="wrap"><h2 class="screen-reader-text">Explore more</h2>
 	<section id="footer-menus" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><div class="textwidget custom-html-widget"><div id="left-footer-menu" class="footer-menu">
@@ -734,11 +735,13 @@ function utc_custom_footer_content() {
 					<ul class="menu">
 						<li class="menu-item"> <a href="https://mymocs.utc.edu/">MyMocsNet</a> </li>
 						<li class="menu-item"> <a href="https://office.com/">O365</a> </li>
-						<li class="menu-item"> <a href="/information-technology/passwords" data-drupal-link-system-path="node/1831">Change Password</a> </li>
+						<li class="menu-item"> <a href="https://www.utc.edu/information-technology/passwords">Change Password</a> </li>
 						<li class="menu-item"> <a href="https://people.utc.edu/eGuide/servlet/eGuide">People Directory</a> </li>
 						<li class="menu-item"> <a href="https://events.utc.edu/MasterCalendar/MasterCalendar.aspx">Calendars</a> </li>
-						<li class="menu-item"> <a href="https://www.utc.edu/finance-and-administration/human-resources/work" data-drupal-link-system-path="node/38406">Work at UTC</a> </li>
-						<li class="menu-item"> <a href="https://blog.utc.edu/wp/wp-login.php">CAS Log In</a> </li>
+						<li class="menu-item"> <a href="https://www.utc.edu/finance-and-administration/human-resources/work"> Work at UTC</a> </li>
+						<li class="menu-item"> <a href='.site_url().'> Site url</a> </li>
+						<li class="menu-item">'.((is_user_logged_in()) ? '<a href="' . esc_url( wp_logout_url() ) . '">' . __( 'CAS Log out', 'genesis' ) . '</a>' : $link = '<a href="' . esc_url( wp_login_url($_SERVER['REQUEST_URI']) ) . '">' . __( 'CAS Log In', 'genesis' ) . '</a>').' </li>
+						<li class="menu-item">'. wp_loginout() .' </li>
 					</ul>
 				</nav>
 			</div></div></div></section>
