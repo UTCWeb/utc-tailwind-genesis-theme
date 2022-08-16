@@ -739,9 +739,7 @@ function utc_custom_footer_content() {
 						<li class="menu-item"> <a href="https://people.utc.edu/eGuide/servlet/eGuide">People Directory</a> </li>
 						<li class="menu-item"> <a href="https://events.utc.edu/MasterCalendar/MasterCalendar.aspx">Calendars</a> </li>
 						<li class="menu-item"> <a href="https://www.utc.edu/finance-and-administration/human-resources/work"> Work at UTC</a> </li>
-						<li class="menu-item"> <a href='.site_url().'> Site url</a> </li>
-						<li class="menu-item">'.((is_user_logged_in()) ? '<a href="' . esc_url( wp_logout_url() ) . '">' . __( 'CAS Log out', 'genesis' ) . '</a>' : $link = '<a href="' . esc_url( wp_login_url($_SERVER['REQUEST_URI']) ) . '">' . __( 'CAS Log In', 'genesis' ) . '</a>').' </li>
-						<li class="menu-item">'. wp_loginout() .' </li>
+						<li class="menu-item">'.((is_user_logged_in()) ? '<a href="' . esc_url( wp_logout_url() ) . '">' . __( 'CAS Log out', 'genesis' ) . '</a>' : $link = '<a href="' . esc_url( wp_login_url() ) . '">' . __( 'CAS Log In', 'genesis' ) . '</a>').' </li>
 					</ul>
 				</nav>
 			</div></div></div></section>
@@ -955,54 +953,3 @@ function my_menu_class($menu) {
     }                    
     return $menu;        
 }
-function admin_default_page() {
-	return '/wp-admin/index.php';
-  }
-add_filter('login_redirect', 'admin_default_page');
-
-/***Adding newsroom-specific files from the utcblog-theme (a strappress child) */
-
-/* Newsletter Custom Post Type and taxonomies */
-
-/*********keep out for now. this is used only for the news blog.////////////////////////
-
-add_action( 'init', 'register_cpt_utcblogs_newsletter' );
-
-function register_cpt_utcblogs_newsletter() {
-
-    $labels = array(
-        'name' => _x( 'Newsletters', 'utcblogs_newsletter' ),
-        'singular_name' => _x( 'Newsletter', 'utcblogs_newsletter' ),
-        'add_new' => _x( 'Add New', 'utcblogs_newsletter' ),
-        'add_new_item' => _x( 'Add New Newsletter', 'utcblogs_newsletter' ),
-        'edit_item' => _x( 'Edit Newsletter', 'utcblogs_newsletter' ),
-        'new_item' => _x( 'New Newsletter', 'utcblogs_newsletter' ),
-        'view_item' => _x( 'View Newsletter', 'utcblogs_newsletter' ),
-        'search_items' => _x( 'Search Newsletters', 'utcblogs_newsletter' ),
-        'not_found' => _x( 'No newsletters found', 'utcblogs_newsletter' ),
-        'not_found_in_trash' => _x( 'No newsletters found in Trash', 'utcblogs_newsletter' ),
-        'parent_item_colon' => _x( 'Parent Newsletter:', 'utcblogs_newsletter' ),
-        'menu_name' => _x( 'Newsletters', 'utcblogs_newsletter' ),
-    );
-
-    $args = array(
-        'labels' => $labels,
-        'hierarchical' => true,
-        'description' => 'UTCBlogs Newsletters',
-        'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'page-attributes' ),
-        'public' => true,
-        'show_ui' => true,
-        'show_in_menu' => true,
-        'menu_position' => 5,
-        'show_in_nav_menus' => true,
-        'publicly_queryable' => true,
-        'exclude_from_search' => false,
-        'has_archive' => true,
-        'query_var' => true,
-        'can_export' => true,
-        'rewrite' => array('slug' => 'newsletters'),
-        'capability_type' => 'page'
-    );
-
-    register_post_type( 'utcblogs_newsletter', $args );
-}*/
