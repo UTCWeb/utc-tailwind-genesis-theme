@@ -955,10 +955,6 @@ function my_menu_class($menu) {
     }                    
     return $menu;        
 }
-function admin_default_page() {
-	return '/wp-admin/index.php';
-  }
-add_filter('login_redirect', 'admin_default_page');
 
 /***Adding newsroom-specific files from the utcblog-theme (a strappress child) */
 
