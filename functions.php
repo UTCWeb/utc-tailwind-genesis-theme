@@ -739,9 +739,7 @@ function utc_custom_footer_content() {
 						<li class="menu-item"> <a href="https://people.utc.edu/eGuide/servlet/eGuide">People Directory</a> </li>
 						<li class="menu-item"> <a href="https://events.utc.edu/MasterCalendar/MasterCalendar.aspx">Calendars</a> </li>
 						<li class="menu-item"> <a href="https://www.utc.edu/finance-and-administration/human-resources/work"> Work at UTC</a> </li>
-						<li class="menu-item"> <a href='.site_url().'> Site url</a> </li>
-						<li class="menu-item">'.((is_user_logged_in()) ? '<a href="' . esc_url( wp_logout_url() ) . '">' . __( 'CAS Log out', 'genesis' ) . '</a>' : $link = '<a href="' . esc_url( wp_login_url($_SERVER['REQUEST_URI']) ) . '">' . __( 'CAS Log In', 'genesis' ) . '</a>').' </li>
-						<li class="menu-item">'. wp_loginout() .' </li>
+						<li class="menu-item">'.((is_user_logged_in()) ? '<a href="' . esc_url( wp_logout_url() ) . '">' . __( 'CAS Log out', 'genesis' ) . '</a>' : $link = '<a href="' . esc_url( wp_login_url() ) . '">' . __( 'CAS Log In', 'genesis' ) . '</a>').' </li>
 					</ul>
 				</nav>
 			</div></div></div></section>
