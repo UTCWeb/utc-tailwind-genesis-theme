@@ -101,5 +101,8 @@ module.exports = {
   variants: {
     extend: {},
   },
+  fontSize: {
+    base: ['18px', '24px'],
+  },
   plugins: [],
 };

@@ -2126,7 +2126,7 @@ body.widgets-php .widget_nav_menu ul > li a {
   @apply text-2xl mb-3;
 }
 .single .content .entry-content > p:first-of-type {
-  @apply text-lg pb-0 border-0;
+  @apply pb-0 border-0;
 }
 .entry-comments-link {
   @apply pt-0 pb-4;
