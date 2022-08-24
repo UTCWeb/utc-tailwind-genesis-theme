@@ -5,7 +5,7 @@
  Author:       Bridget Hornsby
  Author URI:   https://www.utc.edu/
  Template:     genesis
- Version:      1.5.7
+ Version:      1.5.9
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light-only, left-sidebar, full-width, right-sidebar, responsive-layout, accessibility-ready, onboarding available
@@ -2126,7 +2126,7 @@ body.widgets-php .widget_nav_menu ul > li a {
   @apply text-2xl mb-3;
 }
 .single .content .entry-content > p:first-of-type {
-  @apply text-lg pb-0 border-0;
+  @apply pb-0 border-0;
 }
 .entry-comments-link {
   @apply pt-0 pb-4;
