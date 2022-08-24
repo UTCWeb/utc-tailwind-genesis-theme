@@ -169,18 +169,6 @@ function utc_css() {
 		$appearance['color-contrast']['footer']
 	) : '';
 
-	$intro_paragraph = get_theme_mod( 'utc_intro_paragraph_styling', 1 );
-
-	$css .= ( $intro_paragraph ) ? sprintf(
-		'
-		.single .content .entry-content > p:first-of-type {
-			border-bottom: 1px solid rgba(0, 0, 0, 0.07);
-			font-size: 22px;
-			padding-bottom: 34px;
-		}
-		'
-	) : '';
-
 	if ( $css ) {
 		wp_add_inline_style( genesis_get_theme_handle(), $css );
 	}
