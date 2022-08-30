@@ -5,7 +5,7 @@
  Author:       Bridget Hornsby
  Author URI:   https://www.utc.edu/
  Template:     genesis
- Version:      1.5.9.1
+ Version:      1.5.9.2
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light-only, left-sidebar, full-width, right-sidebar, responsive-layout, accessibility-ready, onboarding available
@@ -139,11 +139,11 @@ body > footer {
   @apply clear-both;
 }
 .custom-title {
-  @apply h-0 pl-6 inline-block w-full absolute;
+  @apply h-12 pl-6 flex w-fit pl-12 absolute justify-start items-center;
   top:72px;
 }
 .custom-title a {
-  @apply text-utc-blue-500 font-utcheadings font-normal italic text-lg absolute top-2 w-fit;
+  @apply text-utc-blue-500 font-utcheadings font-normal italic text-lg relative w-fit;
 }
 /* Defaults
   ---------------------------------------------------------------------------- */
@@ -188,7 +188,7 @@ span:target {
   @apply block relative invisible -top-2.5;
 }
 p {
-  @apply text-utc-blue-500 m-0 mb-4 p-0;
+  @apply text-utc-blue-500 m-0 mb-4 p-0 text-base;
 }
 .is-style-capital-text {
   @apply mt-6 text-xl;
@@ -263,24 +263,22 @@ iframe {
   @apply bg-utc-blue-800 text-white;
   text-shadow: none;
 }
+.frontpage .recent-posts, .home .widget_recent_entries {display:none;}
 /* Stick footer to the bottom
   --------------------------------------------- */
   #page-container {
     position: relative;
     min-height: 100vh;
   }
-  
   #content-wrap {
     padding-bottom: 2.5rem;    /* Footer height */
   }
-  
   #footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 2.5rem;            /* Footer height */
   }
-
 
 /* Headings
   --------------------------------------------- */
@@ -300,14 +298,11 @@ h1.entry-title,
 h1.archive-title {
   @apply text-6xl text-center w-full pb-6 border-b-8 border-utc-gold-500 font-medium mt-24 mb-16 mx-auto leading-tight;
 }
-
 .genesis-breadcrumbs-visible h1,
 .genesis-breadcrumbs-visible h1.entry-title,
 .genesis-breadcrumbs-visible h1.archive-title {
   @apply pb-2 mb-0;
 }
-
-
 h2 {
   @apply text-4xl mt-8;
 }
@@ -389,7 +384,6 @@ input[type="radio"] {
 ::placeholder {
   @apply text-utc-blue-200 opacity-100;
 }
-
 .btn,
 .button {
   @apply inline-block my-2;
@@ -442,7 +436,6 @@ a.addtoany_share i, a.addtoany_share svg {
   @apply text-4xl text-utc-blue-500 absolute left-0 h-9 w-9;
   transition: var(--utc-transition);
 }
-
 .addtoany_list a {
   position: relative;
 	font-size:2.25rem;
@@ -474,6 +467,7 @@ a.a2a_i{
   background-color: #fff!important;
 }
 .addtoany_list.a2a_kit_size_32 a.addtoany_share>span {display:none;}
+.addtoany_share_save {padding-top:2px;}
 @media (prefers-color-scheme: dark){ 
   .a2a_menu a, 
   .a2a_menu a.a2a_i, 
@@ -2140,7 +2134,6 @@ body.widgets-php .widget_nav_menu ul > li a {
 .entry-comments-link br {
   @apply hidden;
 }
-
 .more-link, 
 .button,
 .btn, 
@@ -2160,7 +2153,8 @@ input[type="submit"] {
 .btn:hover,
 input[type="submit"]:hover {
   border-color: #112e51;
-  color: #112e51
+  color: #112e51;
+  background: #fff;
 }
 .more-link:hover,
 .more-link:focus,
@@ -2171,7 +2165,9 @@ input[type="submit"]:focus {
 .more-link span:after {
   content: '\279D';
 }
-
+.more-link:hover {
+  box-shadow: inset 220px 0 0 0 #fff;
+}
 .entry-meta + .entry-meta {
   @apply border-gray-500;
 }
@@ -2485,6 +2481,10 @@ input[type="submit"]:focus {
     padding-right:0!important;
     padding-left:0!important;
   }
+
+.sidebar {
+    @apply mb-16;
+  }
   .sidebar {
     @apply pt-0 mb-18 mt-4;
   }
@@ -2557,6 +2557,12 @@ input[type="submit"]:focus {
     font-size: 18px !important;
     margin-bottom: 24px !important;
   }
+  .content-sidebar-wrap, .sidebar-content .content,  .content .sidebar-content {
+    @apply mb-0;
+  }
+  .sidebar {
+    @apply mb-16;
+  }
 }
 @media only screen and (max-width: 991px) {
   #menu-main-menu {
@@ -2575,15 +2581,8 @@ input[type="submit"]:focus {
     max-width: 87%;
   }
   .custom-title { 
-    @apply shadow-utc;
+    @apply shadow-utc w-full;
     background: #fff;
-    height: auto;
-    width: 100%;
-    top: 4rem;
-    height: 48px;
-  }
-  .custom-title a {
-    @apply relative;
   }
   .header-first-row {
     @apply w-11/12 float-left bg-transparent;
@@ -2790,6 +2789,9 @@ input[type="submit"]:focus {
   }
   .error404 .site-inner {
     max-width: 80%;
+  }
+  .archive-pagination {
+    padding-top: 3rem;
   }
   /****Dept. Footer****/
   .utc-dpt {
@@ -3080,3 +3082,30 @@ input[type="submit"]:focus {
     @apply hidden;
   }
 }
+
+
+/****adjust for old genesis theme classes*****/
+
+.well.span3.pull-right {
+	width:33%;
+	background: #e7eaee;
+	margin-left:36px;
+	padding:0px 36px 12px;
+	float:right;
+}
+#mssls ul li {
+  border-bottom:1px solid #ddd;
+  padding-top:12px;
+  padding-bottom:12px;
+  padding-left:12px;
+  transition: all 0.4s ease-in-out;
+}
+  #mssls ul li a {
+  font-style: normal;
+  text-decoration:none;
+  color: #112e51;
+}
+#mssls ul li:hover {
+  background:#e7eaee;
+}
+p.sya_yearslist {display:none;}
