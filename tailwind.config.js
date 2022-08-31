@@ -102,7 +102,10 @@ module.exports = {
     extend: {},
   },
   fontSize: {
-    base: ['18px', '24px'],
+    sm: ['16px', '19px'],
+    base: ['18px', '22px'],
+    lg: ['21px', '24px'],
+    xl: ['27px', '30px'],
   },
   plugins: [],
 };
