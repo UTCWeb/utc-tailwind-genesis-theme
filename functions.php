@@ -643,7 +643,7 @@ function utc_comment_author_says_text() {
 
 }
 
-//Modify the content limit more link markup for posts. (Inherited from Navigation Pro child theme.)
+//Modify the content limit more link markup for posts. THIS ONLY WORKS FOR "ENTRY CONTENT" Option in theme settings.
 add_filter( 'get_the_content_limit', 'utc_content_limit_read_more_markup', 10, 3 );
 function utc_content_limit_read_more_markup( $output, $content, $link ) {
 
@@ -655,6 +655,46 @@ function utc_content_limit_read_more_markup( $output, $content, $link ) {
 
     return $output;
 
+}
+
+//Add elipses when needed for "ENTRY EXCEPTS" option in the theme settings.
+function add_elipses_excerpt_more($more) {
+	global $post;
+	return '&hellip; <p class="more-link-wrap"><span><a class="more-link button text" href="'. get_permalink($post->ID) . '"><span>' . __( 'Continue Reading', 'textdomain' ) . ' </span></a></span></p>';
+}
+add_filter('excerpt_more', 'add_elipses_excerpt_more');
+
+//Add continue reading button for "ENTRY EXCEPTS" option in the theme settings.
+//ADDING THE READ MORE LINK TO ALL OTHER EXCERPTS
+add_filter( 'get_the_excerpt', 'excerpt_read_more_all_cases' );
+
+function excerpt_read_more_all_cases( $text ) {
+
+	global $post;
+	$raw = $post->post_content;
+	$excerpt_length = apply_filters( 'excerpt_length', 55 );
+	$raw_to_more = substr( $raw, 0, strpos( $raw, '<!--more-->' ) );
+	$excerpt_of_raw = wp_trim_words( $raw, $excerpt_length, ''); 
+	$excerpt_of_raw_to_more = wp_trim_words( $raw_to_more, $excerpt_length, ''); 
+
+// CHECKING FOR MANUALLY WRITTEN EXCERPT
+	if( has_excerpt() ) { 
+	
+		$text .= '<p class="more-link-wrap"><span><a class="more-link button text" href="'. get_permalink($post->ID) . '"><span>' . __( 'Continue Reading ', 'textdomain' ) . '</a></span></p>';
+		
+// CHECKING FOR EXCERPT BEING SHORT BY THE 'MORE TAG'
+	} elseif( strpos( $raw, '<!--more-->' ) && strlen( $excerpt_of_raw_to_more ) < strlen( $excerpt_of_raw ) ) {
+	
+		$text .= '<p class="more-link-wrap"><span><a class="more-link button text" href="'. get_permalink($post->ID) . '">' . __( 'Continue Reading ', 'textdomain' ) . '</a></span></p>';
+		
+// CHECKING FOR EXCERPT BEING SHORT BECAUSE OIF SHORT CONTENT
+	} elseif( strlen( $text ) == strlen( $excerpt_of_raw ) ) {
+	
+		$text .= '<p class="more-link-wrap"><span><a class="more-link button text" href="'. get_permalink($post->ID) . '">' . __( 'Continue Reading ', 'textdomain' ) . '</a></span></p>';
+		
+	}
+	
+	return $text;
 }
 
 //Add a paragraph tag around the WordPress more link markup. (Inherited from Navigation Pro child theme.)
@@ -842,13 +882,23 @@ add_filter('upload_mimes', 'add_file_types_to_uploads');
 
 
 //Add the category of a post as a class to the body tag.
-add_filter( 'body_class', 'pn_body_class_add_categories' );
-function pn_body_class_add_categories( $classes ) {
+add_filter( 'body_class', 'utc_body_class_add_categories' );
+function utc_body_class_add_categories( $classes ) {
     if ( !is_single() )
         return $classes;
     $post_categories = get_the_category();
     foreach( $post_categories as $current_category ) {
     $classes[] = 'category-' . $current_category->slug;
+    }
+    return $classes;
+}
+
+//If the first paragraph is selected in the child-theme-settings apply body class. *NOTE* True is the default of onboarding.
+add_filter( 'body_class', 'first_paragraph_body_class' );
+function first_paragraph_body_class( $classes ) {
+	$firstparagraph = genesis_get_option( 'utc_intro_paragraph_styling' );
+	if ( is_page() || is_singular() && $firstparagraph ) {
+        $classes[] = 'first-paragraph-true';
     }
     return $classes;
 }
@@ -868,12 +918,6 @@ function custom_body_classes( $classes ) {
     return $classes;
 }
 add_filter( 'body_class', 'custom_body_classes' );
-
-//Replace the WordPress default for the excerpts continuum [...]
-/*add_filter('excerpt_more', 'new_excerpt_more');
-function new_excerpt_more( $more ) {
-    return '... <a class="read_more" href="'. get_permalink($post->ID) . '">' . 'READ MORE' . '</a>';
-}*/
 
     
 // Wrap entry titles on 'single' pages in h1 tags

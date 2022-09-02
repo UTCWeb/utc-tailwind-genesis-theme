@@ -5,7 +5,7 @@
  Author:       Bridget Hornsby
  Author URI:   https://www.utc.edu/
  Template:     genesis
- Version:      1.5.9.2
+ Version:      1.5.9.3
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light-only, left-sidebar, full-width, right-sidebar, responsive-layout, accessibility-ready, onboarding available
@@ -456,6 +456,9 @@ a.addtoany_share i, a.addtoany_share svg {
 .addtoany_list.a2a_kit_size_32 a:hover {
 	color:unset;
 	opacity:50%;
+}
+.home .addtoany_content, .frontpage .addtoany_content, .archive .addtoany_content, .category .addtoany_content, .tags .addtoany_content {
+  display:none!important;
 }
 #a2apage_dropdown {
   @apply -mt-5 ml-12 bg-white rounded-none p-4 border-0 shadow-utc w-16;
@@ -1390,7 +1393,11 @@ svg.utc-logo {
 }
 .image-featured-blog.image-alignleft,
 .image-featured-blog.image-alignright {
-  @apply mb-0 max-w-1/4;
+  @apply mb-0;
+  /*bc the contributors don't always use the feature image, but allow the first image to be grabbed, we must set fixed widths*/
+  min-width:175px;
+  max-width:175px;
+  width:175px;
 }
 .image-featured-blog.image-alignleft {
   @apply mr-6;
@@ -2119,8 +2126,11 @@ body.widgets-php .widget_nav_menu ul > li a {
 .archive-entry.post-image-alignright.post-image-featured-blog h2.entry-title {
   @apply text-2xl mb-3;
 }
-.single .content .entry-content > p:first-of-type {
-  @apply pb-0 border-0;
+.first-paragraph-true .entry-content > p:first-of-type, .first-paragraph-true .entry-content.first-has-iframe > p:nth-child(2) {
+  @apply pb-0 border-0 text-xl;
+}
+.first-paragraph-true .entry-content.first-has-iframe > p:nth-child(2) {
+  @apply mt-12;
 }
 .entry-comments-link {
   @apply pt-0 pb-4;
@@ -3040,7 +3050,7 @@ input[type="submit"]:focus {
   }
   .image-featured-blog.image-alignleft,
   .image-featured-blog.image-alignright {
-    @apply float-none ml-0 mr-0 max-w-none;
+    @apply float-none ml-0 mr-0 w-full max-w-none;
   }
   .archive-featured-image-wrap.image-zoom img {
     @apply m-0 w-full h-auto;
