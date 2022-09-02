@@ -219,8 +219,16 @@
       $('<h3 class="widgettitle widget-title">Section Menu</h3>').prependTo(this);
     }
   });
+/*****************Fix OEmbed issues that OCM makes frequently****************/
 
-  /****B/C Safari won't play nice with the Apply Now transitions, we're going to add the browser as a body class****/
+const bodyHasFirstParagraphTrue = document.body.classList.contains('first-paragraph-true');
+const entryContent = document.querySelector(".entry-content");
+
+$('.entry-content:has(iframe) p:first-child').addClass('first-child');
+$('.entry-content p:has(iframe)').parent().addClass('first-has-iframe');
+
+
+/****B/C Safari won't play nice with the Apply Now transitions, we're going to add the browser as a body class****/
   var BrowserDetect = {
       init: function() {
           this.browser = this.searchString(this.dataBrowser) || "Other";
@@ -326,6 +334,8 @@ if (bodyHasClass && sidebarHasMenu) {
     .appendChild(hamburgerMenu);
   hamburgerMenu.innerHTML = "&nbsp;";
 }
+
+
 
 
 
