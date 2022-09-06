@@ -897,7 +897,7 @@ function utc_body_class_add_categories( $classes ) {
 add_filter( 'body_class', 'first_paragraph_body_class' );
 function first_paragraph_body_class( $classes ) {
 	$firstparagraph = genesis_get_option( 'utc_intro_paragraph_styling' );
-	if ( is_page() || is_singular() && $firstparagraph ) {
+	if ( is_page() || is_singular() && $firstparagraph==true ) {
         $classes[] = 'first-paragraph-true';
     }
     return $classes;
