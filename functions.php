@@ -62,6 +62,8 @@ if ( function_exists( 'genesis_register_responsive_menus' ) ) {
     genesis_register_responsive_menus( genesis_get_config( 'responsive-menus' ) );
 }
 
+// Remove default Genesis Child Theme Stylesheet bc it's a duplicate of the compiled css
+remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
 
 // Enqueue script files
 add_action( 'wp_enqueue_scripts', 'utc_enqueue_scripts_styles' );
@@ -104,14 +106,40 @@ function utc_enqueue_scripts_styles() {
         true
     );
 
-}
 
-//Add google fonts
-function google_fonts() {
-    wp_enqueue_style( 'google-roboto', 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap', false );
-	wp_enqueue_style( 'google-oswald', 'https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap', false );
+    wp_enqueue_script( 
+		'fontawesome-kit', 
+		'https://kit.fontawesome.com/6cef20ef42.js', 
+		false 
+	);
+
+    wp_enqueue_style( 
+		'google-roboto', 
+		'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap', 
+		false 
+	);
+
+	wp_enqueue_style( 
+		'google-oswald', 
+		'https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap', 
+		false 
+	);
+
+	wp_enqueue_style(
+		genesis_get_theme_handle() . '-compiled', 
+		get_stylesheet_directory_uri() . '/dist/style.css',
+		[],
+		genesis_get_theme_version()
+	);
+	
+    wp_enqueue_script( 
+		genesis_get_theme_handle() . '-compiled', 
+		get_stylesheet_directory_uri() . '/dist/app.js', 
+		[ 'jquery' ],
+		genesis_get_theme_version(), 
+		true 
+	);
 }
-add_action( 'wp_enqueue_scripts', 'google_fonts', );
 
 /* Set content width for Gallery Mosaic */
 if ( ! isset( $content_width ) )
@@ -853,37 +881,6 @@ function utc_register_sidebars() {
     );
 
 }
-
-///////////CACHE BUSTER FUNCTION FOR GENESIS///////////
-// Remove default Genesis Child Theme Stylesheet
-remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
-
-// Create function to append last modified file to stylesheet URL
-add_action( 'wp_enqueue_scripts', 'wd_genesis_child_stylesheet' );
-function wd_genesis_child_stylesheet() {
-     $theme_name = defined('CHILD_THEME_NAME') && CHILD_THEME_NAME ? sanitize_title_with_dashes(CHILD_THEME_NAME) : 'child-theme';
-     $version = defined( 'CHILD_THEME_VERSION' ) && CHILD_THEME_VERSION ? CHILD_THEME_VERSION : PARENT_THEME_VERSION;
-     $version .= '.' . date ( "njYHi", filemtime( get_stylesheet_directory() . 'style.css' ) );
-     wp_enqueue_style( $theme_name, get_stylesheet_uri(), array(), $version );
-}
-/////////////////////////////////////////////////////////
-
-//Add compiled css & js
-function utc_custom_style(){
-    wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . '/dist/style.css', 999 );
-} 
-add_action( 'wp_enqueue_scripts', 'utc_custom_style' );
-
-
-function utc_custom_scripts() {
-      wp_enqueue_script( 'app-js', get_stylesheet_directory_uri() . '/dist/app.js', array(),'', true );
-}	  
-add_action( 'wp_enqueue_scripts', 'utc_custom_scripts', 999 );
-
-function add_externalFontAwesomeProv6(){
-	echo '<script src="https://kit.fontawesome.com/6cef20ef42.js" crossorigin="anonymous"></script>';
-}
-add_action( 'wp_head', 'add_externalFontAwesomeProv6' );
 
 //Allow SVG option for image uploads
 function add_file_types_to_uploads($file_types){
