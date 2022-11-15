@@ -137,8 +137,7 @@ function utc_enqueue_scripts_styles() {
 		get_stylesheet_directory_uri() . '/dist/app.js', 
 		[ 'jquery' ],
 		genesis_get_theme_version(), 
-		true 
-	);
+		true );
 }
 
 /* Set content width for Gallery Mosaic */
@@ -814,45 +813,47 @@ function utc_custom_footer_content() {
 				<section id="footer-map" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><div class="textwidget custom-html-widget"><div id="left-footer-map">
 					&nbsp;
 				</div>
-				<div id="global-footer-map"><div class="inner-map-wrap">
-					<a href="https://explore.utc.edu/?id=1826#!ct/" class="campus-map"><img alt="UTC campus maps" height="405" src="https://marvel-b1-cdn.bc0a.com/f00000000184993/www.utc.edu/sites/default/files/2020-08/utc-footer-map-explore.png" width="361" be_marvel="1" onerror="this.onerror=null;this.src=https://marvel-b1-cdn.bc0a.com/f00000000184993/www.utc.edu/sites/default/files/2020-08/utc-footer-map-explore.png"></a></div>
-				<ul class="utc-footer-socials">
-				<li class="inline horizontal px-2">
-				<a class="text-white hover:text-utc-links-hoverFooterIcons" href="https://www.utc.edu" target="_self" aria-label="Back to our departmental homepage" title="Back to our departmental homepage" rel="noopener">
-				<span class="text-white hover:text-utc-links-hoverFooterIcon fa fa-home fa-sm"></span>
-				</a>
-				</li>
-				<li class="inline horizontal px-2">
-				<a class="text-white hover:text-utc-links-hoverFooterIcons" href="https://blog.utc.edu/news/" target="_self" aria-label="Follow our Blog/News" title="Follow our Blog/News" rel="noopener">
-				<span class="text-white hover:text-utc-links-hoverFooterIcon fa fa-blog fa-sm"></span>
-				</a>
-				</li>
-				<li class="inline horizontal px-2">
-				<a class="text-white hover:text-utc-links-hoverFooterIcons" href="https://www.linkedin.com/school/27384/" target="_self" aria-label="Find us on LinkedIn" title="Find us on LinkedIn" rel="noopener">
-				<span class="text-white hover:text-utc-links-hoverFooterIcon fa fa-linkedin fa-sm"></span>
-				</a>
-				</li>
-				<li class="inline horizontal px-2">
-				<a class="text-white hover:text-utc-links-hoverFooterIcons" href="https://www.youtube.com/UTChattanooga" target="_self" aria-label="Find us on Youtube" title="Find us on Youtube" rel="noopener">
-				<span class="text-white hover:text-utc-links-hoverFooterIcon fa fa-youtube fa-sm"></span>
-				</a>
-				</li>
-				<li class="inline horizontal px-2">
-				<a class="text-white hover:text-utc-links-hoverFooterIcons" href="https://www.twitter.com/UTChattanooga" target="_self" aria-label="Find us on Twitter" title="Find us on Twitter" rel="noopener">
-				<span class="text-white hover:text-utc-links-hoverFooterIcon fa fa-twitter fa-sm"></span>
-				</a>
-				</li>
-				<li class="inline horizontal px-2">
-				<a class="text-utc-blue-500 hover:text-utc-links-hoverFooterIcons" href="https://www.instagram.com/utchattanooga" target="_self" aria-label="Find us on Instagram" title="Find us on Instagram" rel="noopener">
-				<span class="text-white hover:text-utc-links-hoverFooterIcon fa fa-instagram fa-sm"></span>
-				</a>
-				</li>
-				<li class="inline horizontal px-2">
-				<a class="text-white hover:text-utc-links-hoverFooterIcons" href="https://www.facebook.com/UTChattanooga" target="_self" aria-label="Find us on Facebook" title="Find us on Facebook" rel="noopener">
-				<span class="text-white hover:text-utc-links-hoverFooterIcon fa fa-facebook fa-sm"></span>
-				</a>
-				</li>
-				</ul>
+				<div id="global-footer-map">
+					<div class="inner-map-wrap">
+						<a href="https://explore.utc.edu/?id=1826#!ct/" class="campus-map"><img alt="UTC campus maps" height="405" src="https://www.utc.edu/sites/default/files/2020-08/utc-footer-map-explore.png" width="361" ></a>
+					</div>
+					<ul class="utc-footer-socials">
+						<li class="inline horizontal px-2">
+							<a class="text-white hover:text-utc-links-hoverFooterIcons" href="https://www.utc.edu" target="_self" aria-label="Back to our departmental homepage" title="Back to our departmental homepage" rel="noopener">
+								<span class="text-white hover:text-utc-links-hoverFooterIcon fa fa-home fa-sm"></span>
+							</a>
+						</li>
+						<li class="inline horizontal px-2">
+							<a class="text-white hover:text-utc-links-hoverFooterIcons" href="https://blog.utc.edu/news/" target="_self" aria-label="Follow our Blog/News" title="Follow our Blog/News" rel="noopener">
+								<span class="text-white hover:text-utc-links-hoverFooterIcon fa fa-blog fa-sm"></span>
+							</a>
+						</li>
+						<li class="inline horizontal px-2">
+							<a class="text-white hover:text-utc-links-hoverFooterIcons" href="https://www.linkedin.com/school/27384/" target="_self" aria-label="Find us on LinkedIn" title="Find us on LinkedIn" rel="noopener">
+								<span class="text-white hover:text-utc-links-hoverFooterIcon fa fa-linkedin fa-sm"></span>
+							</a>
+						</li>
+						<li class="inline horizontal px-2">
+							<a class="text-white hover:text-utc-links-hoverFooterIcons" href="https://www.youtube.com/UTChattanooga" target="_self" aria-label="Find us on Youtube" title="Find us on Youtube" rel="noopener">
+								<span class="text-white hover:text-utc-links-hoverFooterIcon fa fa-youtube fa-sm"></span>
+							</a>
+						</li>
+						<li class="inline horizontal px-2">
+							<a class="text-white hover:text-utc-links-hoverFooterIcons" href="https://www.twitter.com/UTChattanooga" target="_self" aria-label="Find us on Twitter" title="Find us on Twitter" rel="noopener">
+								<span class="text-white hover:text-utc-links-hoverFooterIcon fa fa-twitter fa-sm"></span>
+							</a>
+						</li>
+						<li class="inline horizontal px-2">
+							<a class="text-utc-blue-500 hover:text-utc-links-hoverFooterIcons" href="https://www.instagram.com/utchattanooga" target="_self" aria-label="Find us on Instagram" title="Find us on Instagram" rel="noopener">
+								<span class="text-white hover:text-utc-links-hoverFooterIcon fa fa-instagram fa-sm"></span>
+							</a>
+						</li>
+						<li class="inline horizontal px-2">
+							<a class="text-white hover:text-utc-links-hoverFooterIcons" href="https://www.facebook.com/UTChattanooga" target="_self" aria-label="Find us on Facebook" title="Find us on Facebook" rel="noopener">
+								<span class="text-white hover:text-utc-links-hoverFooterIcon fa fa-facebook fa-sm"></span>
+							</a>
+						</li>
+					</ul>
 				</div>
 				<div id="right-footer-map">
 					&nbsp;

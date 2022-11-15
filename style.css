@@ -2435,6 +2435,34 @@ input[type="submit"]:focus {
   line-height: 36px;
 }
 
+
+/***Genesis blocks: Media Text Block (Newsroom uses)****/
+.sidebar-content:not(.unboxed) .entry-content > .wp-block-media-text.alignwide {
+	margin-left:0!important;
+	margin-right:0!important;
+	width:100%!important;
+}
+.wp-block-media-text .wp-block-media-text__content {
+	padding:0%;
+}
+
+@media only screen and (min-width:600px){
+.wp-block-media-text .wp-block-media-text__media {
+  margin-right:3rem;
+}
+.wp-block-media-text.has-media-on-the-right .wp-block-media-text__media {
+  margin-left:3rem;
+  margin-right:0;
+}
+}
+@media only screen and (max-width:600px){
+  .wp-block-media-text__content {
+    margin-top: 1rem;
+  }
+}
+/***************/
+
+
 @media only screen and (min-width: 1270px) {
   .archive-pagination {
     @apply pt-12;
