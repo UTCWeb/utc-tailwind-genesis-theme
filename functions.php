@@ -175,7 +175,7 @@ function utc_media_library_sizes( $sizes ) {
 /** Adding custom Favicon */
 add_filter( 'genesis_pre_load_favicon', 'custom_favicon' ); 
 function custom_favicon( $favicon_url ) {
-	$favicon_powerc = get_stylesheet_directory() . '/image/power-c.png';
+	$favicon_powerc = get_stylesheet_directory_uri() . '/images/favicon.ico';
 	return $favicon_powerc;
 }
 
@@ -777,7 +777,7 @@ remove_action( 'genesis_footer', 'genesis_do_footer' );
 //Customize the footer copyright area to show across all blogs.
 add_action( 'genesis_footer', 'utc_custom_footer_content', 7 );
 function utc_custom_footer_content() {
-
+	$campus_map = get_stylesheet_directory_uri() . '/images/utc-footer-map-explore.png';
 	$current_url = home_url( add_query_arg( [], $GLOBALS['wp']->request ) );
     echo '<!--Footer menu/map begins-->
 		<div id="footer-menu-map" class="before-footer-menu-map"><div class="wrap"><h2 class="screen-reader-text">Explore more</h2>
@@ -815,7 +815,7 @@ function utc_custom_footer_content() {
 				</div>
 				<div id="global-footer-map">
 					<div class="inner-map-wrap">
-						<a href="https://explore.utc.edu/?id=1826#!ct/" class="campus-map"><img alt="UTC campus maps" height="405" src="https://www.utc.edu/sites/default/files/2020-08/utc-footer-map-explore.png" width="361" ></a>
+						<a href="https://explore.utc.edu/?id=1826#!ct/" class="campus-map"><img alt="UTC campus maps" height="405" src="'. $campus_map .'" width="361" ></a>
 					</div>
 					<ul class="utc-footer-socials">
 						<li class="inline horizontal px-2">
