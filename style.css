@@ -2447,8 +2447,7 @@ input[type="submit"]:focus {
   line-height: 36px;
 }
 
-/******GENESIS MEDIA TEXT BLOCK*****/
-
+/******BEGIN GENESIS MEDIA TEXT BLOCK*****/
 .sidebar-content:not(.unboxed) .entry-content > .wp-block-media-text.alignwide {
 	margin-left:0!important;
 	margin-right:0!important;
@@ -2474,7 +2473,6 @@ input[type="submit"]:focus {
     padding-top: 12px!important;
   }
 }
-
 /******END GENESIS MEDIA TEXT BLOCK*****/
 
 
