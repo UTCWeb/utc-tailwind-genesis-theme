@@ -594,7 +594,7 @@ function utc_add_search_icon() {
 function utc_add_search_menu_item( $items, $args ) {
 
     $search_toggle = sprintf( '<li class="menu-item search-icon-menu-item">%s</li><li class="menu-item ribbon-container"><div class="ribbon-wrapper">
-    <a href="https://webapp.utc.edu/apply/" title="Apply Now"> 
+    <a href="https://www.utc.edu/apply" title="Apply Now"> 
     <div id="menuribbon" class="ribbon" style="--color: #112e51;">
       <div class="ribbon-content">
         <p id="apply-now-ribbon" class="apply-now-ribbon">Apply</br>Now</p>
