@@ -5,7 +5,7 @@
  Author:       Bridget Hornsby
  Author URI:   https://www.utc.edu/
  Template:     genesis
- Version:      1.5.10.1
+ Version:      1.5.11
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light-only, left-sidebar, full-width, right-sidebar, responsive-layout, accessibility-ready, onboarding available
@@ -139,7 +139,7 @@ body > footer {
   @apply clear-both;
 }
 .custom-title {
-  @apply h-12 pl-6 flex w-fit pl-12 absolute justify-start items-center;
+  @apply h-0 pl-6 flex w-full absolute whitespace-nowrap;
   top:72px;
 }
 .custom-title a {
@@ -224,11 +224,12 @@ blockquote {
   @apply: font-gray-400 m-4;
 }
 blockquote {
-  @apply w-full my-8 italic py-4 px-10 border-0 bg-utc-bg-quoteblock relative;
+  @apply w-full my-8 italic py-8 px-24 border-0 bg-utc-bg-quoteblock relative;
 }
 .site-container .wp-block-pullquote,
 .site-container .wp-block-quote {
   margin-left: 0 !important;
+  padding-left:3rem;
 }
 /*The following class cannot use tailwind bc of !important*/
 .site-container .wp-block-pullquote blockquote::before,
@@ -240,16 +241,27 @@ blockquote {
   font-weight:normal!important;
   color: rgb(203, 213, 224)!important;
   height: unset!important;
-  left: 70px!important;
+  left: 75px!important;
   top: 20px!important;
   position:absolute!important;
 }
 blockquote p,
-.site-container .wp-block-quote p {
-  @apply font-sans border-l-12 border-gray-400 pl-20 text-lg text-gray-400 leading-none mt-6;
+.site-container .wp-block-quote p,
+.site-container .wp-block-pullquote blockquote p, 
+blockquote.wp-block-quote p {
+  color: #555 !important;
+  line-height: 2rem !important;
+  font-size: 21px !important;
+  margin-bottom: 30px !important;
 }
-blockquote p:after {
-  content: "\201D";
+blockquote p,
+.site-container .wp-block-quote p,
+.site-container .wp-block-pullquote blockquote p {
+  @apply font-sans border-l-12 border-gray-400 pl-20 mt-6 mb-6;
+}
+.site-container .wp-block-pullquote blockquote p::after,
+.site-container .wp-block-quote p::after {
+  content: "\201D"!important;
   @apply font-utcquote pr-8 opacity-100 text-9xl absolute text-gray-400;
 }
 .site-container .wp-block-pullquote blockquote::before,
@@ -2435,6 +2447,35 @@ input[type="submit"]:focus {
   line-height: 36px;
 }
 
+/******BEGIN GENESIS MEDIA TEXT BLOCK*****/
+.sidebar-content:not(.unboxed) .entry-content > .wp-block-media-text.alignwide {
+	margin-left:0!important;
+	margin-right:0!important;
+	width:100%!important;
+}
+.wp-block-media-text .wp-block-media-text__content {
+	padding:0%;
+}
+.wp-block-media-text .wp-block-media-text__media {
+	margin-right:2rem!important;
+}
+.wp-block-media-text.has-media-on-the-right .wp-block-media-text__media {
+	margin-left:2rem!important;
+	margin-right:0!important;
+}
+@media only screen and (max-width: 600px){
+  .wp-block-media-text .wp-block-media-text__media,
+  .wp-block-media-text.has-media-on-the-right .wp-block-media-text__media {
+    margin-right:0!important;
+    margin-left:0!important;
+  }
+  .wp-block-media-text .wp-block-media-text__content {
+    padding-top: 12px!important;
+  }
+}
+/******END GENESIS MEDIA TEXT BLOCK*****/
+
+
 @media only screen and (min-width: 1270px) {
   .archive-pagination {
     @apply pt-12;
@@ -2591,8 +2632,15 @@ input[type="submit"]:focus {
     max-width: 87%;
   }
   .custom-title { 
-    @apply shadow-utc w-full;
+    @apply shadow-utc;
     background: #fff;
+    height: auto;
+    width: 100%;
+    top: 65px;
+    height: 48px;
+  }
+  .custom-title a {
+    @apply relative;
   }
   .header-first-row {
     @apply w-11/12 float-left bg-transparent;
@@ -2822,6 +2870,9 @@ input[type="submit"]:focus {
   .frontpage .sidebar .widget_nav_menu,
   .home .sidebar .widget_nav_menu {
     top: 150px;
+  }
+  .archive-pagination {
+    padding-top: 3rem;
   }
 }
 @media only screen and (max-width: 768px) {
