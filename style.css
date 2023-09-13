@@ -5,7 +5,7 @@
  Author:       Bridget Hornsby
  Author URI:   https://www.utc.edu/
  Template:     genesis
- Version:      1.5.13
+ Version:      1.6
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light-only, left-sidebar, full-width, right-sidebar, responsive-layout, accessibility-ready, onboarding available
@@ -139,8 +139,11 @@ body > footer {
   @apply clear-both;
 }
 .custom-title {
-  @apply h-0 pl-6 flex w-full absolute whitespace-nowrap;
+  @apply h-0 pl-6 flex absolute whitespace-nowrap;
   top:72px;
+  align-items: center;
+  height: 48px;
+  width:fit-content;
 }
 .custom-title a {
   @apply text-utc-blue-500 font-utcheadings font-normal italic text-lg relative w-fit;
@@ -2635,9 +2638,10 @@ input[type="submit"]:focus {
     @apply shadow-utc;
     background: #fff;
     height: auto;
-    width: 100%;
-    top: 65px;
+    width: 100%!important;
+    top: 65px!important;
     height: 48px;
+    padding-left: 1rem;
   }
   .custom-title a {
     @apply relative;
@@ -2732,18 +2736,21 @@ input[type="submit"]:focus {
   }
   .menu-toggle:focus,
   .menu-toggle:hover {
-    @apply bg-transparent border-0 shadow-none text-utc-gold-500 outline-none;
+    @apply bg-transparent border-0 shadow-none outline-none;
   }
   .js .genesis-nav-menu .sub-menu a,
   .js #genesis-mobile-nav-primary {
     @apply bg-transparent text-utc-blue-500 w-fit p-3;
+  }
+  .js #genesis-mobile-nav-primary {
+    width: 48px!important;
   }
   #genesis-mobile-nav-primary.activated {
     @apply border-b border-transparent;
   }
   #genesis-mobile-nav-primary:focus,
   #genesis-mobile-nav-primary:hover {
-    @apply text-utc-gold-500 outline-none;
+    @apply outline-none;
   }
   .menu-toggle {
     @apply float-right font-light px-8 py-5 relative z-1000;
