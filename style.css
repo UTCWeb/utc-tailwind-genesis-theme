@@ -140,7 +140,7 @@ body > footer {
 }
 .custom-title {
   @apply h-0 pl-6 flex absolute whitespace-nowrap;
-  top:72px;
+  top:80px;
   align-items: center;
   height: 48px;
   width:fit-content;
@@ -494,7 +494,7 @@ a.a2a_i{
   i.a2a_i, 
   #a2apage_dropdown {
     background: #112e51 !important;
-    font-family:"Roboto", sans-serif;
+    font-family:"Raleway", sans-serif;
     font-weight:300;
   }
 }
