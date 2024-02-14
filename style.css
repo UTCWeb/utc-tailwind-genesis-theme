@@ -5,7 +5,7 @@
  Author:       Bridget Hornsby
  Author URI:   https://www.utc.edu/
  Template:     genesis
- Version:      1.5.13
+ Version:      1.6
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light-only, left-sidebar, full-width, right-sidebar, responsive-layout, accessibility-ready, onboarding available
@@ -139,8 +139,11 @@ body > footer {
   @apply clear-both;
 }
 .custom-title {
-  @apply h-0 pl-6 flex w-full absolute whitespace-nowrap;
-  top:72px;
+  @apply h-0 pl-6 flex absolute whitespace-nowrap;
+  top:80px;
+  align-items: center;
+  height: 48px;
+  width:fit-content;
 }
 .custom-title a {
   @apply text-utc-blue-500 font-utcheadings font-normal italic text-lg relative w-fit;
@@ -188,7 +191,9 @@ span:target {
   @apply block relative invisible -top-2.5;
 }
 p {
-  @apply text-utc-blue-500 m-0 mb-4 p-0 text-base;
+  @apply text-utc-blue-500 m-0 mb-4 p-0;
+  font-size: 1.05rem;
+  line-height: 1.5;
 }
 .is-style-capital-text {
   @apply mt-6 text-xl;
@@ -364,7 +369,7 @@ img {
   @apply h-auto;
 }
 figure {
-  @apply m-0;
+  @apply m-0 mb-10;
 }
 figure a {
   @apply border-0;
@@ -491,7 +496,7 @@ a.a2a_i{
   i.a2a_i, 
   #a2apage_dropdown {
     background: #112e51 !important;
-    font-family:"Roboto", sans-serif;
+    font-family:"Raleway", sans-serif;
     font-weight:300;
   }
 }
@@ -2463,6 +2468,16 @@ input[type="submit"]:focus {
 	margin-left:2rem!important;
 	margin-right:0!important;
 }
+
+/*****breadcrumb fixes after Genesis update adds extra icon***/
+.breadcrumb > span {color:transparent}
+.breadcrumb_last
+{
+  color: #112e51;
+	margin-left:-9px
+}
+
+
 @media only screen and (max-width: 600px){
   .wp-block-media-text .wp-block-media-text__media,
   .wp-block-media-text.has-media-on-the-right .wp-block-media-text__media {
@@ -2622,7 +2637,7 @@ input[type="submit"]:focus {
   .site-header {
     @apply bg-utc-blue-100 shadow-none;
     min-height: unset;
-    height:112px;
+    height:113px;
   }
   .header-first-row {
     @apply h-16;
@@ -2635,9 +2650,10 @@ input[type="submit"]:focus {
     @apply shadow-utc;
     background: #fff;
     height: auto;
-    width: 100%;
-    top: 65px;
+    width: 100%!important;
+    top: 65px!important;
     height: 48px;
+    padding-left: 1rem;
   }
   .custom-title a {
     @apply relative;
@@ -2709,7 +2725,8 @@ input[type="submit"]:focus {
     @apply hidden;
   }
   .nav-secondary .genesis-nav-menu > li a.toggle-header-search {
-    @apply border-r pl-6 pr-8;
+    @apply border-r pl-6 pr-8 border-utc-blue-500;
+    padding-top:2px;
   }
   .genesis-responsive-menu {
     @apply clear-both hidden relative;
@@ -2732,18 +2749,23 @@ input[type="submit"]:focus {
   }
   .menu-toggle:focus,
   .menu-toggle:hover {
-    @apply bg-transparent border-0 shadow-none text-utc-gold-500 outline-none;
+    @apply bg-transparent border-0 shadow-none outline-none;
   }
   .js .genesis-nav-menu .sub-menu a,
   .js #genesis-mobile-nav-primary {
     @apply bg-transparent text-utc-blue-500 w-fit p-3;
+  }
+  .js #genesis-mobile-nav-primary {
+    width: 48px!important;
+    padding-top:.5rem;
+    transition:all .4s ease-in-out;
   }
   #genesis-mobile-nav-primary.activated {
     @apply border-b border-transparent;
   }
   #genesis-mobile-nav-primary:focus,
   #genesis-mobile-nav-primary:hover {
-    @apply text-utc-gold-500 outline-none;
+    @apply outline-none;
   }
   .menu-toggle {
     @apply float-right font-light px-8 py-5 relative z-1000;

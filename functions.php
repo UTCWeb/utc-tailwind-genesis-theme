@@ -114,8 +114,8 @@ function utc_enqueue_scripts_styles() {
 	);
 
     wp_enqueue_style( 
-		'google-roboto', 
-		'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap', 
+		'google-raleway', 
+		'https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap', 
 		false 
 	);
 
@@ -860,8 +860,8 @@ function utc_custom_footer_content() {
 				</div></div></div></section>
 				</div></div>
 				<!--Copyright footer begins-->
-				<div class="footer-copyright-container"><div class="footer-copyright"><h2 class="screen-reader-text">UTC Copyright, Compliance and Policy Info</h2></div><div class="copyright"><p></p><div class="block"><a href="https://www.utc.edu/about/contact/" id="legal-questions">Questions?</a> ©&nbsp;2022 University of Tennessee at Chattanooga. All rights reserved.<br>615&nbsp;McCallie&nbsp;Avenue&nbsp;&nbsp; | &nbsp;&nbsp;Chattanooga,&nbsp;TN&nbsp;37403&nbsp;&nbsp; | &nbsp;&nbsp;(423)&nbsp;425‑4111</div>
-	<div class="block"><a href="https://www.utc.edu/sexual-misconduct/index.php#title-ix-statement" id="legal-title-ix">Title IX Statement</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a href="https://www.utc.edu/about/privacy.php" id="legal-privacy">Privacy Statement</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a href="https://www.utc.edu/academic-affairs/accessible-information-materials-technology-program/">Accessibility</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a href="https://www.utc.edu/webhelp">Web Requests</a></div>
+				<div class="footer-copyright-container"><div class="footer-copyright"><h2 class="screen-reader-text">UTC Copyright, Compliance and Policy Info</h2></div><div class="copyright"><p></p><div class="block"><a href="https://www.utc.edu/about/contact/" id="legal-questions">Questions?</a> ©&nbsp;' . date('Y') . ' University of Tennessee at Chattanooga. All rights reserved.<br>615&nbsp;McCallie&nbsp;Avenue&nbsp;&nbsp; | &nbsp;&nbsp;Chattanooga,&nbsp;TN&nbsp;37403&nbsp;&nbsp; | &nbsp;&nbsp;(423)&nbsp;425‑4111</div>
+	<div class="block"><a href="https://www.utc.edu/sexual-misconduct/index.php#title-ix-statement" id="legal-title-ix">Title IX Statement</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a href="https://www.utc.edu/about/privacy.php" id="legal-privacy">Privacy Statement</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a href="https://www.utc.edu/academic-affairs/accessible-information-materials-technology-program/">Accessibility</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a href="https://www.utc.edu/webhelp">Web Services</a></div>
 	<div class="block">A comprehensive, community-engaged campus of the <a href="http://www.tennessee.edu/" id="legal-ut">University of Tennessee System</a> and partner in the <a href="https://www.tntransferpathway.org">Tennessee Transfer Pathway</a>.</div><p></p></div></div>';
 
 }
