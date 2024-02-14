@@ -191,7 +191,9 @@ span:target {
   @apply block relative invisible -top-2.5;
 }
 p {
-  @apply text-utc-blue-500 m-0 mb-4 p-0 text-base;
+  @apply text-utc-blue-500 m-0 mb-4 p-0;
+  font-size: 1.05rem;
+  line-height: 1.5;
 }
 .is-style-capital-text {
   @apply mt-6 text-xl;
@@ -367,7 +369,7 @@ img {
   @apply h-auto;
 }
 figure {
-  @apply m-0;
+  @apply m-0 mb-10;
 }
 figure a {
   @apply border-0;
@@ -2466,6 +2468,16 @@ input[type="submit"]:focus {
 	margin-left:2rem!important;
 	margin-right:0!important;
 }
+
+/*****breadcrumb fixes after Genesis update adds extra icon***/
+.breadcrumb > span {color:transparent}
+.breadcrumb_last
+{
+  color: #112e51;
+	margin-left:-9px
+}
+
+
 @media only screen and (max-width: 600px){
   .wp-block-media-text .wp-block-media-text__media,
   .wp-block-media-text.has-media-on-the-right .wp-block-media-text__media {
