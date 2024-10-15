@@ -237,9 +237,10 @@ add_action( 'genesis_header', 'custom_site_title', 12 );
 
 // Reposition the site title.
 function custom_site_title() { 
-	$site_title = get_bloginfo( 'name' );
+	/*$site_title = get_bloginfo( 'name' );
 	$link = sprintf( '<a href="%1$s" rel="blog home">%2$s</a>', get_bloginfo( 'url' ), $site_title );
-	echo '<div class="custom-title">' . $link . '</div>';
+	echo '<div class="custom-cta">' . $link . '</div>';*/
+	echo '<div class="custom-cta"><a id="schedule-cta" href="https://www.utc.edu/enrollment-management-and-student-affairs/admissions/visit" class="button text">Visit Us</a> <a id="request-cta" href="https://engagecms-100972.campusnexus.cloud/inquiry-explore-utc?_gl=1*15isba5*_gcl_aw*R0NMLjE3MjQxNzU4NTMuQ2p3S0NBandfWkMyQmhBUUVpd0FYU2dDbHNJU3dhb1N0bjVYUVU0SFd2LUJmZmhoeTZuLXNodGJhR1hxQ2pCd19hZ3h2WjlMdDVwLV9Sb0NISU1RQXZEX0J3RQ..*_gcl_au*NjE1NzA3OTE5LjE3MjQ3ODA3NTA.*_ga*MTg2ODgxODgyOC4xNzA0Mzk1NzE5*_ga_N9YHC21WM8*MTcyODY2OTY4Mi41NTUuMS4xNzI4NjcxNjYzLjU4LjAuMA..*_ga_KSFZHW1D8P*MTcyODY2OTY4Mi44OC4xLjE3Mjg2NzE2NjEuNjAuMC4w" class="button text">Request Info</a></div>';
 }
 
 add_action( 'genesis_before_content', 'archive_site_title' );
@@ -584,16 +585,16 @@ function utc_add_search_icon() {
     }
 
     add_action( 'genesis_after_header', 'utc_do_header_search_form', 1 );
-    add_filter( 'genesis_nav_items', 'utc_add_search_menu_item', 10, 2 );
-    add_filter( 'wp_nav_menu_items', 'utc_add_search_menu_item', 10, 2 );
+    add_filter( 'genesis_nav_items', 'utc_add_home_search_menu_items', 10, 2 );
+    add_filter( 'wp_nav_menu_items', 'utc_add_home_search_menu_items', 10, 2 );
 
 }
 
 
-//Modify the menu item output of the header menu with the Apply Now ribbon and search toggle.
-function utc_add_search_menu_item( $items, $args ) {
+//Modify the menu item output of the header menu with the Apply Now ribbon, home button and search toggle.
+function utc_add_home_search_menu_items( $items, $args ) {
 
-    $search_toggle = sprintf( '<li class="menu-item search-icon-menu-item">%s</li><li class="menu-item ribbon-container"><div class="ribbon-wrapper">
+    $search_toggle = sprintf( '<li class="menu-item home-icon-menu-item">%1$s</li><li class="menu-item search-icon-menu-item">%2$s</li><li class="menu-item ribbon-container"><div class="ribbon-wrapper">
     <a href="https://www.utc.edu/apply" title="Apply Now"> 
     <div id="menuribbon" class="ribbon" style="--color: #112e51;">
       <div class="ribbon-content">
@@ -601,7 +602,7 @@ function utc_add_search_menu_item( $items, $args ) {
       </div>
     </div>
     </a>
-  </div></li>', utc_get_header_search_toggle() );
+  </div></li>',utc_get_header_home_link(), utc_get_header_search_toggle() );
 
     if ( 'secondary' === $args->theme_location ) {
         $items .= $search_toggle;
@@ -619,29 +620,29 @@ function add_static_nav($menu, $args) {
     $args = (array)$args;
     if ( 'primary' !== $args['theme_location']  )
         return $menu;
-        $follow = '<li id="menu-item-80" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-80"><a href="#" itemprop="url" class="sf-with-ul"><span itemprop="name">I am…</span></a>
+        $follow = '<li id="menu-item-80" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-80"><a href="#" itemprop="url" class="sf-with-ul"><span itemprop="name">I am…</span> <span class="ionicons ion-md-arrow-dropdown"></span></a>
                 <ul class="sub-menu level-2">
                     <li id="menu-item-81" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-81"><a href="https://www.utc.edu/about/student-resources" itemprop="url"><span itemprop="name">…a student.</span></a></li>
+                    <li id="menu-item-85" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-85"><a href="https://www.utc.edu/enrollment-management-and-student-affairs/veteran-and-military-affairs" itemprop="url"><span itemprop="name">…a veteran.</span></a></li>
+                    <li id="menu-item-83" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-83"><a href="https://alumni.utc.edu/?_gl=1*17hh3no*_gcl_aw*R0NMLjE3MjQxNzU4NTMuQ2p3S0NBandfWkMyQmhBUUVpd0FYU2dDbHNJU3dhb1N0bjVYUVU0SFd2LUJmZmhoeTZuLXNodGJhR1hxQ2pCd19hZ3h2WjlMdDVwLV9Sb0NISU1RQXZEX0J3RQ..*_gcl_au*NjE1NzA3OTE5LjE3MjQ3ODA3NTA." itemprop="url"><span itemprop="name">…an alumn.</span></a></li>
+                    <li id="menu-item-84" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="https://www.utc.edu/enrollment-management-and-student-affairs/admissions/parents" itemprop="url"><span itemprop="name">…a parent.</span></a></li>
                     <li id="menu-item-82" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-82"><a href="https://www.utc.edu/about/faculty-and-staff-resources" itemprop="url"><span itemprop="name">…faculty or staff.</span></a></li>
-                    <li id="menu-item-83" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-83"><a href="https://www.utc.edu/about/alumni-and-friends" itemprop="url"><span itemprop="name">…an alumn.</span></a></li>
-                    <li id="menu-item-84" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="https://www.utc.edu/admissions/parents" itemprop="url"><span itemprop="name">…a parent.</span></a></li>
-                    <li id="menu-item-85" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-85"><a href="https://www.utc.edu/veterans/" itemprop="url"><span itemprop="name">…a veteran.</span></a></li>
                 </ul>
             </li>
-            <li id="menu-item-68" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-68"><a href="#" itemprop="url" class="sf-with-ul"><span itemprop="name">Quick Links</span></a>
+            <li id="menu-item-68" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-68"><a href="#" itemprop="url" class="sf-with-ul"><span itemprop="name">Quick Links</span> <span class="ionicons ion-md-arrow-dropdown"></span></a>
                 <ul class="sub-menu level-2">
                     <li id="menu-item-69" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-69"><a href="https://mymocs.utc.edu/" itemprop="url"><span itemprop="name">MyMocsNet</span></a></li>
-                    <li id="menu-item-70" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-70"><a href="https://webauth.utc.edu/cas/login?service=https%3A%2F%2Futchattanooga.instructure.com%2Flogin%2Fcas" itemprop="url"><span itemprop="name">UTC Learn (Canvas)</span></a></li>
+                    <li id="menu-item-70" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-70"><a href="https://utchattanooga.instructure.com/" itemprop="url"><span itemprop="name">Canvas</span></a></li>
                     <li id="menu-item-71" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-71"><a href="https://mail.google.com/a/mocs.utc.edu" itemprop="url"><span itemprop="name">Mocs Mail+</span></a></li>
                     <li id="menu-item-72" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-72"><a href="https://mocsyncorgs.utc.edu/" itemprop="url"><span itemprop="name">MocsSync</span></a></li>
                     <li id="menu-item-73" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-73"><a href="https://portal.microsoftonline.com/" itemprop="url"><span itemprop="name">O365</span></a></li>
-                    <li id="menu-item-74" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-74"><a href="https://sis-reg.utc.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search" itemprop="url"><span itemprop="name">Class Schedule</span></a></li>
+                    <li id="menu-item-74" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-74"><a href="https://www.utc.edu/academic-affairs/registrar/registration-information/class-schedule" itemprop="url"><span itemprop="name">Class Schedule</span></a></li>
 					<li id="menu-item-75" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-75"><a href="https://www.utc.edu/enrollment-management-and-student-affairs/care" itemprop="url"><span itemprop="name">Crisis Resources</span></a></li>
                     <li id="menu-item-76" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-76"><a href="https://www.utc.edu/library" itemprop="url"><span itemprop="name">Library</span></a></li>
-                    <li id="menu-item-77" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-77"><a href="https://events.utc.edu/MasterCalendar/MasterCalendar.aspx" itemprop="url"><span itemprop="name">Calendar</span></a></li>
+                    <li id="menu-item-77" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-77"><a href="https://calendar.utc.edu/" itemprop="url"><span itemprop="name">Calendar</span></a></li>
                     <li id="menu-item-78" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-78"><a href="https://people.utc.edu/" itemprop="url"><span itemprop="name">People Finder</span></a></li>
-                    <li id="menu-item-79" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-79"><a href="https://www.utc.edu/auxiliary-services/parking/utcmap-large.php" itemprop="url"><span itemprop="name">Campus Map</span></a></li>
-                    <li id="menu-item-80" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-80"><a href="https://ds.tennessee.edu/passwords/login.asp?redirect=%2Fpasswords%2Fpassword%2Easp" itemprop="url"><span itemprop="name">Change Password</span></a></li>
+                    <li id="menu-item-79" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-79"><a href="https://explore.utc.edu/" itemprop="url"><span itemprop="name">Campus Map</span></a></li>
+                    <li id="menu-item-80" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-80"><a href="https://www.utc.edu/information-technology/passwords" itemprop="url"><span itemprop="name">Change Password</span></a></li>
                 </ul>
             </li>';
     return $menu . $follow;

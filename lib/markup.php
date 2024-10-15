@@ -22,6 +22,18 @@ function utc_get_header_search_toggle() {
 }
 
 /**
+ * Outputs the home icon button next to search.
+ *
+ * @return string HTML output of the Home icon button.
+ *
+ * @since 1.0.0
+ */
+function utc_get_header_home_link() {
+	$site_title = get_bloginfo( 'name' );
+	return sprintf( '<a href="%1$s" rel="blog home"><span class="screen-reader-text">%2$s</span><span class="ionicons ion-md-home"></span></a>', get_bloginfo( 'url' ), $site_title );
+}
+
+/**
  * Outputs the header search form.
  *
  * @since 1.0.0
