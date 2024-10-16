@@ -5,7 +5,7 @@
  Author:       Bridget Hornsby
  Author URI:   https://www.utc.edu/
  Template:     genesis
- Version:      1.8.1 
+ Version:      1.8.2
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light-only, left-sidebar, full-width, right-sidebar, responsive-layout, accessibility-ready, onboarding available
@@ -157,6 +157,7 @@ body > footer {
   line-height: 0.6;
   margin-left: 16px;
   text-align: center;
+  padding: 0.6rem 0;
 }
 
 #request-cta {
@@ -2673,8 +2674,8 @@ input[type="submit"]:focus {
     @apply h-16;
   }
   .site-header > .wrap {
-    @apply flex-row;
-    max-width: 87%;
+    @apply flex-row pr-24;
+    /* max-width: 87%; */
   }
 
   .ribbon {
@@ -2946,7 +2947,7 @@ input[type="submit"]:focus {
 }
 @media only screen and (max-width: 768px) {
   .site-header > .wrap {
-    @apply pr-4;
+    padding-right: 6rem;
   }
   .before-footer-menu-map .wrap,
   .content-sidebar-wrap,
@@ -3024,7 +3025,7 @@ input[type="submit"]:focus {
 }
 @media only screen and (max-width: 670px) {
   .site-header > .wrap {
-    max-width: 80%;
+    padding-right: 6rem;
   }
   .header-search-wrap input[type="search"] {
     @apply pr-12;
@@ -3054,8 +3055,7 @@ input[type="submit"]:focus {
     padding-bottom:115px;
   }
   .site-header > .wrap {
-    @apply max-w-full pr-4;
-    max-width: 80%;
+    padding-right: 5.5rem;
   }
   .title-area,
   .wp-custom-logo .title-area {
