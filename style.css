@@ -5,7 +5,7 @@
  Author:       Bridget Hornsby
  Author URI:   https://www.utc.edu/
  Template:     genesis
- Version:      1.7.0
+ Version:      1.8.3
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light-only, left-sidebar, full-width, right-sidebar, responsive-layout, accessibility-ready, onboarding available
@@ -135,18 +135,33 @@ body > footer {
   @apply clear-both table;
   content: " ";
 }
+
+.ribbon {
+  @apply right-3;
+}
+
 .clear {
   @apply clear-both;
 }
-.custom-title {
-  @apply h-0 pl-6 flex absolute whitespace-nowrap;
-  top:80px;
+.custom-cta {
+  @apply h-0 flex absolute whitespace-nowrap;
+  top:72px;
   align-items: center;
   height: 48px;
-  width:fit-content;
 }
-.custom-title a {
-  @apply text-utc-blue-500 font-utcheadings font-normal italic text-lg relative w-fit;
+
+.custom-cta a {
+  @apply font-utcheadings font-normal text-lg relative w-fit;
+  width: 152px;
+  line-height: 1;
+  line-height: 0.6;
+  margin-left: 16px;
+  text-align: center;
+  padding: 0.6rem 0;
+}
+
+#request-cta {
+  @apply px-0;
 }
 /* Defaults
   ---------------------------------------------------------------------------- */
@@ -1098,7 +1113,7 @@ figcaption,
 /* Header First Row
   --------------------------------------------- */
 .header-first-row {
-  @apply bg-utc-blue-100 flex items-center px-4 h-18;
+  @apply bg-utc-blue-100 flex items-center h-18 pl-4;
 }
 .header-widget-area {
   @apply ml-auto;
@@ -1273,6 +1288,11 @@ svg.utc-logo {
 .search-icon-menu-item a {
   @apply mr-28 py-2;
 }
+
+span.ion-ios-search:before, span.ion-md-home:before {
+  font-weight: bold !important;
+}
+
 .nav-secondary .genesis-nav-menu a .ion-ios-search {
   @apply tracking-tight capitalize text-utc-blue-500 cursor-pointer;
   transform: scale(2.5, 2.5);
@@ -1282,6 +1302,17 @@ svg.utc-logo {
   @apply text-utc-gold-500;
   transform: scale(4, 4);
 }
+
+.nav-secondary .genesis-nav-menu a .ion-md-home {
+  @apply tracking-tight capitalize text-utc-blue-500 cursor-pointer;
+  transform: scale(2, 2);
+  transition: all 0.35s ease-in-out;
+}
+.nav-secondary .genesis-nav-menu a .ion-md-home:hover  {
+  @apply text-utc-gold-500;
+  transform: scale(3.5, 3.5);
+}
+
 /* Header Search
   --------------------------------------------- */
 .header-search-wrap {
@@ -1356,7 +1387,7 @@ svg.utc-logo {
   animation: dropIn 1s linear forwards;
 }
 .ribbon {
-  @apply absolute right-3 -top-1;
+  @apply absolute -top-1;
   filter: drop-shadow(2px 3px 2px rgba(0, 0, 0, 0.5));
 }
 .safari .ribbon {filter:unset!important;}
@@ -2643,21 +2674,36 @@ input[type="submit"]:focus {
     @apply h-16;
   }
   .site-header > .wrap {
-    @apply flex-row;
-    max-width: 87%;
+    @apply flex-row pr-24;
+    /* max-width: 87%; */
   }
-  .custom-title { 
-    @apply shadow-utc;
+
+  .ribbon {
+    @apply right-3;
+  }
+
+  .custom-cta { 
+    @apply shadow-utc pr-24; 
+    transition: var(--utc-transition);;
     background: #fff;
     height: auto;
     width: 100%!important;
     top: 65px!important;
     height: 48px;
-    padding-left: 1rem;
   }
-  .custom-title a {
-    @apply relative;
+
+  .custom-cta a {
+    @apply relative bg-utc-gold-500 border-utc-gold-500 text-utc-blue-500;
+    width: 152px; 
   }
+
+
+  .custom-cta a:hover {
+    border-color: #fdb736;
+    color: #fdb736;
+    background: #fff;
+  }
+
   .header-first-row {
     @apply w-11/12 float-left bg-transparent;
   }
@@ -2725,9 +2771,11 @@ input[type="submit"]:focus {
     @apply hidden;
   }
   .nav-secondary .genesis-nav-menu > li a.toggle-header-search {
-    @apply border-r pl-6 pr-8 border-utc-blue-500;
+    @apply border-r pl-6 pr-6 border-utc-blue-500;
     padding-top:2px;
+    border: none;
   }
+    
   .genesis-responsive-menu {
     @apply clear-both hidden relative;
   }
@@ -2855,7 +2903,7 @@ input[type="submit"]:focus {
   }
   .toggle-header-search .ionicons {
     transform: scale(3);
-    display: table-cell;
+    /*display: table-cell;*/
     vertical-align: middle;
   }
   /***Main content area***/
@@ -2899,7 +2947,7 @@ input[type="submit"]:focus {
 }
 @media only screen and (max-width: 768px) {
   .site-header > .wrap {
-    @apply pr-4;
+    padding-right: 6rem;
   }
   .before-footer-menu-map .wrap,
   .content-sidebar-wrap,
@@ -2977,15 +3025,27 @@ input[type="submit"]:focus {
 }
 @media only screen and (max-width: 670px) {
   .site-header > .wrap {
-    max-width: 80%;
+    padding-right: 6rem;
   }
   .header-search-wrap input[type="search"] {
     @apply pr-12;
   }
 }
 @media only screen and (max-width: 640px) {
+  .custom-cta {
+
+  }
+  
+  .custom-cta a {
+    width: 50%;
+  }
+
+  .ribbon {
+    @apply -right-0;
+  }
+
   .genesis-nav-menu .menu-item.ribbon-container {
-    @apply hidden;
+    /*@apply hidden;*/
   }
   .genesis-nav-menu .menu-item.mobile-show-only,
   .genesis-responsive-menu .genesis-nav-menu .menu-item.mobile-show-only {
@@ -2995,8 +3055,7 @@ input[type="submit"]:focus {
     padding-bottom:115px;
   }
   .site-header > .wrap {
-    @apply max-w-full pr-4;
-
+    padding-right: 5.5rem;
   }
   .title-area,
   .wp-custom-logo .title-area {
