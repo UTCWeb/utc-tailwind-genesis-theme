@@ -18,7 +18,7 @@
  * @since 1.0.0
  */
 function utc_get_header_search_toggle() {
-	return sprintf( '<a href="#header-search-wrap" aria-controls="header-search-wrap" aria-expanded="false" role="button" class="toggle-header-search"><span class="screen-reader-text">%s</span><span class="ionicons ion-ios-search"></span></a>', __( 'Show Search', 'utc' ) );
+	return sprintf( '<a title="Search" href="#header-search-wrap" aria-controls="header-search-wrap" aria-expanded="false" role="button" class="toggle-header-search"><span class="screen-reader-text">%s</span><span class="ionicons ion-ios-search"></span></a>', __( 'Show Search', 'utc' ) );
 }
 
 /**
@@ -30,7 +30,7 @@ function utc_get_header_search_toggle() {
  */
 function utc_get_header_home_link() {
 	$site_title = get_bloginfo( 'name' );
-	return sprintf( '<a href="%1$s" rel="blog home"><span class="screen-reader-text">%2$s</span><span class="ionicons ion-md-home"></span></a>', get_bloginfo( 'url' ), $site_title );
+	return sprintf( '<a title="Blog Homepage" href="%1$s" rel="blog home"><span class="screen-reader-text">%2$s</span><span class="ionicons ion-md-home"></span></a>', get_bloginfo( 'url' ), $site_title );
 }
 
 /**
