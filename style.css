@@ -5,7 +5,7 @@
  Author:       Bridget Hornsby
  Author URI:   https://www.utc.edu/
  Template:     genesis
- Version:      1.8.3
+ Version:      1.8.6
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light-only, left-sidebar, full-width, right-sidebar, responsive-layout, accessibility-ready, onboarding available
@@ -2662,6 +2662,48 @@ input[type="submit"]:focus {
   }
 }
 @media only screen and (max-width: 991px) {
+ 
+
+  /***Main content area***/
+  h1,
+  h1.entry-title,
+  .error404 .entry-title {
+    @apply mt-16;
+  }
+  .post-template-default .content {
+    @apply pl-0;
+  }
+  .error404 .site-inner {
+    max-width: 80%;
+  }
+  .archive-pagination {
+    padding-top: 3rem;
+  }
+  /****Dept. Footer****/
+  .utc-dpt {
+    @apply block;
+  }
+  .utc-dpt.utc-dpt.separate::after {
+    @apply mx-0;
+    content: "";
+  }
+  /*****Menu & Map Footer*****/
+  .before-footer-menu-map .wrap {
+    @apply inline-block relative w-full;
+  }
+  /****Copyright footer****/
+  #legal-questions {
+    display: block;
+  }
+  .frontpage .sidebar .widget_nav_menu,
+  .home .sidebar .widget_nav_menu {
+    top: 150px;
+  }
+  .archive-pagination {
+    padding-top: 3rem;
+  }
+}
+@media only screen and (max-width: 1291px) {
   #menu-main-menu {
     @apply hidden;
   } 
@@ -2905,44 +2947,6 @@ input[type="submit"]:focus {
     transform: scale(3);
     /*display: table-cell;*/
     vertical-align: middle;
-  }
-  /***Main content area***/
-  h1,
-  h1.entry-title,
-  .error404 .entry-title {
-    @apply mt-16;
-  }
-  .post-template-default .content {
-    @apply pl-0;
-  }
-  .error404 .site-inner {
-    max-width: 80%;
-  }
-  .archive-pagination {
-    padding-top: 3rem;
-  }
-  /****Dept. Footer****/
-  .utc-dpt {
-    @apply block;
-  }
-  .utc-dpt.utc-dpt.separate::after {
-    @apply mx-0;
-    content: "";
-  }
-  /*****Menu & Map Footer*****/
-  .before-footer-menu-map .wrap {
-    @apply inline-block relative w-full;
-  }
-  /****Copyright footer****/
-  #legal-questions {
-    display: block;
-  }
-  .frontpage .sidebar .widget_nav_menu,
-  .home .sidebar .widget_nav_menu {
-    top: 150px;
-  }
-  .archive-pagination {
-    padding-top: 3rem;
   }
 }
 @media only screen and (max-width: 768px) {
