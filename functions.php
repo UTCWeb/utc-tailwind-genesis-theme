@@ -784,13 +784,13 @@ function utc_custom_footer_content() {
 	<section id="footer-menus" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><div class="textwidget custom-html-widget"><div id="left-footer-menu" class="footer-menu">
 				<nav role="navigation" aria-labelledby="" class="left-footer-menu text-right">
 					<ul class="menu">
-						<li class="menu-item"> <a href="/about/student-resources" data-drupal-link-system-path="node/38451">Students</a> </li>
-						<li class="menu-item"> <a href="/about/faculty-and-staff-resources" data-drupal-link-system-path="node/38411">Faculty and Staff</a> </li>
-						<li class="menu-item"> <a href="/about/alumni-and-friends" data-drupal-link-system-path="node/38376">Alumni and Friends</a> </li>
-						<li class="menu-item"> <a href="/enrollment-management-and-student-affairs/admissions/parents" data-drupal-link-system-path="node/36067">Parents</a> </li>
-						<li class="menu-item"> <a href="/finance-and-administration/auxiliary-services/parking-services" data-drupal-link-system-path="node/1296">Parking</a> </li>
-						<li class="menu-item"> <a href="/about/emergency-preparedness" data-drupal-link-system-path="node/38406">Emergency Preparedness</a> </li>
-						<li class="menu-item"> <a href="/enrollment-management-and-student-affairs/admissions/visit" data-drupal-link-system-path="node/36137">Visit</a> </li>
+						<li class="menu-item"> <a href="https://www.utc.edu/about/student-resources" data-drupal-link-system-path="node/38451">Students</a> </li>
+						<li class="menu-item"> <a href="https://www.utc.edu/about/faculty-and-staff-resources" data-drupal-link-system-path="node/38411">Faculty and Staff</a> </li>
+						<li class="menu-item"> <a href="https://www.utc.edu/about/alumni-and-friends" data-drupal-link-system-path="node/38376">Alumni and Friends</a> </li>
+						<li class="menu-item"> <a href="https://www.utc.edu/enrollment-management-and-student-affairs/admissions/parents" data-drupal-link-system-path="node/36067">Parents</a> </li>
+						<li class="menu-item"> <a href="https://www.utc.edu/finance-and-administration/auxiliary-services/parking-services" data-drupal-link-system-path="node/1296">Parking</a> </li>
+						<li class="menu-item"> <a href="https://www.utc.edu/about/emergency-preparedness" data-drupal-link-system-path="node/38406">Emergency Preparedness</a> </li>
+						<li class="menu-item"> <a href="https://www.utc.edu/enrollment-management-and-student-affairs/admissions/visit" data-drupal-link-system-path="node/36137">Visit</a> </li>
 					</ul>
 				</nav>
 			</div>
