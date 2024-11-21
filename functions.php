@@ -631,18 +631,17 @@ function add_static_nav($menu, $args) {
             </li>
             <li id="menu-item-68" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-68"><a href="#" itemprop="url" class="sf-with-ul"><span itemprop="name">Quick Links</span> <span class="ionicons ion-md-arrow-dropdown"></span></a>
                 <ul class="sub-menu level-2">
-                    <li id="menu-item-69" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-69"><a href="https://mymocs.utc.edu/" itemprop="url"><span itemprop="name">MyMocsNet</span></a></li>
-                    <li id="menu-item-70" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-70"><a href="https://utchattanooga.instructure.com/" itemprop="url"><span itemprop="name">Canvas</span></a></li>
-                    <li id="menu-item-71" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-71"><a href="https://mail.google.com/a/mocs.utc.edu" itemprop="url"><span itemprop="name">Mocs Mail+</span></a></li>
-                    <li id="menu-item-72" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-72"><a href="https://mocsyncorgs.utc.edu/" itemprop="url"><span itemprop="name">MocsSync</span></a></li>
-                    <li id="menu-item-73" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-73"><a href="https://portal.microsoftonline.com/" itemprop="url"><span itemprop="name">O365</span></a></li>
+                    <li id="menu-item-77" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-77"><a href="https://calendar.utc.edu/" itemprop="url"><span itemprop="name">Calendar</span></a></li>
+					<li id="menu-item-78" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-78"><a href="https://www.utc.edu/newsroom" itemprop="url"><span itemprop="name">Campus News</span></a></li>
+					<li id="menu-item-70" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-70"><a href="https://utchattanooga.instructure.com/" itemprop="url"><span itemprop="name">Canvas</span></a></li>
+                    <li id="menu-item-80" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-80"><a href="https://www.utc.edu/information-technology/passwords" itemprop="url"><span itemprop="name">Change Password</span></a></li>
                     <li id="menu-item-74" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-74"><a href="https://www.utc.edu/academic-affairs/registrar/registration-information/class-schedule" itemprop="url"><span itemprop="name">Class Schedule</span></a></li>
 					<li id="menu-item-75" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-75"><a href="https://www.utc.edu/enrollment-management-and-student-affairs/care" itemprop="url"><span itemprop="name">Crisis Resources</span></a></li>
                     <li id="menu-item-76" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-76"><a href="https://www.utc.edu/library" itemprop="url"><span itemprop="name">Library</span></a></li>
-                    <li id="menu-item-77" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-77"><a href="https://calendar.utc.edu/" itemprop="url"><span itemprop="name">Calendar</span></a></li>
-                    <li id="menu-item-78" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-78"><a href="https://people.utc.edu/" itemprop="url"><span itemprop="name">People Finder</span></a></li>
-                    <li id="menu-item-79" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-79"><a href="https://explore.utc.edu/" itemprop="url"><span itemprop="name">Campus Map</span></a></li>
-                    <li id="menu-item-80" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-80"><a href="https://www.utc.edu/information-technology/passwords" itemprop="url"><span itemprop="name">Change Password</span></a></li>
+                    <li id="menu-item-71" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-71"><a href="https://mail.google.com/a/mocs.utc.edu" itemprop="url"><span itemprop="name">Mocs Mail+</span></a></li>
+                    <li id="menu-item-72" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-72"><a href="https://mocsyncorgs.utc.edu/" itemprop="url"><span itemprop="name">MocsSync</span></a></li>
+					<li id="menu-item-69" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-69"><a href="https://mymocs.utc.edu/" itemprop="url"><span itemprop="name">MyMocsNet</span></a></li>
+                    <li id="menu-item-73" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-73"><a href="https://portal.microsoftonline.com/" itemprop="url"><span itemprop="name">O365</span></a></li>
                 </ul>
             </li>';
     return $menu . $follow;
@@ -785,13 +784,13 @@ function utc_custom_footer_content() {
 	<section id="footer-menus" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><div class="textwidget custom-html-widget"><div id="left-footer-menu" class="footer-menu">
 				<nav role="navigation" aria-labelledby="" class="left-footer-menu text-right">
 					<ul class="menu">
-						<li class="menu-item"> <a href="/about/student-resources" data-drupal-link-system-path="node/38451">Students</a> </li>
-						<li class="menu-item"> <a href="/about/faculty-and-staff-resources" data-drupal-link-system-path="node/38411">Faculty and Staff</a> </li>
-						<li class="menu-item"> <a href="/about/alumni-and-friends" data-drupal-link-system-path="node/38376">Alumni and Friends</a> </li>
-						<li class="menu-item"> <a href="/enrollment-management-and-student-affairs/admissions/parents" data-drupal-link-system-path="node/36067">Parents</a> </li>
-						<li class="menu-item"> <a href="/finance-and-administration/auxiliary-services/parking-services" data-drupal-link-system-path="node/1296">Parking</a> </li>
-						<li class="menu-item"> <a href="/about/emergency-preparedness" data-drupal-link-system-path="node/38406">Emergency Preparedness</a> </li>
-						<li class="menu-item"> <a href="/enrollment-management-and-student-affairs/admissions/visit" data-drupal-link-system-path="node/36137">Visit</a> </li>
+						<li class="menu-item"> <a href="https://www.utc.edu/about/student-resources" data-drupal-link-system-path="node/38451">Students</a> </li>
+						<li class="menu-item"> <a href="https://www.utc.edu/about/faculty-and-staff-resources" data-drupal-link-system-path="node/38411">Faculty and Staff</a> </li>
+						<li class="menu-item"> <a href="https://www.utc.edu/about/alumni-and-friends" data-drupal-link-system-path="node/38376">Alumni and Friends</a> </li>
+						<li class="menu-item"> <a href="https://www.utc.edu/enrollment-management-and-student-affairs/admissions/parents" data-drupal-link-system-path="node/36067">Parents</a> </li>
+						<li class="menu-item"> <a href="https://www.utc.edu/finance-and-administration/auxiliary-services/parking-services" data-drupal-link-system-path="node/1296">Parking</a> </li>
+						<li class="menu-item"> <a href="https://www.utc.edu/about/emergency-preparedness" data-drupal-link-system-path="node/38406">Emergency Preparedness</a> </li>
+						<li class="menu-item"> <a href="https://www.utc.edu/enrollment-management-and-student-affairs/admissions/visit" data-drupal-link-system-path="node/36137">Visit</a> </li>
 					</ul>
 				</nav>
 			</div>
