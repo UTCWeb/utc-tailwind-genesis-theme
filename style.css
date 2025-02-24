@@ -191,10 +191,21 @@ textarea:focus,
 a {
   @apply text-utc-links-static outline-none;
   transition: var(--utc-transition);
+  font-weight: 400;
+  color: #116484;
+  border: none;
+  text-decoration: none !important;
+  background-image: linear-gradient(#116484,#116484);
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  transition: all .3s;
 }
 a:hover,
 a:focus {
   @apply text-utc-gold-500 outline-none;
+  color: rgba(8,21,36,var(--tw-text-opacity));
+  background-size: 0 1px;
 }
 main a:not([href]):before {
   @apply block invisible;
