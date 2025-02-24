@@ -641,7 +641,7 @@ function add_static_nav($menu, $args) {
                     <li id="menu-item-71" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-71"><a href="https://mail.google.com/a/mocs.utc.edu" itemprop="url"><span itemprop="name">Mocs Mail+</span></a></li>
                     <li id="menu-item-72" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-72"><a href="https://mocsyncorgs.utc.edu/" itemprop="url"><span itemprop="name">MocsSync</span></a></li>
 					<li id="menu-item-69" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-69"><a href="https://mymocs.utc.edu/" itemprop="url"><span itemprop="name">MyMocsNet</span></a></li>
-                    <li id="menu-item-73" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-73"><a href="https://portal.microsoftonline.com/" itemprop="url"><span itemprop="name">O365</span></a></li>
+                    <li id="menu-item-73" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-73"><a href="https://m365.cloud.microsoft/login" itemprop="url"><span itemprop="name">O365</span></a></li>
                 </ul>
             </li>';
     return $menu . $follow;
@@ -801,7 +801,7 @@ function utc_custom_footer_content() {
 				<nav role="navigation" aria-labelledby="" id="" class="right-footer-menu">
 					<ul class="menu">
 						<li class="menu-item"> <a href="https://mymocs.utc.edu/">MyMocsNet</a> </li>
-						<li class="menu-item"> <a href="https://office.com/">O365</a> </li>
+						<li class="menu-item"> <a href="https://m365.cloud.microsoft/login">O365</a> </li>
 						<li class="menu-item"> <a href="https://www.utc.edu/information-technology/passwords">Change Password</a> </li>
 						<li class="menu-item"> <a href="https://people.utc.edu/eGuide/servlet/eGuide">People Directory</a> </li>
 						<li class="menu-item"> <a href="https://events.utc.edu/MasterCalendar/MasterCalendar.aspx">Calendars</a> </li>

@@ -5,7 +5,7 @@
  Author:       Bridget Hornsby & Weston Gentry
  Author URI:   https://www.utc.edu/
  Template:     genesis
- Version:      1.8.7
+ Version:      1.8.8
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light-only, left-sidebar, full-width, right-sidebar, responsive-layout, accessibility-ready, onboarding available
@@ -191,10 +191,21 @@ textarea:focus,
 a {
   @apply text-utc-links-static outline-none;
   transition: var(--utc-transition);
+  font-weight: 400;
+  color: #116484;
+  border: none;
+  text-decoration: none !important;
+  background-image: linear-gradient(#116484,#116484);
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  transition: all .3s;
 }
 a:hover,
 a:focus {
   @apply text-utc-gold-500 outline-none;
+  color: rgba(8,21,36,var(--tw-text-opacity));
+  background-size: 0 1px;
 }
 main a:not([href]):before {
   @apply block invisible;
@@ -512,7 +523,7 @@ a.a2a_i{
   #a2apage_dropdown {
     background: #112e51 !important;
     font-family:"Raleway", sans-serif;
-    font-weight:300;
+    font-weight:400;
   }
 }
 .a2a_wide a {
@@ -3255,3 +3266,73 @@ input[type="submit"]:focus {
   background:#e7eaee;
 }
 p.sya_yearslist {display:none;}
+
+
+.netsposts-posttitle {
+  font-weight: 500;
+  font-family: "Oswald", sans-serif;
+  color: #112e51 !important;
+  border-top: #fdb736 1px solid;
+  width: 100%;
+  padding-top: 18px;
+  margin-top: 6px;
+}
+.netsposts-content:first-child .netsposts-posttitle {
+  border-top:none;
+}
+.netsposts-source {
+  font-family: "Raleway", sans-serif;
+  border-top: none;
+  border-bottom: none;
+  color: #112e51;
+  font-weight: 700;
+  font-size: .9rem;
+  font-style: italic;
+  margin-top:3px;
+  margin-bottom:3px;
+}
+.netsposts-excerpt {
+  color: #112e51 !important;
+  font-family: Raleway,sans-serif;
+  line-height: 1.5;
+  margin-right: 3px;
+  text-overflow: ellipsis;
+}
+.netsposts-read-more-link {
+  margin-left: 18px;
+  color: rgb(22, 100, 132) !important;
+  text-decoration: underline;
+  text-transform: capitalize;
+}
+.netsposts-read-more-link:hover {
+  text-decoration:none;
+}
+
+/*update font weight*/
+
+.genesis-nav-menu a, .genesis-nav-menu .toggle-header-search {font-weight:400;}
+body {font-weight:400;}
+
+/***other custom css***/
+
+#mssls ul li {
+  border-bottom:1px solid #ddd;
+    padding-top:12px;
+    padding-bottom:12px;
+    padding-left:12px;
+    transition: all 0.4s ease-in-out;
+  }
+  #mssls ul li a {
+    font-style: normal;
+    text-decoration:none;
+    color: #112e51;
+    font-weight:400;
+  }
+  #mssls ul li:hover {
+    background:#e7eaee;
+  }
+  
+  .btn-primary:hover, .gb-button:hover, .button:hover, .btn:hover {
+    background: #fff;
+  }
+  
