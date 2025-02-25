@@ -5,7 +5,7 @@
  Author:       Bridget Hornsby & Weston Gentry
  Author URI:   https://www.utc.edu/
  Template:     genesis
- Version:      1.8.8
+ Version:      1.8.9
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light-only, left-sidebar, full-width, right-sidebar, responsive-layout, accessibility-ready, onboarding available
@@ -195,16 +195,26 @@ a {
   color: #116484;
   border: none;
   text-decoration: none !important;
+}
+a:hover,
+a:focus {
+  @apply text-utc-gold-500 outline-none;
+  color: rgba(8,21,36,var(--tw-text-opacity));
+
+}
+p a, h2 a, h3 a, h4 a, h5 a, h6 a,
+a.netsposts-read-more-link,
+.netsposts-source a {
   background-image: linear-gradient(#116484,#116484);
   background-position: 50% 100%;
   background-repeat: no-repeat;
   background-size: 100% 1px;
   transition: all .3s;
 }
-a:hover,
-a:focus {
-  @apply text-utc-gold-500 outline-none;
-  color: rgba(8,21,36,var(--tw-text-opacity));
+p a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover,
+p a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus,
+a.netsposts-read-more-link:hover, a.netsposts-read-more-link:focus,
+.netsposts-source a:hover, .netsposts-source a:focus {
   background-size: 0 1px;
 }
 main a:not([href]):before {
@@ -831,9 +841,11 @@ article h1 {
 .entry-title a,
 .sidebar .widget-title a {
   @apply border-0 text-utc-gold-500 no-underline;
+  background:none
 }
 .entry-title a.entry-title-link{
   @apply text-utc-blue-500;
+  font-weight:700;
 }
 .search-results .entry-title a.entry-title-link {
   @apply text-3xl;
@@ -854,7 +866,9 @@ article h1 {
 .sidebar .widget-title {
   @apply border-l-4 border-utc-gold-500 pl-3 font-bold my-0 uppercase;
 }
-
+.entry-author-link {
+  background: none;
+}
 /*Widget links, recent comments, meta, and tag lists*/
 .sidebar-primary .widget_links .widget-wrap > ul,
 .sidebar-primary .widget_recent_comments .widget-wrap > ul,
@@ -1449,6 +1463,9 @@ span.ion-ios-search:before, span.ion-md-home:before {
 }
 .entry-image-link {
   @apply border-0;
+}
+.image-featured-blog {
+  background:none;
 }
 .image-featured-blog.image-alignleft,
 .image-featured-blog.image-alignright {
@@ -2183,7 +2200,7 @@ body.widgets-php .widget_nav_menu ul > li a {
 }
 .archive-entry.post-image-alignleft.post-image-featured-blog h2.entry-title,
 .archive-entry.post-image-alignright.post-image-featured-blog h2.entry-title {
-  @apply text-2xl mb-3;
+  @apply text-2xl mb-1;
 }
 .first-paragraph-true .entry-content > p:first-of-type, .first-paragraph-true .entry-content.first-has-iframe > p:nth-child(2) {
   @apply pb-0 border-0 text-xl;
@@ -2203,14 +2220,24 @@ body.widgets-php .widget_nav_menu ul > li a {
 .entry-comments-link br {
   @apply hidden;
 }
+.wp-block-button__link {
+  border-radius: 0;
+}
 .more-link, 
 .button,
 .btn, 
 .btn-primary,
 .gb-button,
-input[type="submit"]  {
-  @apply bg-utc-blue-500 border border-utc-blue-500 leading-4 my-2 px-6 py-3 text-white cursor-pointer; 
+input[type="submit"],
+.wp-block-button__link,
+.custom-cta a  {
+  @apply bg-utc-blue-500 leading-4 my-2 px-6 py-3 text-white cursor-pointer; 
+  border:1px #112e51 solid;
   transition: var(--utc-transition);
+}
+.custom-cta a {
+  padding-top:.5rem!important;
+  padding-bottom:.5rem!important;
 }
 input[type="submit"] {
   max-width: 220px;
@@ -2220,15 +2247,21 @@ input[type="submit"] {
 .gb-button:hover,
 .button:hover, 
 .btn:hover,
-input[type="submit"]:hover {
-  border-color: #112e51;
+input[type="submit"]:hover,
+.wp-block-button__link:hover,
+.custom-cta a:hover,
+.custom-cta a:focus {
   color: #112e51;
   background: #fff;
 }
 .more-link:hover,
 .more-link:focus,
 input[type="submit"]:hover,
-input[type="submit"]:focus {
+input[type="submit"]:focus,
+.wp-block-button__link:hover,
+.wp-block-button__link:focus,
+.custom-cta a:hover,
+.custom-cta a:focus {
   box-shadow: inset 220px 0 0 0 #fff;
 }
 .more-link span:after {
@@ -2289,7 +2322,7 @@ input[type="submit"]:focus {
 }
 .content .entry-author,
 .content .entry-date {
-  @apply py-0 my-0;
+  @apply py-0 my-1;
 }
 .entry-author br,
 .entry-date br {
@@ -2738,7 +2771,6 @@ input[type="submit"]:focus {
   .custom-cta { 
     @apply shadow-utc pr-24; 
     transition: var(--utc-transition);;
-    background: #fff;
     height: auto;
     width: 100%!important;
     top: 65px!important;
@@ -2746,15 +2778,7 @@ input[type="submit"]:focus {
   }
 
   .custom-cta a {
-    @apply relative bg-utc-gold-500 border-utc-gold-500 text-utc-blue-500;
     width: 152px; 
-  }
-
-
-  .custom-cta a:hover {
-    border-color: #fdb736;
-    color: #fdb736;
-    background: #fff;
   }
 
   .header-first-row {
@@ -3047,10 +3071,6 @@ input[type="submit"]:focus {
   }
 }
 @media only screen and (max-width: 640px) {
-  .custom-cta {
-
-  }
-  
   .custom-cta a {
     width: 50%;
   }
@@ -3066,8 +3086,16 @@ input[type="submit"]:focus {
   .genesis-responsive-menu .genesis-nav-menu .menu-item.mobile-show-only {
     @apply block;
   }
-  .nav-primary .open-sub-menu  {
+/*  .nav-primary .open-sub-menu  {
     padding-bottom:115px;
+  }*/
+  .nav-primary .genesis-nav-menu {
+    max-height:105vh;
+    margin-top:6px;
+  }
+  span.ion-md-arrow-dropdown {display:none;}
+  .sub-menu-toggle {
+    top: -3px;
   }
   .site-header > .wrap {
     padding-right: 5.5rem;
@@ -3106,7 +3134,14 @@ input[type="submit"]:focus {
   .error404 .entry-title {
     @apply mt-12 text-3xl border-b-4 pb-3 mb-0;
   }
-  .breadcrumb {@apply leading-3 pb-8;}
+  .breadcrumb-link-wrap a {@apply flex flex-col;}
+  .breadcrumb-link-wrap a {
+    padding:0
+  }
+  .breadcrumb .separator {display:none;}
+  .breadcrumb-link-text-wrap::after {
+    content: " /";
+  }
   .entry-header {@apply mb-0;}
   h2 {
     @apply text-2xl;
@@ -3156,6 +3191,7 @@ input[type="submit"]:focus {
   .before-footer-menu-map .button {
     @apply block;
   }
+
 }
 @media only screen and (max-width: 480px) {
   .content-sidebar-wrap,
