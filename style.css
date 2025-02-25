@@ -1464,6 +1464,9 @@ span.ion-ios-search:before, span.ion-md-home:before {
 .entry-image-link {
   @apply border-0;
 }
+.image-featured-blog {
+  background:none;
+}
 .image-featured-blog.image-alignleft,
 .image-featured-blog.image-alignright {
   @apply mb-0;
@@ -2197,7 +2200,7 @@ body.widgets-php .widget_nav_menu ul > li a {
 }
 .archive-entry.post-image-alignleft.post-image-featured-blog h2.entry-title,
 .archive-entry.post-image-alignright.post-image-featured-blog h2.entry-title {
-  @apply text-2xl mb-3;
+  @apply text-2xl mb-1;
 }
 .first-paragraph-true .entry-content > p:first-of-type, .first-paragraph-true .entry-content.first-has-iframe > p:nth-child(2) {
   @apply pb-0 border-0 text-xl;
@@ -2319,7 +2322,7 @@ input[type="submit"]:focus,
 }
 .content .entry-author,
 .content .entry-date {
-  @apply py-0 my-2;
+  @apply py-0 my-1;
 }
 .entry-author br,
 .entry-date br {
@@ -3068,10 +3071,6 @@ input[type="submit"]:focus,
   }
 }
 @media only screen and (max-width: 640px) {
-  .custom-cta {
-
-  }
-  
   .custom-cta a {
     width: 50%;
   }
@@ -3087,8 +3086,16 @@ input[type="submit"]:focus,
   .genesis-responsive-menu .genesis-nav-menu .menu-item.mobile-show-only {
     @apply block;
   }
-  .nav-primary .open-sub-menu  {
+/*  .nav-primary .open-sub-menu  {
     padding-bottom:115px;
+  }*/
+  .nav-primary .genesis-nav-menu {
+    max-height:105vh;
+    margin-top:6px;
+  }
+  span.ion-md-arrow-dropdown {display:none;}
+  .sub-menu-toggle {
+    top: -3px;
   }
   .site-header > .wrap {
     padding-right: 5.5rem;
@@ -3127,7 +3134,14 @@ input[type="submit"]:focus,
   .error404 .entry-title {
     @apply mt-12 text-3xl border-b-4 pb-3 mb-0;
   }
-  .breadcrumb {@apply leading-3 pb-8;}
+  .breadcrumb-link-wrap a {@apply flex flex-col;}
+  .breadcrumb-link-wrap a {
+    padding:0
+  }
+  .breadcrumb .separator {display:none;}
+  .breadcrumb-link-text-wrap::after {
+    content: " /";
+  }
   .entry-header {@apply mb-0;}
   h2 {
     @apply text-2xl;
@@ -3177,6 +3191,7 @@ input[type="submit"]:focus,
   .before-footer-menu-map .button {
     @apply block;
   }
+
 }
 @media only screen and (max-width: 480px) {
   .content-sidebar-wrap,
