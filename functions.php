@@ -839,8 +839,8 @@ function utc_custom_footer_content() {
 							</a>
 						</li>
 						<li class="inline horizontal px-2">
-							<a class="text-white hover:text-utc-links-hoverFooterIcons" href="https://www.twitter.com/UTChattanooga" target="_self" aria-label="Find us on Twitter" title="Find us on Twitter" rel="noopener">
-								<span class="text-white hover:text-utc-links-hoverFooterIcon fa fa-twitter fa-sm"></span>
+							<a class="text-white hover:text-utc-links-hoverFooterIcons" href="https://www.x.com/UTChattanooga" target="_self" aria-label="Follow us on X" title="Follow us on X" rel="noopener">
+								<span class="text-white hover:text-utc-links-hoverFooterIcon fa fa-x-twitter fa-sm"></span>
 							</a>
 						</li>
 						<li class="inline horizontal px-2">
