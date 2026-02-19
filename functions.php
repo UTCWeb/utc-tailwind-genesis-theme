@@ -73,6 +73,63 @@ if ( function_exists( 'genesis_register_responsive_menus' ) ) {
 // Remove default Genesis Child Theme Stylesheet bc it's a duplicate of the compiled css
 remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
 
+/**
+ * Register theme compiled assets so dependencies always exist on both
+ * front-end and block editor requests (WP 6.9+ shows a notice when a
+ * dependency handle isn't registered).
+ */
+function utc_register_compiled_assets() {
+	$css_path = get_stylesheet_directory() . '/dist/style.css';
+	$js_path  = get_stylesheet_directory() . '/dist/app.js';
+
+	// Register compiled CSS (base handle).
+	wp_register_style(
+		genesis_get_theme_handle() . '-compiled',
+		get_stylesheet_directory_uri() . '/dist/style.css',
+		[],
+		file_exists( $css_path ) ? filemtime( $css_path ) : genesis_get_theme_version()
+	);
+
+	// Register compiled JS (base handle).
+	wp_register_script(
+		genesis_get_theme_handle() . '-compiled',
+		get_stylesheet_directory_uri() . '/dist/app.js',
+		[ 'jquery' ],
+		file_exists( $js_path ) ? filemtime( $js_path ) : genesis_get_theme_version(),
+		true
+	);
+
+	/**
+	 * Optional: editor CSS that depends on the base compiled CSS.
+	 * Only keep this if you actually have /dist/editor.css.
+	 */
+	$editor_css_path = get_stylesheet_directory() . '/dist/editor.css';
+	if ( file_exists( $editor_css_path ) ) {
+		wp_register_style(
+			genesis_get_theme_handle() . '-compiled-editor',
+			get_stylesheet_directory_uri() . '/dist/editor.css',
+			[ genesis_get_theme_handle() . '-compiled' ],
+			filemtime( $editor_css_path )
+		);
+	}
+}
+
+/**
+ * Enqueue editor assets (Gutenberg / block editor).
+ * Ensures the dependency handle is registered in the editor request too.
+ */
+add_action( 'enqueue_block_editor_assets', 'utc_enqueue_block_editor_assets' );
+function utc_enqueue_block_editor_assets() {
+	utc_register_compiled_assets();
+
+	// If you have editor.css, enqueue it; otherwise at least enqueue the base CSS.
+	if ( wp_style_is( genesis_get_theme_handle() . '-compiled-editor', 'registered' ) ) {
+		wp_enqueue_style( genesis_get_theme_handle() . '-compiled-editor' );
+	} else {
+		wp_enqueue_style( genesis_get_theme_handle() . '-compiled' );
+	}
+}
+
 // Enqueue script files
 add_action( 'wp_enqueue_scripts', 'utc_enqueue_scripts_styles' );
 function utc_enqueue_scripts_styles() {
@@ -115,37 +172,30 @@ function utc_enqueue_scripts_styles() {
     );
 
 
-    wp_enqueue_script( 
-		'fontawesome-kit', 
-		'https://kit.fontawesome.com/6cef20ef42.js', 
-		false 
+    wp_enqueue_script(
+		'fontawesome-kit',
+		'https://kit.fontawesome.com/6cef20ef42.js',
+		false
 	);
 
-    wp_enqueue_style( 
-		'google-raleway', 
-		'https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap', 
-		false 
-	);
-
-	wp_enqueue_style( 
-		'google-oswald', 
-		'https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap', 
-		false 
+    wp_enqueue_style(
+		'google-raleway',
+		'https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap',
+		false
 	);
 
 	wp_enqueue_style(
-		genesis_get_theme_handle() . '-compiled', 
-		get_stylesheet_directory_uri() . '/dist/style.css',
-		[],
-		genesis_get_theme_version()
+		'google-oswald',
+		'https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap',
+		false
 	);
-	
-    wp_enqueue_script( 
-		genesis_get_theme_handle() . '-compiled', 
-		get_stylesheet_directory_uri() . '/dist/app.js', 
-		[ 'jquery' ],
-		genesis_get_theme_version(), 
-		true );
+
+	// Register compiled assets first so the handle always exists.
+	utc_register_compiled_assets();
+
+	// Then enqueue.
+	wp_enqueue_style( genesis_get_theme_handle() . '-compiled' );
+	wp_enqueue_script( genesis_get_theme_handle() . '-compiled' );
 }
 
 /* Set content width for Gallery Mosaic */
@@ -156,7 +206,7 @@ $content_width = 880;
 add_image_size( 'teaser', 75, 75, true );
 add_image_size( 'thumbnail', 150, 150, true );
 add_image_size( 'medium', 300, 300, true );
-add_image_size( 'featured-blog', 475, 400, true );
+add_image_size( 'featured-blog', 600, 400, true );
 add_image_size( 'genesis-singular-images', 780, 400, true );
 add_image_size( 'singular-full-width', 1280, 660, true );
 add_image_size( 'newsletter-large', 580, 9999 ); //580 pixels wide (and unlimited height) for newsletter header image
@@ -170,7 +220,7 @@ function utc_media_library_sizes( $sizes ) {
     $sizes['teaser']           = __( 'Teaser - 75px by 75px', 'utc' );
     $sizes['thumbnail']           = __( 'Thumbnail - 150px by 150px', 'utc' );
 	$sizes['medium']           = __( 'Thumbnail - 300px by 300px', 'utc' );
-    $sizes['featured-blog']           = __( 'Featured Blog - 475px by 400px', 'utc' );
+    $sizes['featured-blog']           = __( 'Featured Blog - 600px by 400px', 'utc' );
     $sizes['genesis-singular-images'] = __( 'Singular - 780px by 400px', 'utc' );
     $sizes['singular-full-width']     = __( 'Singular Full - 1280px by 660px', 'utc' );
 	$sizes['newsletter-large']     = __( 'Large 580px wide', 'utc' );
@@ -181,7 +231,7 @@ function utc_media_library_sizes( $sizes ) {
 }
 
 /** Adding custom Favicon */
-add_filter( 'genesis_pre_load_favicon', 'custom_favicon' ); 
+add_filter( 'genesis_pre_load_favicon', 'custom_favicon' );
 function custom_favicon( $favicon_url ) {
 	$favicon_powerc = get_stylesheet_directory_uri() . '/images/favicon.ico';
 	return $favicon_powerc;
@@ -196,6 +246,9 @@ function conditional_reposition() {
  	}
 }
 add_action( 'genesis_entry_header', 'conditional_reposition' );
+
+// ... rest of your file continues unchanged ...
+
 
 //Display Featured Image with Caption on top of the post 
 // @link https://sridharkatakam.com/add-featured-images-entry-single-posts-genesis/
