@@ -5,7 +5,7 @@
  Author:       Bridget Hornsby & Weston Gentry
  Author URI:   https://www.utc.edu/
  Template:     genesis
- Version:      2.0.5
+ Version:      2.0.6
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light-only, left-sidebar, full-width, right-sidebar, responsive-layout, accessibility-ready, onboarding available
@@ -351,6 +351,7 @@ h1.entry-title,
 h1.archive-title {
   @apply text-6xl text-center w-full pb-6 border-b-8 border-utc-gold-500 font-medium mt-24 mb-16 mx-auto leading-tight;
 }
+
 .genesis-breadcrumbs-visible h1,
 .genesis-breadcrumbs-visible h1.entry-title,
 .genesis-breadcrumbs-visible h1.archive-title {
@@ -391,6 +392,11 @@ h2:first-of-type {
 }
 .comment-respond h3 small {
   @apply text-xl;
+}
+.editor-document-bar__title h1 {
+ font-family:unset;
+ padding-bottom:0;
+ border:none; 
 }
 /* Objects
   --------------------------------------------- */
