@@ -5,7 +5,7 @@
  Author:       Bridget Hornsby & Weston Gentry
  Author URI:   https://www.utc.edu/
  Template:     genesis
- Version:      2.0.6
+ Version:      2.0.7
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light-only, left-sidebar, full-width, right-sidebar, responsive-layout, accessibility-ready, onboarding available
@@ -30263,6 +30263,30 @@ body {
 
 .btn-primary:hover, .gb-button:hover, .button:hover, .btn:hover {
   background: #fff;
+}
+
+/***new site index css for the Multisite Index plugin updates 3/10/2026***/
+
+.site-index li.site {
+  border-bottom: 1px solid #ddd;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 12px;
+  transition: all 0.4s ease-in-out;
+}
+
+img.site-index-site-icon,
+em.site-index-site-tagline {
+  display: none;
+}
+
+.sidebar-primary .textwidget .site-index a {
+  font-style: normal !important;
+  color: #112e51;
+}
+
+.sidebar-primary .textwidget .site-index a strong {
+  font-weight: 400;
 }
 
 @media (min-width: 640px) {
@@ -150869,6 +150893,4 @@ body {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
-  
-
 
