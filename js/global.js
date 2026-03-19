@@ -5,6 +5,9 @@
  * @author StudioPress/Bridget Hornsby
  * @license GPL-2.0-or-later
  */
+
+//console.log("globlal JS loaded.");
+
  (function ($) {
   // Cache DOM selectors.
   var $container = $(".site-container"),
@@ -336,6 +339,32 @@ if (bodyHasClass && sidebarHasMenu) {
 }
 
 
+/***************** Update video iframes for custom responsive application 3.19.26 *****************/
 
+document.querySelectorAll('iframe').forEach((iframe) => {
+  const src = iframe.getAttribute('src') || '';
+
+  if (src.includes('youtu') || src.includes('vimeo')) {
+    const parent = iframe.parentElement;
+
+    // If already wrapped correctly, skip
+    if (parent.classList.contains('video-wrapper')) return;
+
+    // Create new wrapper
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('video-wrapper');
+
+    // Replace <p> (or any parent) with wrapper
+    parent.parentNode.insertBefore(wrapper, parent);
+
+    // Move iframe into wrapper
+    wrapper.appendChild(iframe);
+
+    // Remove old parent if it's just a container (like <p>)
+    if (parent.tagName.toLowerCase() === 'p') {
+      parent.remove();
+    }
+  }
+});
 
 

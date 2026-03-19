@@ -5,7 +5,7 @@
  Author:       Bridget Hornsby & Weston Gentry
  Author URI:   https://www.utc.edu/
  Template:     genesis
- Version:      2.0.7
+ Version:      2.0.8
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light-only, left-sidebar, full-width, right-sidebar, responsive-layout, accessibility-ready, onboarding available
@@ -3397,4 +3397,17 @@ em.site-index-site-tagline {
 }
 .sidebar-primary .textwidget .site-index a strong {
 font-weight: 400;
+}
+
+
+/***************** Update video iframes for custom responsive application 3.19.26 *****************/
+
+.video-wrapper {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+}
+
+.video-wrapper iframe {
+	width: 100%;
+	height: 100%;
 }
