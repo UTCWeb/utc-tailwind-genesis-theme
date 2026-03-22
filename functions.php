@@ -57,12 +57,16 @@ function genesis_child_gutenberg_support() { // phpcs:ignore WordPress.NamingCon
     require_once get_stylesheet_directory() . '/lib/gutenberg/init.php';
 }
 
-//Register utc-tailwind-genesis before enqueuing
-function register_utc_tailwind_genesis() {
-    wp_register_style('utc-tailwind-genesis', get_template_directory_uri() . '/dist/style.css', array(), '1.0');
+function utc_enqueue_styles() {
+    wp_enqueue_style(
+        'utc-tailwind-genesis',
+        get_stylesheet_directory_uri() . '/dist/style.css',
+        array(),
+        filemtime(get_stylesheet_directory() . '/dist/style.css')
+    );
 }
-add_action('wp_enqueue_scripts', 'register_utc_tailwind_genesis');
-add_action('enqueue_block_editor_assets', 'register_utc_tailwind_genesis');
+add_action('wp_enqueue_scripts', 'utc_enqueue_styles');
+add_action('enqueue_block_editor_assets', 'utc_enqueue_styles');
 
 
 // Register the responsive menu.
