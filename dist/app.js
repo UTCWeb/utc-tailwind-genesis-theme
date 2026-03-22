@@ -117,46 +117,52 @@
   });
   /*****************Convert categories and archive lists into ul menus****************/
 
-  $('section.widget_categories, section.widget_archive').addClass('widget_nav_menu widget_converted');
-  $(".widget_categories .widget-wrap > ul").wrap("<ul class='menu'><li class='menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1'>Select a category</li></ul>");
-  $(".widget_archive .widget-wrap > ul").wrap("<ul class='menu'><li class='menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1'>Select a month</li></ul>");
-  $('.widget_categories .widget-wrap ul ul, .widget_archive .widget-wrap ul ul').addClass('sub-menu');
-  $('.sub-menu').each(function () {
-    $(this).removeClass('children');
-  });
-  $('.cat-item, .widget_archive li').addClass('menu-item menu-item-type-custom menu-item-object-custom');
-  $('.cat-item.menu-item').each(function () {
-    $(this).removeClass('cat-item');
-  });
-  $('.sub-menu').parent().addClass('menu-item-has-children');
-  $(".sidebar .widget_nav_menu").each(function () {
-    if (!$(this).hasClass("widget_converted")) {
-      $(this).addClass('navigation_widget');
-      $('body').addClass('has_navigation_widget');
-    }
+  $(function () {
+    var $widget = $('.widget_categories');
+    var $ul = $widget.find('.widget-wrap > ul').first();
+    if (!$ul.length) return; // Wrap UL
 
-    $('.sidebar-primary .widget_nav_menu li li.has-children').toggle(function () {
-      $(this).addClass("active");
+    $ul.wrap('<div class="category-toggle-panel" style="display:none;"></div>'); // Add button
+
+    var $btn = $('<button class="category-toggle-btn" aria-expanded="false">' + '<span class="label">Select one...</span>' + '<span class="arrow"></span>' + '</button>');
+    $btn.insertAfter($widget.find('.widget-title')); // Toggle main panel
+
+    $widget.on('click', '.category-toggle-btn', function () {
+      var $panel = $(this).next('.category-toggle-panel');
+      var isOpen = $panel.is(':visible');
+      $panel.slideToggle(150);
+      $(this).attr('aria-expanded', !isOpen).toggleClass('is-open', !isOpen);
+    }); // ===== SUBMENU LOGIC =====
+    // Mark items with children
+
+    $widget.find('li').has('ul').addClass('has-submenu'); // Hide submenus initially
+
+    $widget.find('li.has-submenu > ul').hide(); // Toggle submenus
+
+    $widget.on('click', 'li.has-submenu > a', function (e) {
+      e.preventDefault();
+      var $li = $(this).parent();
+      var $submenu = $li.children('ul');
+      $submenu.slideToggle(150);
+      $li.toggleClass('submenu-open');
     });
   });
-  $('<span class="arrow-indicator"></span>').appendTo('.sidebar-primary .widget_nav_menu li.menu-item-has-children');
-  $(".sidebar-primary .widget_nav_menu li.level-1:contains('Select a category')").html(function (_, html) {
-    return html.replace(/(Select a category)/g, '<span class="select-text">$1</span>');
-  });
-  $(".sidebar-primary .widget_nav_menu li.level-1:contains('Select a month')").html(function (_, html) {
-    return html.replace(/(Select a month)/g, '<span class="select-text">$1</span>');
-  });
-  $('.widget_converted li.level-1 span').click(function () {
-    $(this).parent().toggleClass('active');
-  });
-  $('.widget_nav_menu li:not(.level-1) .arrow-indicator').addClass('sub-level');
-  $('.widget_nav_menu li .arrow-indicator.sub-level').parent().addClass('sub-menu-closed');
-  $('.widget_nav_menu li .arrow-indicator.sub-level').click(function () {
-    if ($(this).parent().hasClass('sub-menu-closed')) {
-      $(this).parent().addClass('sub-menu-open').removeClass('sub-menu-closed');
-    } else {
-      $(this).parent().removeClass('sub-menu-open').addClass('sub-menu-closed');
-    }
+  $(function () {
+    var $widget = $('.widget_archive');
+    var $ul = $widget.find('.widget-wrap > ul').first();
+    if (!$ul.length) return; // Wrap UL
+
+    $ul.wrap('<div class="archive-toggle-panel" style="display:none;"></div>'); // Add button
+
+    var $btn = $('<button class="archive-toggle-btn" aria-expanded="false">' + '<span class="label">Select one...</span>' + '<span class="arrow"></span>' + '</button>');
+    $btn.insertAfter($widget.find('.widget-title')); // Toggle panel
+
+    $widget.on('click', '.archive-toggle-btn', function () {
+      var $panel = $(this).next('.archive-toggle-panel');
+      var isOpen = $panel.is(':visible');
+      $panel.slideToggle(150);
+      $(this).attr('aria-expanded', !isOpen).toggleClass('is-open', !isOpen);
+    });
   });
   /*****************Make sidebar menus reponsive****************/
 
