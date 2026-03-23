@@ -14,6 +14,7 @@
  * @author StudioPress/Bridget Hornsby
  * @license GPL-2.0-or-later
  */
+//updated 3/22/2026
 //console.log("globlal JS loaded.");
 (function ($) {
   // Cache DOM selectors.
