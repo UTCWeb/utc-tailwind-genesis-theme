@@ -5,7 +5,7 @@
  Author:       Bridget Hornsby & Weston Gentry
  Author URI:   https://www.utc.edu/
  Template:     genesis
- Version:      2.10
+ Version:      2.11
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light-only, left-sidebar, full-width, right-sidebar, responsive-layout, accessibility-ready, onboarding available
@@ -29084,11 +29084,6 @@ img.size-large {
     margin-bottom: 2rem;
   }
 
-  .nav-primary .genesis-nav-menu > li a {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-
   .content, .content-sidebar .content, .full-width-content .content, .sidebar, .sidebar-content .content {
     width: 100%;
     max-width: 100%;
@@ -29312,6 +29307,7 @@ img.size-large {
 @media only screen and (max-width: 1291px) {
   #menu-main-menu {
     display: none;
+    display: block;
   }
 
   .site-header {
@@ -29330,7 +29326,6 @@ img.size-large {
   .site-header > .wrap {
     flex-direction: row;
     padding-right: 6rem;
-    /* max-width: 87%; */
   }
 
   .ribbon {
@@ -29358,17 +29353,27 @@ img.size-large {
     background-color: transparent;
   }
 
-  .genesis-responsive-menu .genesis-nav-menu .sub-menu a, .genesis-responsive-menu .genesis-nav-menu .sub-menu, .js .nav-primary {
+  .js .nav-primary {
+    top: 113px;
     position: absolute;
-    right: 0px;
-    margin-right: 0px;
-    width: 12rem;
+    right: 0;
+    margin-right: 0;
+    width: 40%;
+    height: auto;
   }
 
-  .genesis-responsive-menu .genesis-nav-menu .sub-menu a,
-	.genesis-responsive-menu .genesis-nav-menu .sub-menu,
-	.js .nav-primary {
-    margin-top: 112px;
+  .js .nav-primary:before,
+	.js .nav-primary *:before {
+    display: none;
+  }
+
+  .js .nav-primary .sub-menu-toggle:before {
+    display:block;
+  }
+
+  .js .nav-primary .wrap {
+    width: 100%;
+    height: auto;
   }
 
   .genesis-nav-menu .menu-item-has-children.menu-item > .sub-menu {
@@ -29377,7 +29382,6 @@ img.size-large {
     width: 100%;
     --tw-bg-opacity: 1;
     background-color: rgba(231, 234, 238, var(--tw-bg-opacity));
-    padding-top: 0.5rem;
     box-shadow: inset 1px 3px 5px -1px rgb(0 0 0 / 15%);
   }
 
@@ -29389,7 +29393,6 @@ img.size-large {
     position: relative;
     margin-top: 0px;
     width: 100%;
-    padding: 0.5rem;
   }
 
   .genesis-responsive-menu
@@ -29415,6 +29418,10 @@ img.size-large {
 		.menu-item:hover {
     --tw-bg-opacity: 1;
     background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+  }
+
+  .genesis-responsive-menu .genesis-nav-menu .menu-item-68 button.activated + ul.sub-menu {
+    padding-bottom: 125px;
   }
 
   .nav-primary {
@@ -29452,7 +29459,6 @@ img.size-large {
   .nav-primary .genesis-nav-menu > li a {
     margin-top: 0px;
     margin-bottom: 0px;
-    padding: 1.25rem;
   }
 
   .nav-primary .genesis-nav-menu > li a:hover {
@@ -29507,7 +29513,6 @@ img.size-large {
     margin-top: 0px;
     margin-bottom: 0px;
     display: block;
-    width: auto;
     overflow: hidden;
     border-width: 0px;
     background-color: transparent;
@@ -29521,6 +29526,16 @@ img.size-large {
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;
     line-height: 1.625;
+  }
+
+  .menu-toggle,
+	.sub-menu-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    height: 56px;
+    width: 56px;
   }
 
   .menu-toggle.activated::before {
@@ -29583,16 +29598,9 @@ img.size-large {
   }
 
   .sub-menu-toggle {
-    position: absolute;
-    top: 0px;
-    right: 0px;
     z-index: 100;
     float: right;
     background-color: transparent;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
     transform: rotate(-90deg);
@@ -29613,13 +29621,12 @@ img.size-large {
   }
 
   .genesis-nav-menu.menu-primary > li.menu-item-has-children .sub-menu {
-    display: none !important;
+    display: none;
     transition: var(--utc-transition);
     padding-bottom: 6px;
   }
 
   .genesis-nav-menu.menu-primary > li.menu-item-has-children.active .sub-menu {
-    display: block !important;
     transition: var(--utc-transition);
   }
 
@@ -29649,24 +29656,19 @@ img.size-large {
   }
 
   .genesis-responsive-menu .genesis-nav-menu .menu-item a, .genesis-responsive-menu .toggle-header-search {
-    margin-bottom: 1px;
     width: 100%;
     border-style: none;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
   }
 
   .genesis-responsive-menu .genesis-nav-menu .menu-item a,
 	.genesis-responsive-menu .toggle-header-search {
-    font-size: 14px;
+    font-size: 16px;
+    padding: 1.25rem;
   }
 
   .genesis-responsive-menu.nav-primary .genesis-nav-menu .sub-menu a {
     --tw-text-opacity: 1;
     color: rgba(17, 46, 81, var(--tw-text-opacity));
-    padding: 0.4rem;
   }
 
   .genesis-responsive-menu .genesis-nav-menu .menu-item > a:focus ul.sub-menu, .genesis-responsive-menu
@@ -29724,6 +29726,15 @@ img.size-large {
     transform: scale(3);
     /*display: table-cell;*/
     vertical-align: middle;
+  }
+
+  .site-header .toggle-header-search.close .ionicons,
+	#genesis-mobile-nav-primary .span.ionicons {
+    display: none !important;
+  }
+
+  .ion-md-arrow-dropdown:before {
+    display: none;
   }
 }
 
@@ -29847,6 +29858,14 @@ img.size-large {
   .header-search-wrap input[type='search'] {
     padding-right: 3rem;
   }
+
+  nav#genesis-nav-primary {
+    width: 100%;
+  }
+
+  .genesis-responsive-menu .genesis-nav-menu .menu-item-68 button.activated + ul.sub-menu {
+    padding-bottom: 3px;
+  }
 }
 
 @media only screen and (max-width: 640px) {
@@ -29862,20 +29881,6 @@ img.size-large {
     /*@apply hidden;*/
   }
 
-  .genesis-nav-menu .menu-item.mobile-show-only, .genesis-responsive-menu .genesis-nav-menu .menu-item.mobile-show-only {
-    display: block;
-  }
-
-  .copyright .genesis-nav-menu .menu-item.mobile-show-only, .copyright .genesis-responsive-menu .genesis-nav-menu .menu-item.mobile-show-only {
-    margin-top: 1.25rem;
-    margin-bottom: 1.25rem;
-    line-height: 1.625;
-  }
-
-  /*  .nav-primary .open-sub-menu  {
-    padding-bottom:115px;
-  }*/
-
   .nav-primary .genesis-nav-menu {
     max-height: 105vh;
     margin-top: 6px;
@@ -29883,10 +29888,6 @@ img.size-large {
 
   span.ion-md-arrow-dropdown {
     display: none;
-  }
-
-  .sub-menu-toggle {
-    top: -3px;
   }
 
   .site-header > .wrap {
