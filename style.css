@@ -5,7 +5,7 @@
  Author:       Bridget Hornsby & Weston Gentry
  Author URI:   https://www.utc.edu/
  Template:     genesis
- Version:      2.10
+ Version:      2.11
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light-only, left-sidebar, full-width, right-sidebar, responsive-layout, accessibility-ready, onboarding available
@@ -2670,9 +2670,6 @@ img.size-large {
 	.has_navigation_widget #genesis-content {
 		@apply mt-16 mb-8;
 	}
-	.nav-primary .genesis-nav-menu > li a {
-		@apply px-2;
-	}
 	.content,
 	.content-sidebar .content,
 	.full-width-content .content,
@@ -2824,6 +2821,7 @@ img.size-large {
 @media only screen and (max-width: 1291px) {
 	#menu-main-menu {
 		@apply hidden;
+		display: block;
 	}
 	.site-header {
 		@apply bg-utc-blue-100 shadow-none;
@@ -2835,7 +2833,6 @@ img.size-large {
 	}
 	.site-header > .wrap {
 		@apply flex-row pr-24;
-		/* max-width: 87%; */
 	}
 
 	.ribbon {
@@ -2858,14 +2855,27 @@ img.size-large {
 	.header-first-row {
 		@apply w-11/12 float-left bg-transparent;
 	}
-	.genesis-responsive-menu .genesis-nav-menu .sub-menu a,
-	.genesis-responsive-menu .genesis-nav-menu .sub-menu,
 	.js .nav-primary {
-		@apply absolute w-48 right-0 mr-0;
-		margin-top: 112px;
+		top: 113px;
+		position: absolute;
+		right: 0;
+		margin-right: 0;
+		width: 40%;
+		height: auto;
+	}
+	.js .nav-primary:before,
+	.js .nav-primary *:before {
+		display: none;
+	}
+	.js .nav-primary .sub-menu-toggle:before {
+		display:block;
+	}
+	.js .nav-primary .wrap {
+		width: 100%;
+		height: auto;
 	}
 	.genesis-nav-menu .menu-item-has-children.menu-item > .sub-menu {
-		@apply pt-2 w-full bg-utc-blue-100 relative h-full;
+		@apply w-full bg-utc-blue-100 relative h-full;
 		box-shadow: inset 1px 3px 5px -1px rgb(0 0 0 / 15%);
 	}
 	.genesis-responsive-menu
@@ -2873,7 +2883,7 @@ img.size-large {
 		.menu-item-has-children
 		.sub-menu
 		a {
-		@apply relative w-full mt-0 p-2;
+		@apply relative w-full mt-0;
 	}
 	.genesis-responsive-menu
 		.genesis-nav-menu
@@ -2893,6 +2903,9 @@ img.size-large {
 		.menu-item:hover {
 		@apply bg-white;
 	}
+	.genesis-responsive-menu .genesis-nav-menu .menu-item-68 button.activated + ul.sub-menu {
+		padding-bottom: 125px;
+	}
 	.nav-primary {
 		@apply float-none text-left;
 	}
@@ -2910,7 +2923,7 @@ img.size-large {
 		@apply border-0 border-b border-gray-300;
 	}
 	.nav-primary .genesis-nav-menu > li a {
-		@apply p-5 my-0;
+		@apply my-0;
 	}
 	.nav-primary .genesis-nav-menu > li a:hover {
 		@apply bg-utc-blue-100;
@@ -2942,7 +2955,13 @@ img.size-large {
 	}
 	.menu-toggle,
 	.sub-menu-toggle {
-		@apply bg-transparent border-0 text-utc-blue-500 block font-sans my-0 mx-auto overflow-hidden text-center visible w-auto;
+		@apply bg-transparent border-0 text-utc-blue-500 block font-sans my-0 mx-auto overflow-hidden text-center visible;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		height: 56px;
+		width: 56px;
 	}
 	.menu-toggle.activated::before {
 		content: '';
@@ -2975,7 +2994,7 @@ img.size-large {
 		text-rendering: auto;
 	}
 	.sub-menu-toggle {
-		@apply bg-transparent float-right text-sm py-3 px-6 absolute right-0 top-0 z-100;
+		@apply bg-transparent float-right text-sm z-100;
 		transform: rotate(-90deg);
 		transition: var(--utc-transition);
 	}
@@ -2991,16 +3010,15 @@ img.size-large {
 		outline: none;
 	}
 	.genesis-nav-menu.menu-primary > li.menu-item-has-children .sub-menu {
-		display: none !important;
+		display: none;
 		transition: var(--utc-transition);
 		padding-bottom: 6px;
 	}
 	.genesis-nav-menu.menu-primary > li.menu-item-has-children.active .sub-menu {
-		display: block !important;
 		transition: var(--utc-transition);
 	}
 	.genesis-responsive-menu .genesis-nav-menu .menu-item {
-		@apply block float-none relative text-left;
+		@apply float-none relative text-left block;
 	}
 	.genesis-responsive-menu .genesis-nav-menu .menu-item:focus,
 	.genesis-responsive-menu .genesis-nav-menu .menu-item:hover {
@@ -3019,12 +3037,12 @@ img.size-large {
 	}
 	.genesis-responsive-menu .genesis-nav-menu .menu-item a,
 	.genesis-responsive-menu .toggle-header-search {
-		@apply border-none mb-px py-3 px-5 w-full;
-		font-size: 14px;
+		@apply border-none w-full;
+		font-size: 16px;
+		padding: 1.25rem;
 	}
 	.genesis-responsive-menu.nav-primary .genesis-nav-menu .sub-menu a {
 		@apply text-utc-blue-500;
-		padding: 0.4rem;
 	}
 	.genesis-responsive-menu .genesis-nav-menu .menu-item > a:focus ul.sub-menu,
 	.genesis-responsive-menu
@@ -3061,6 +3079,13 @@ img.size-large {
 		transform: scale(3);
 		/*display: table-cell;*/
 		vertical-align: middle;
+	}
+	.site-header .toggle-header-search.close .ionicons,
+	#genesis-mobile-nav-primary .span.ionicons {
+		display: none !important;
+	}
+	.ion-md-arrow-dropdown:before {
+		display: none;
 	}
 }
 @media only screen and (max-width: 768px) {
@@ -3148,6 +3173,12 @@ img.size-large {
 	.header-search-wrap input[type='search'] {
 		@apply pr-12;
 	}
+	nav#genesis-nav-primary {
+		width: 100%;
+	}
+	.genesis-responsive-menu .genesis-nav-menu .menu-item-68 button.activated + ul.sub-menu {
+		padding-bottom: 3px;
+	}
 }
 @media only screen and (max-width: 640px) {
 	.custom-cta a {
@@ -3161,22 +3192,12 @@ img.size-large {
 	.genesis-nav-menu .menu-item.ribbon-container {
 		/*@apply hidden;*/
 	}
-	.genesis-nav-menu .menu-item.mobile-show-only,
-	.genesis-responsive-menu .genesis-nav-menu .menu-item.mobile-show-only {
-		@apply block;
-	}
-	/*  .nav-primary .open-sub-menu  {
-    padding-bottom:115px;
-  }*/
 	.nav-primary .genesis-nav-menu {
 		max-height: 105vh;
 		margin-top: 6px;
 	}
 	span.ion-md-arrow-dropdown {
 		display: none;
-	}
-	.sub-menu-toggle {
-		top: -3px;
 	}
 	.site-header > .wrap {
 		padding-right: 5.5rem;
