@@ -121,10 +121,10 @@
 			});
 		},
 	);
-	$('#genesis-mobile-nav-primary').click(function() {
+	$('#genesis-mobile-nav-primary').click(function () {
 		$(this).toggleClass('activated');
 	});
- 
+
 	/*****************Convert categories and archive lists into ul menus****************/
 	$(function () {
 		const $widget = $('.widget_categories');
@@ -156,50 +156,67 @@
 
 		// ===== SUBMENU LOGIC =====
 
-		// Mark items with children
-		$widget.find('li').has('ul').addClass('has-submenu');
+		// Find only categories with a DIRECT child submenu.
+		$widget
+			.find('li')
+			.filter(function () {
+				return $(this).children('ul.children').length > 0;
+			})
+			.each(function (index) {
+				const $li = $(this);
+				const $link = $li.children('a').first();
+				const $submenu = $li.children('ul.children').first();
 
-		// Hide submenus initially
-		$widget.find('li.has-submenu > ul').hide();
+				$li.addClass('has-submenu');
+				$submenu.hide();
 
-		// Toggle submenus
-		$widget.on('click', 'li.has-submenu > a', function (e) {
+				// Give submenu an ID for accessibility.
+				if (!$submenu.attr('id')) {
+					$submenu.attr('id', 'category-submenu-' + index);
+				}
+
+				// Add a real arrow button after the category link.
+				if (!$li.children('.category-submenu-toggle').length) {
+					const categoryName = $link.text().trim();
+
+					const $button = $('<button>', {
+						type: 'button',
+						class: 'category-submenu-toggle',
+						'aria-expanded': 'false',
+						'aria-controls': $submenu.attr('id'),
+						'aria-label': 'Show subcategories for ' + categoryName,
+					});
+
+					$button.insertAfter($link);
+				}
+			});
+
+		// ONLY the arrow button toggles the submenu.
+		$widget.on('click', '.category-submenu-toggle', function (e) {
 			e.preventDefault();
+			e.stopPropagation();
 
-			const $li = $(this).parent();
-			const $submenu = $li.children('ul');
+			const $button = $(this);
+			const $li = $button.closest('li.has-submenu');
+			const $submenu = $li.children('ul.children').first();
 
-			$submenu.slideToggle(150);
-			$li.toggleClass('submenu-open');
-		});
-	});
+			const isOpen = $button.attr('aria-expanded') === 'true';
 
-	$(function () {
-		const $widget = $('.widget_archive');
-		const $ul = $widget.find('.widget-wrap > ul').first();
+			if (isOpen) {
+				$submenu.stop(true, true).slideUp(150);
+			} else {
+				$submenu.stop(true, true).slideDown(150);
+			}
 
-		if (!$ul.length) return;
+			$li.toggleClass('submenu-open', !isOpen);
+			$button.attr('aria-expanded', String(!isOpen));
 
-		// Wrap UL
-		$ul.wrap('<div class="archive-toggle-panel" style="display:none;"></div>');
+			const categoryName = $li.children('a').first().text().trim();
 
-		// Add button
-		const $btn = $(
-			'<button class="archive-toggle-btn" aria-expanded="false">' +
-				'<span class="label">Select one...</span>' +
-				'<span class="arrow"></span>' +
-				'</button>',
-		);
-
-		$btn.insertAfter($widget.find('.widget-title'));
-
-		// Toggle panel
-		$widget.on('click', '.archive-toggle-btn', function () {
-			const $panel = $(this).next('.archive-toggle-panel');
-			const isOpen = $panel.is(':visible');
-
-			$panel.slideToggle(150);
-			$(this).attr('aria-expanded', !isOpen).toggleClass('is-open', !isOpen);
+			$button.attr(
+				'aria-label',
+				(isOpen ? 'Show' : 'Hide') + ' subcategories for ' + categoryName,
+			);
 		});
 	});
 
