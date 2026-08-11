@@ -1077,3 +1077,41 @@ function my_menu_class($menu) {
     return $menu;        
 }
 
+/**
+ * Video fixes for News blog only. This is the replacement fix from the styles.css line 3525. Applying that to all blogs was causing issues with other blogs. This is a temporary fix until the News blog can be updated to use the new video embed block.
+ * The News blog editors use "classic" embed code. "Responsive Fit Vids" is not compatiable with the classic embed code. 
+ * Multisite blog ID: 9
+ */
+function utc_news_video_styles() {
+    if ( get_current_blog_id() !== 9 ) {
+        return;
+    }
+    ?>
+    <style>
+        .video-wrapper {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        .wp-block-embed__wrapper {
+            display: none;
+        }
+
+        .wp-embed-responsive .wp-has-aspect-ratio iframe {
+            bottom: unset;
+            left: unset;
+            position: unset;
+            right: unset;
+            top: unset;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <?php
+}
+add_action( 'wp_head', 'utc_news_video_styles', 100 );
